@@ -44,8 +44,8 @@
       --radius-md:    16px;
       --radius-lg:    32px;
       --transition:   .3s cubic-bezier(.4,0,.2,1);
-      --font-display: 'Playfair Display', serif;
-      --font-body:    'Sarabun', sans-serif;
+      --font-display: 'TH SarabunPSK', 'Sarabun', sans-serif;
+      --font-body:    'TH SarabunPSK', 'Sarabun', sans-serif;
     }
 
     /* ============================================================
@@ -1655,6 +1655,20 @@
       color: var(--gold);
     }
 
+    .footer-sources a {
+      color: var(--gold-light);
+      opacity: .85;
+      text-decoration: underline;
+      text-decoration-color: rgba(255,215,0,.35);
+      text-underline-offset: 2px;
+      transition: var(--transition);
+    }
+
+    .footer-sources a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,.1);
       padding-top: 1.5rem;
@@ -1773,7 +1787,7 @@
     .region-group:hover .province { opacity: .8; }
 
     .region-label {
-      font-family: 'Sarabun', sans-serif;
+      font-family: 'TH SarabunPSK', 'Sarabun', sans-serif;
       font-size: 13px;
       font-weight: 700;
       fill: rgba(255,255,255,.9);
@@ -2484,14 +2498,11 @@
             <div class="card-en">Durian · Durio zibethinus</div>
             <p class="card-desc">ราชาแห่งผลไม้ไทย ทุเรียนหมอนทองมีรสชาติเนื้อหนา หวานมัน เป็นที่ต้องการสูงในตลาดจีน ฮ่องกง และสิงคโปร์</p>
             <div style="margin:1rem 0">
-              <span class="chip">พลังงานสูง ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip chip-gold">ราชาผลไม้ส่งออก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 120–250 บ./กก.</span>
-              <span class="card-season">🌺 เม.ย.–ส.ค.</span>
+              <span class="card-season">📅 เม.ย.–ส.ค.</span>
             </div>
           </div>
         </div>
@@ -2500,7 +2511,7 @@
         <div class="fruit-card reveal" onclick="navigate('central')">
           <div class="card-img-wrap">
             <img src="https://www.chiataigroup.com/imgadmins/detail_photo/Detail_th_1739849885.jpg" alt="มะม่วง" loading="lazy" />
-            <span class="card-badge">⭐ Export Star</span>
+            <span class="card-badge">⭐ ดาวเด่นด้านการส่งออก</span>
             <span class="card-region">ภาคกลาง</span>
           </div>
           <div class="card-body">
@@ -2508,14 +2519,11 @@
             <div class="card-en">Nam Dok Mai Mango</div>
             <p class="card-desc">มะม่วงพันธุ์ดีที่ได้รับความนิยมทั่วโลก เนื้อแน่น ไม่มีเส้นใย กลิ่นหอม รสหวานอมเปรี้ยว</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน A ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">เบต้าแคโรทีน ⭐</span>
-              <span class="chip chip-gold">Export Star ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
-              <span class="card-season">🌺 มี.ค.–มิ.ย.</span>
+              <span class="card-season">📅 มี.ค.–มิ.ย.</span>
             </div>
           </div>
         </div>
@@ -2532,14 +2540,11 @@
             <div class="card-en">Mangosteen · Garcinia mangostana</div>
             <p class="card-desc">ราชินีแห่งผลไม้ เปลือกสีม่วงเข้ม เนื้อขาวนวลนุ่ม หวานอมเปรี้ยว อุดมด้วยสารต้านอนุมูลอิสระ Xanthone</p>
             <div style="margin:1rem 0">
-              <span class="chip">แซนโทน ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip chip-gold">ราชินีผลไม้ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 60–120 บ./กก.</span>
-              <span class="card-season">🌺 พ.ค.–ส.ค.</span>
+              <span class="card-season">📅 พ.ค.–ส.ค.</span>
             </div>
           </div>
         </div>
@@ -2548,7 +2553,7 @@
         <div class="fruit-card reveal" onclick="navigate('north')">
           <div class="card-img-wrap">
             <img src="data:image/jpeg;base64,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" alt="ลำไย" loading="lazy" />
-            <span class="card-badge">🏔️ ภาคเหนือ</span>
+            <span class="card-badge">⭐ ดาวเด่นด้านการส่งออก</span>
             <span class="card-region">ภาคเหนือ</span>
           </div>
           <div class="card-body">
@@ -2556,14 +2561,11 @@
             <div class="card-en">Longan · Dimocarpus longan</div>
             <p class="card-desc">ผลไม้หวานฉ่ำจากภาคเหนือ เนื้อใสกรอบ หวานหอม นิยมแปรรูปเป็นลำไยอบแห้งส่งออกจีน</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ธาตุเหล็ก ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">ส่งออกอันดับ 1 ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–60 บ./กก.</span>
-              <span class="card-season">🌺 ก.ค.–ก.ย.</span>
+              <span class="card-season">📅 ก.ค.–ก.ย.</span>
             </div>
           </div>
         </div>
@@ -2614,10 +2616,10 @@
     <div class="container" style="text-align:center">
       <p class="section-eyebrow" style="color:var(--gold-light)">ต้องการข้อมูลเพิ่มเติม</p>
       <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--white);margin-bottom:1rem">
-        สนใจสั่งซื้อหรือนำเข้าผลไม้ไทย?
+        สอบถามเรื่องการนำเข้าผลไม้ไทย
       </h2>
       <p style="color:rgba(255,255,255,.7);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto">
-        ติดต่อเราเพื่อรับข้อมูลราคาส่งออก ใบรับรองคุณภาพ และตารางส่งสินค้า
+        ติดต่อเราเพื่อรับข้อมูลราคาส่งออกใบรับรองคุณภาพตารางส่งสินค้า
       </p>
       <button class="btn btn-gold" onclick="navigate('contact')">
         <i class="fas fa-envelope"></i> ติดต่อเรา
@@ -2667,17 +2669,14 @@
         <div class="fruit-card region-north reveal" onclick="openFruitModal('n1', this)">
           <div class="card-img-wrap">
             <img src="data:image/jpeg;base64,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" alt="ลำไย" loading="lazy" />
-            <span class="card-badge">🌟 ส่งออกอันดับ 1</span>
+            <span class="card-badge">⭐ ดาวเด่นด้านการส่งออก</span>
           </div>
           <div class="card-body">
             <div class="card-title">ลำไย</div>
             <div class="card-en">Dimocarpus longan</div>
             <p class="card-desc">ผลไม้ขึ้นชื่อของจังหวัดลำพูนและเชียงใหม่ เนื้อสีขาวใส หวานฉ่ำ เมล็ดกลม นิยมรับประทานสดและแปรรูปเป็นลำไยอบแห้งส่งออกตลาดจีน ฮ่องกง และอินโดนีเซีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ธาตุเหล็ก ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">Export Grade A ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–60 บ./กก. (สด) · 200–350 บ./กก. (แห้ง)</span>
@@ -2692,16 +2691,14 @@
         <div class="fruit-card region-north reveal" onclick="openFruitModal('n2', this)">
           <div class="card-img-wrap">
             <img src="https://cms.dmpcdn.com/food/2022/11/15/0157afb0-64b7-11ed-b3b3-4da09af9c0ca_webp_original.jpg" alt="ลิ้นจี่" loading="lazy" />
-            <span class="card-badge">❤️ ผลไม้ฤดูร้อน</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">ลิ้นจี่</div>
             <div class="card-en">Litchi chinensis</div>
             <p class="card-desc">ลิ้นจี่ไทยมีชื่อเสียงด้านรสชาติหวานอมเปรี้ยว เนื้อแน่น กลิ่นหอม พันธุ์ที่นิยม ได้แก่ ฮงฮวย จักรพรรดิ และกิมจิก ส่งออกไปยังยุโรปและตะวันออกกลาง</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C สูง ⭐</span>
-              <span class="chip">แอนตี้ออกซิแดนท์ ⭐</span>
-              <span class="chip chip-gold">ส่งออก 15,000 ตัน/ปี ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–100 บ./กก.</span>
@@ -2720,10 +2717,7 @@
             <div class="card-en">Sai Nam Phueng Orange</div>
             <p class="card-desc">ส้มชื่อดังจากดอยสะเก็ดและแม่จัน รสหวานอมเปรี้ยว เปลือกบาง น้ำเยอะ ส่งออกไปญี่ปุ่นและประเทศ ASEAN</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">ผลไม้ดอย ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 35–70 บ./กก.</span>
@@ -2736,16 +2730,14 @@
         <div class="fruit-card region-north reveal" onclick="openFruitModal('n4', this)">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80" alt="สตรอว์เบอร์รี" loading="lazy" />
-            <span class="card-badge">🍓 ผลไม้ฤดูหนาว</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">สตรอว์เบอร์รี</div>
             <div class="card-en">Strawberry</div>
             <p class="card-desc">สตรอว์เบอร์รีดอยปลูกบนที่สูง อากาศเย็น ผลสีแดงสด รสหวานอมเปรี้ยว เป็นที่นิยมทั้งรับประทานสดและแปรรูปเป็นแยม ไวน์ และของฝาก</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C สูง ⭐</span>
-              <span class="chip">แอนโทไซยานิน ⭐</span>
-              <span class="chip chip-gold">ผลไม้ดอย ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 80–200 บ./กก.</span>
@@ -2758,17 +2750,14 @@
         <div class="fruit-card region-north reveal" onclick="openFruitModal('n5', this)">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1595743825637-cdafc8ad4173?w=400&q=80" alt="ท้อ" loading="lazy" />
-            <span class="card-badge">🍑 ผลไม้เมืองหนาว</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">ท้อ (พีช)</div>
             <div class="card-en">Peach</div>
             <p class="card-desc">ท้อไทยปลูกบนดอยสูงกว่า 1,000 เมตร ผลสีเหลืองอมส้ม เนื้อนุ่มฉ่ำ หวานหอม นิยมรับประทานสดและแปรรูปเป็นท้อดอง ท้ออบแห้ง</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน A ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">ผลไม้เมืองหนาว ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 60–150 บ./กก.</span>
@@ -2787,10 +2776,7 @@
             <div class="card-en">Japanese Plum</div>
             <p class="card-desc">บ๊วยไทยปลูกมากในอำเภอแม่แตง จ.เชียงใหม่ ผลกลมรีสีเขียวอมเหลือง รสเปรี้ยวอมหวาน นิยมแปรรูปเป็นบ๊วยดอง น้ำบ๊วย และส่งออกไปจีน ญี่ปุ่น</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">ผลไม้แปรรูป ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–90 บ./กก.</span>
@@ -2803,16 +2789,14 @@
         <div class="fruit-card region-north reveal" onclick="openFruitModal('n7', this)">
           <div class="card-img-wrap">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLUKJ-V9liiBej3Ugfvd0VzxfRKH_WPr3elK0YtMqaxg&s=10" alt="มะขามหวาน" loading="lazy" />
-            <span class="card-badge">🏆 GI สินค้าเลิศ</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">มะขามหวานเพชรบูรณ์</div>
             <div class="card-en">Sweet Tamarind</div>
             <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์ (GI) ฝักใหญ่ เนื้อหนา หวาน ส่งออกไปกว่า 20 ประเทศทั่วโลก โดยเฉพาะตลาดยุโรปและสหรัฐอเมริกา</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน B ⭐</span>
-              <span class="chip">แคลเซียม ⭐</span>
-              <span class="chip chip-gold">สินค้า GI ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–120 บ./กก.</span>
@@ -2831,10 +2815,7 @@
             <div class="card-en">Punica granatum</div>
             <p class="card-desc">ทับทิมเป็นผลไม้ที่มีเมล็ดสีแดงสด รสหวานอมเปรี้ยว อุดมด้วยสารต้านอนุมูลอิสระ วิตามินซี และใยอาหาร นิยมรับประทานสด คั้นน้ำ และแปรรูปเป็นผลิตภัณฑ์สุขภาพ ส่งออกไปยังหลายประเทศในเอเชีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">Superfruit ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–150 บ./กก.</span>
@@ -2853,10 +2834,7 @@
             <div class="card-en">Kiwifruit</div>
             <p class="card-desc">กีวี่ที่ปลูกบนดอยสูงในจ.เชียงราย และน่าน เริ่มเป็นที่รู้จักในตลาดภายในประเทศ มีแผนขยายการผลิตเพื่อส่งออกในอนาคต</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C สูง ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">ผลไม้ดอยพรีเมียม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 100–180 บ./กก.</span>
@@ -2875,10 +2853,7 @@
             <div class="card-en">Passion Fruit</div>
             <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส สกัดส่งออกไปยุโรปและออสเตรเลีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน A ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหารสูง ⭐</span>
-              <span class="chip chip-gold">สารสกัดพรีเมียม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -2890,25 +2865,28 @@
       </div>
 
       <!-- ข้อมูลการส่งออก -->
-      <div style="margin-top:3rem" class="reveal">
+            <div style="margin-top:3rem" class="reveal">
         <h3 style="font-family:var(--font-display);color:var(--green-dark);margin-bottom:1.5rem">
-          📊 สัดส่วนการส่งออกผลไม้ภาคเหนือ
+          📊 สัดส่วนการส่งออกลำไย (ผลไม้เด่นภาคเหนือ)
         </h3>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>62%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:62%"></div></div>
+          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>73.1%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:73.1%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="VN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>18%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:18%"></div></div>
+          <div class="progress-label"><img src="ID.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>14.2%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:14.2%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="JP.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>10%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+          <div class="progress-label"><img src="VN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>6.7%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:6.7%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>10%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>6.0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:6.0%"></div></div>
+        </div>
+        <p style="font-size:0.85rem;color:#888;margin-top:0.8rem">ที่มา: <a href="https://www.tpso.go.th/news/2503-0000000006" target="_blank" rel="noopener" style="color:var(--green-dark);text-decoration:underline">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์, ข้อมูลปี 2567</a></p>
+      </div>
         </div>
       </div>
     </div>
@@ -2954,17 +2932,14 @@
         <div class="fruit-card region-center reveal" onclick="openFruitModal('c1', this)">
           <div class="card-img-wrap">
             <img src="https://www.chiataigroup.com/imgadmins/detail_photo/Detail_th_1739849885.jpg" alt="มะม่วง" loading="lazy" />
-            <span class="card-badge">⭐ ผลไม้ส่งออกอันดับต้น</span>
+            <span class="card-badge">⭐ ดาวเด่นด้านการส่งออก</span>
           </div>
           <div class="card-body">
             <div class="card-title">มะม่วงน้ำดอกไม้</div>
             <div class="card-en">Nam Dok Mai Mango</div>
             <p class="card-desc">มะม่วงพันธุ์ดีที่ได้รับความนิยมสูงสุด เนื้อละเอียด ไม่มีเส้นใย กลิ่นหอมเป็นเอกลักษณ์ รสหวานอมเปรี้ยว ส่งออกไปยังญี่ปุ่น เกาหลี และยุโรปได้ราคาดี</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน A ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">Beta-carotene ⭐</span>
-              <span class="chip chip-gold">GI ต่ำ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -2976,17 +2951,14 @@
         <div class="fruit-card region-center reveal" onclick="openFruitModal('c2', this)">
           <div class="card-img-wrap">
             <img src="data:image/jpeg;base64,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" alt="ส้มโอ" loading="lazy" />
-            <span class="card-badge">🍋 ผลไม้มงคล</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">ส้มโอนครชัยศรี</div>
             <div class="card-en">Pomelo</div>
             <p class="card-desc">ส้มโอขาวแตงกวาและทองดีบ้านแพ้ว ผลใหญ่ เนื้อแน่น ฉ่ำน้ำ หวานกรอบ เป็นที่นิยมในเทศกาลต่างๆ โดยเฉพาะตรุษจีน ส่งออกไปฮ่องกง สิงคโปร์ และจีน</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">สินค้า GI ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–80 บ./ผล</span>
@@ -3004,10 +2976,7 @@
             <div class="card-en">Cavendish Banana</div>
             <p class="card-desc">กล้วยหอมไทยส่งออกมากเป็นอันดับต้นๆ ของ ASEAN รสหวานหอม เนื้อนุ่ม ส่งออกไปญี่ปุ่น จีน และตะวันออกกลาง มูลค่าส่งออกกว่า 3,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">โพแทสเซียมสูง ⭐</span>
-              <span class="chip">วิตามิน B6 ⭐</span>
-              <span class="chip">พลังงาน ⭐</span>
-              <span class="chip chip-gold">ส่งออกอันดับต้น ASEAN ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–35 บ./กก.</span>
@@ -3020,13 +2989,13 @@
         <div class="fruit-card region-center reveal" onclick="openFruitModal('c4', this)">
           <div class="card-img-wrap">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSP8MxoV3Bm1eSMXTpDEuyKysZWW-R7M4i66r9WwoqYA&s=10" alt="ฝรั่ง" loading="lazy" />
-            <span class="card-badge">🏆 ส่งออกญี่ปุ่น</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">ฝรั่งกิมจู</div>
             <div class="card-en">Kim Ju Guava</div>
             <p class="card-desc">ฝรั่งกิมจูเนื้อกรอบ หวาน ไม่ฝาด ผิวเรียบสวยงาม ส่งออกไปญี่ปุ่น เกาหลี และจีน มูลค่าส่งออกกว่า 1,500 ล้านบาท/ปี</p>
-            <div style="margin:1rem 0"><span class="chip">วิตามิน C สูงมาก ⭐</span><span class="chip">ไฟเบอร์สูง ⭐</span></div>
+            <div style="margin:1rem 0"></div>
             <div class="card-meta">
               <span class="card-price">💰 20–50 บ./กก.</span>
               <span class="card-season">📅 ตลอดปี</span>
@@ -3044,10 +3013,7 @@
             <div class="card-en">Holland Papaya</div>
             <p class="card-desc">มะละกอฮอลแลนด์ผลขนาดใหญ่ เนื้อสีส้มสด รสหวานหอม อุดมด้วยเบต้าแคโรทีนและวิตามิน C ส่งออกทั้งแบบสดและแปรรูปไปกว่า 30 ประเทศ</p>
             <div style="margin:1rem 0">
-              <span class="chip">เบต้าแคโรทีน ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">ส่งออก 30+ ประเทศ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–35 บ./กก.</span>
@@ -3066,10 +3032,7 @@
             <div class="card-en">Jinthara Watermelon</div>
             <p class="card-desc">แตงโมไทยพันธุ์จินตหราและ Sugar Baby มีชื่อเสียงด้านความหวานฉ่ำ เนื้อสีแดงเข้ม ส่งออกไปจีน ฮ่องกง และสิงคโปร์ มูลค่าส่งออกกว่า 2,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">ไลโคปีน ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">น้ำสูง 90% ⭐</span>
-              <span class="chip chip-gold">ผลไม้คลายร้อน ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 8–20 บ./กก.</span>
@@ -3089,10 +3052,7 @@
             <p class="card-desc">ชมพู่ไทยส่งออกมูลค่าสูง รสชาติหวานกรอบชุ่มคอ เป็นหนึ่งในผลไม้ Soft Power ไทยที่ได้รับความนิยมทั้งในและต่างประเทศ</p>
             
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">น้ำสูง ⭐</span>
-              <span class="chip chip-gold">Soft Power ไทย ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–70 บ./กก.</span>
@@ -3111,10 +3071,7 @@
             <div class="card-en">Rose Apple</div>
             <p class="card-desc">ชมพู่มะเหมี่ยวพันธุ์ดีจากไทย ผลสีเขียวอมแดง กรอบ หวาน ฉ่ำน้ำ ส่งออกไปสิงคโปร์ ฮ่องกง และมาเลเซีย ได้รับความนิยมในหมู่นักท่องเที่ยว</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">พันธุ์พรีเมียม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–70 บ./กก.</span>
@@ -3133,10 +3090,7 @@
             <div class="card-en">Thai Lime</div>
             <p class="card-desc">มะนาวไทยมีกลิ่นหอมเป็นเอกลักษณ์ น้ำมาก ส่งออกทั้งสด แช่เย็น และน้ำมะนาวแปรรูปไปกว่า 40 ประเทศ มูลค่ากว่า 1,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C สูง ⭐</span>
-              <span class="chip">กรดซิตริก ⭐</span>
-              <span class="chip">น้ำมันหอมระเหย ⭐</span>
-              <span class="chip chip-gold">ส่งออก 40+ ประเทศ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 20–60 บ./กก.</span>
@@ -3155,7 +3109,7 @@
             <div class="card-title">มะขามหวานเพชรบูรณ์</div>
             <div class="card-en">Sweet Tamarind</div>
             <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์ (GI) ฝักใหญ่ เนื้อหนา หวาน ส่งออกไปกว่า 20 ประเทศ โดยเฉพาะตลาดยุโรปและสหรัฐอเมริกา</p>
-            <div style="margin:1rem 0"><span class="chip">วิตามิน B ⭐</span><span class="chip">แคลเซียม ⭐</span><span class="chip chip-gold">สินค้า GI ⭐</span></div>
+            <div style="margin:1rem 0">
             <div class="card-meta">
               <span class="card-price">💰 50–120 บ./กก.</span>
               <span class="card-season">📅 ม.ค. – มี.ค.</span>
@@ -3164,26 +3118,23 @@
         </div>
 
       </div>
-            <!-- ข้อมูลการส่งออก -->
+            
+      </div>
+      <!-- ข้อมูลการส่งออก -->
       <div style="margin-top:3rem" class="reveal">
         <h3 style="font-family:var(--font-display);color:var(--green-dark);margin-bottom:1.5rem">
-          📊 สัดส่วนการส่งออกผลไม้ภาคกลาง
+          📊 สัดส่วนการส่งออกมะม่วง (ผลไม้เด่นภาคกลาง)
         </h3>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>40%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+          <div class="progress-label"><img src="KR.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>61.8%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:61.8%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="JP.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>25%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>38.2%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:38.2%"></div></div>
         </div>
-        <div class="progress-wrap">
-          <div class="progress-label"><img src="KR.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>20%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
-        </div>
-        <div class="progress-wrap">
-          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>15%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div>
+                <p style="font-size:0.85rem;color:#888;margin-top:0.8rem">ที่มา: <a href="https://www.tpso.go.th/news/2503-0000000006" target="_blank" rel="noopener" style="color:var(--green-dark);text-decoration:underline">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์, ข้อมูลปี 2567</a></p>
+      </div>
         </div>
       </div>
     </div>
@@ -3236,10 +3187,7 @@
             <div class="card-en">Monthong Durian</div>
             <p class="card-desc">ทุเรียนพันธุ์หมอนทองของไทยเป็นที่ยอมรับว่าดีที่สุดในโลก เนื้อหนา สีเหลืองทอง กลิ่นหอม รสหวานมัน ไม่ขม ส่งออกไปจีนมูลค่ากว่า 100,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">โปรตีนสูง ⭐</span>
-              <span class="chip">วิตามิน B ⭐</span>
-              <span class="chip">แร่ธาตุครบ ⭐</span>
-              <span class="chip chip-gold">ส่งออก 4 ล้านตัน/ปี ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 120–250 บ./กก.</span>
@@ -3258,10 +3206,7 @@
             <div class="card-en">Mangosteen</div>
             <p class="card-desc">มังคุดไทยขึ้นชื่อว่าดีที่สุดในโลก เปลือกสีม่วงเข้ม เนื้อขาวนวล หวานอมเปรี้ยว อุดมด้วย Xanthone สารต้านอนุมูลอิสระทรงพลัง ส่งออกไปจีน ฮ่องกง และยุโรป</p>
             <div style="margin:1rem 0">
-              <span class="chip">แซนโทน ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip chip-gold">มังคุดที่ดีที่สุดในโลก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 60–120 บ./กก.</span>
@@ -3279,10 +3224,7 @@
             <div class="card-en">Rambutan</div>
             <p class="card-desc">เงาะพันธุ์โรงเรียนเนื้อหนา แกะง่าย ไม่ติดเมล็ด หวานฉ่ำ เป็นที่นิยมทั้งในและต่างประเทศ โดยเฉพาะตลาดจีนและ ASEAN</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ทองแดง ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">พันธุ์ยอดนิยม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 25–50 บ./กก.</span>
@@ -3295,13 +3237,13 @@
         <div class="fruit-card region-east reveal" onclick="openFruitModal('e4', this)">
           <div class="card-img-wrap">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP5g8-yR2CMXmWNlsNverRzi1FWNYCKkKs-HAkoNU0_g&s=10" alt="ขนุน" loading="lazy" />
-            <span class="card-badge">🌍 Plant-Based</span>
+            
           </div>
           <div class="card-body">
             <div class="card-title">ขนุนทองประเสริฐ</div>
             <div class="card-en">Jackfruit</div>
             <p class="card-desc">ขนุนไทยส่งออกทั้งสด แช่แข็ง และกระป๋องไปกว่า 50 ประเทศ ตลาดยุโรปและสหรัฐฯ ต้องการสูง เนื้อขนุนยังเป็น plant-based meat ยอดนิยมในตลาดวีแก้น</p>
-            <div style="margin:1rem 0"><span class="chip">Plant-based ⭐</span><span class="chip">วิตามิน B6 ⭐</span><span class="chip chip-gold">Vegan Market ⭐</span></div>
+            <div style="margin:1rem 0"></div>
             <div class="card-meta">
               <span class="card-price">💰 15–40 บ./กก.</span>
               <span class="card-season">📅 เม.ย. – ส.ค.</span>
@@ -3319,10 +3261,7 @@
             <div class="card-en">Maprang</div>
             <p class="card-desc">มะปรางพันธุ์หวานจากภาคตะวันออก ผลสีเหลืองทอง เนื้อละเอียด หวานอมเปรี้ยว กลิ่นหอมหวล มีราคาสูงในตลาดกรุงเทพฯ และเริ่มส่งออกไปประเทศใกล้เคียง</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">เบต้าแคโรทีน ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">ราคาพรีเมียม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–120 บ./กก.</span>
@@ -3341,10 +3280,7 @@
             <div class="card-en">Salak</div>
             <p class="card-desc">สละเปลือกแข็งคล้ายเกล็ด เนื้อสีขาวนวล รสหวานอมเปรี้ยว กรอบ ส่งออกไปจีน ฮ่องกง และประเทศ ASEAN ตลาดจีนให้ความสนใจเพิ่มขึ้นต่อเนื่อง</p>
             <div style="margin:1rem 0">
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip chip-gold">ตลาดจีนนิยม ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–60 บ./กก.</span>
@@ -3363,10 +3299,7 @@
             <div class="card-en">Santol</div>
             <p class="card-desc">กระท้อนบ้านบึงขึ้นชื่อเรื่องความหวานและขนาดผลใหญ่ เนื้อขาว รสหวานอมเปรี้ยว เมล็ดเล็ก นิยมทั้งรับประทานสดและแปรรูปเป็นกระท้อนดอง กวน ส่งออกไปประเทศ ASEAN</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip">แคลเซียม ⭐</span>
-              <span class="chip chip-gold">ของฝากขึ้นชื่อ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–80 บ./กก.</span>
@@ -3385,10 +3318,7 @@
             <div class="card-en">Jujube</div>
             <p class="card-desc">หนำเลี้ยบหรือพุทราจีนพันธุ์ไทย ผลกลมสีเขียว เนื้อกรอบ หวานฉ่ำ นิยมรับประทานสดและส่งออกไปจีน ฮ่องกง ในฐานะสินค้าสุขภาพ</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C สูงมาก ⭐</span>
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">สินค้าสุขภาพ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–90 บ./กก.</span>
@@ -3409,10 +3339,7 @@
             <div class="card-en">Ragan</div>
             <p class="card-desc">ระกำเป็นผลไม้เขตร้อนหายาก พบเฉพาะภาคตะวันออก เนื้อสีส้มแดง รสเปรี้ยวอมหวาน กลิ่นเฉพาะตัว นิยมรับประทานสดกับพริกเกลือหรือทำน้ำระกำส่งออก</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">แทนนิน ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">ผลไม้หายาก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -3423,25 +3350,29 @@
 
       </div>
             <!-- ข้อมูลการส่งออก -->
+            <!-- ข้อมูลการส่งออก -->
       <div style="margin-top:3rem" class="reveal">
         <h3 style="font-family:var(--font-display);color:var(--green-dark);margin-bottom:1.5rem">
-          📊 สัดส่วนการส่งออกผลไม้ภาคตะวันออก
+          📊 สัดส่วนการส่งออกทุเรียนสด (ผลไม้เด่นภาคตะวันออก)
         </h3>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>78%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>97.4%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:97.4%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="HK.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>12%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:12%"></div></div>
+          <div class="progress-label"><img src="HK.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>1.3%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:1.3%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="VN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>6%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:6%"></div></div>
+          <div class="progress-label"><img src="KR.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>0.3%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0.3%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>4%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:4%"></div></div>
+          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>1.0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:1.0%"></div></div>
+        </div>
+                <p style="font-size:0.85rem;color:#888;margin-top:0.8rem">ที่มา: <a href="https://www.tpso.go.th/news/2503-0000000006" target="_blank" rel="noopener" style="color:var(--green-dark);text-decoration:underline">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์, ข้อมูลปี 2567</a> (อื่นๆ รวมมาเลเซีย, สหรัฐฯ และตลาดปลีกย่อย)</p>
+      </div>
         </div>
       </div>
     </div>
@@ -3487,17 +3418,14 @@
         <div class="fruit-card region-south reveal" onclick="openFruitModal('s1', this)">
           <div class="card-img-wrap">
             <img src="data:image/jpeg;base64,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" alt="สับปะรด" loading="lazy" />
-            <span class="card-badge">🏭 แปรรูปส่งออก</span>
+
           </div>
           <div class="card-body">
             <div class="card-title">สับปะรดปัตตาเวีย</div>
             <div class="card-en">Pattavia Pineapple</div>
             <p class="card-desc">ไทยเป็นผู้ส่งออกสับปะรดกระป๋องอันดับ 1 ของโลก สับปะรดปัตตาเวียมีขนาดใหญ่ เนื้อสีเหลืองทอง หวานอมเปรี้ยว เหมาะทั้งรับประทานสดและแปรรูป ส่งออกมูลค่ากว่า 20,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">เบต้าแคโรทีน ⭐</span>
-              <span class="chip">Bromelain ⭐</span>
-              <span class="chip chip-gold">ส่งออกอันดับ 1 โลก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 10–25 บ./กก.</span>
@@ -3515,10 +3443,7 @@
             <div class="card-en">Longkong</div>
             <p class="card-desc">ลองกองนราธิวาสขึ้นชื่อว่าหวานที่สุดในโลก เนื้อสีขาวใสคล้ายแก้ว หวานหอม ไม่มียาง ส่งออกไปมาเลเซีย สิงคโปร์ และอินโดนีเซีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ไรโบฟลาวิน ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">หวานที่สุดในโลก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–90 บ./กก.</span>
@@ -3536,10 +3461,7 @@
             <div class="card-en">Aromatic Coconut</div>
             <p class="card-desc">มะพร้าวน้ำหอมไทยส่งออกไปยังจีนและ ASEAN เนื้ออ่อน น้ำหวานหอม กลิ่นมะพร้าวเข้มข้น ส่งออกมูลค่ากว่า 8,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip">อิเล็กโทรไลต์ ⭐</span>
-              <span class="chip">ไขมันต่ำ ⭐</span>
-              <span class="chip chip-gold">ส่งออก 8,000 ล้านบาท/ปี ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–40 บ./ลูก</span>
@@ -3552,17 +3474,14 @@
         <div class="fruit-card region-south reveal" onclick="openFruitModal('s4', this)">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1519544442-93857b48665e?w=400&q=80" alt="ทุเรียนภาคใต้" loading="lazy" />
-            <span class="card-badge">🏆 พีคฤดูใต้</span>
+            <span class="card-badge">🏆 ราชาผลไม้</span>
           </div>
           <div class="card-body">
             <div class="card-title">ทุเรียนภาคใต้</div>
             <div class="card-en">Southern Durian</div>
             <p class="card-desc">ทุเรียนภาคใต้ออกฤดูกาลช่วงก.ค.–ก.ย. ทำให้ไทยมีทุเรียนส่งออกต่อเนื่องตลอดปี พันธุ์ยอดนิยมคือหมอนทอง ก้านยาว และชะนี ราคาสูงในตลาดจีน</p>
             <div style="margin:1rem 0">
-              <span class="chip">พลังงานสูง ⭐</span>
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip">วิตามิน B ⭐</span>
-              <span class="chip chip-gold">ทุเรียนต่อเนื่องตลอดปี ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 100–220 บ./กก.</span>
@@ -3581,10 +3500,7 @@
             <div class="card-en">Rambutan</div>
             <p class="card-desc">เงาะสุราษฎร์ธานีชื่อดังด้านความหวานและขนาดผลใหญ่ พันธุ์โรงเรียนและสีชมพู เป็นที่ต้องการทั้งในและต่างประเทศ ส่งออกไปจีน มาเลเซีย อินโดนีเซีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ทองแดง ⭐</span>
-              <span class="chip">แมงกานีส ⭐</span>
-              <span class="chip chip-gold">ผลใหญ่คุณภาพส่งออก ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 20–45 บ./กก.</span>
@@ -3604,10 +3520,7 @@
             <div class="card-en">Mangosteen</div>
             <p class="card-desc">มังคุดภาคใต้ออกช้ากว่าภาคตะวันออก ทำให้ตลาดมีมังคุดต่อเนื่องตลอดปี ส่งออกจีนและฮ่องกงมูลค่ากว่า 5,000 ล้านบาท/ปี</p>
             <div style="margin:1rem 0">
-              <span class="chip">แซนโทน ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip chip-gold">ส่งออก 5,000 ล้านบาท/ปี ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–110 บ./กก.</span>
@@ -3626,10 +3539,7 @@
             <div class="card-en">Lansium</div>
             <p class="card-desc">ลางสาดคล้ายลองกองแต่เมล็ดขมน้อยกว่า เนื้อใสฉ่ำ หวานหอม ส่งออกไปมาเลเซียและอินโดนีเซีย มีสารต้านอนุมูลอิสระสูง</p>
             <div style="margin:1rem 0">
-              <span class="chip">สารต้านอนุมูลอิสระ ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">รสหวานหอมเป็นเอกลักษณ์ ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 35–70 บ./กก.</span>
@@ -3648,10 +3558,7 @@
             <div class="card-en">Passion Fruit</div>
             <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส สกัดส่งออกไปยุโรปและออสเตรเลีย</p>
             <div style="margin:1rem 0">
-              <span class="chip">วิตามิน A ⭐</span>
-              <span class="chip">วิตามิน C ⭐</span>
-              <span class="chip">ใยอาหารสูง ⭐</span>
-              <span class="chip chip-gold">สกัดส่งออกยุโรป ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -3669,7 +3576,7 @@
             <div class="card-title">ส้มแขก (มะดัน)</div>
             <div class="card-en">Garcinia cambogia</div>
             <p class="card-desc">ส้มแขกเป็นผลไม้สมุนไพรภาคใต้ที่ได้รับความสนใจทั่วโลก สาร HCA ช่วยลดน้ำหนัก ส่งออกไปยุโรปและสหรัฐฯ ในรูปอาหารเสริมมูลค่าสูง</p>
-            <div style="margin:1rem 0"><span class="chip">HCA ⭐</span><span class="chip">ลดน้ำหนัก ⭐</span><span class="chip chip-gold">Health Supplement ⭐</span></div>
+            <div style="margin:1rem 0"></div>
             <div class="card-meta">
               <span class="card-price">💰 30–80 บ./กก.</span>
               <span class="card-season">📅 ต.ค. – ม.ค.</span>
@@ -3687,10 +3594,7 @@
             <div class="card-en">Nam Wa Banana</div>
             <p class="card-desc">กล้วยน้ำว้าพันธุ์พื้นเมืองภาคใต้ ผลสั้น เนื้อหนา หวาน เหมาะแปรรูปเป็นกล้วยฉาบ กล้วยทอด กล้วยอบ ส่งออกมาเลเซีย สิงคโปร์ และญี่ปุ่น</p>
             <div style="margin:1rem 0">
-              <span class="chip">โพแทสเซียม ⭐</span>
-              <span class="chip">วิตามิน B6 ⭐</span>
-              <span class="chip">ใยอาหาร ⭐</span>
-              <span class="chip chip-gold">แปรรูปหลากหลาย ⭐</span>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 12–25 บ./กก.</span>
@@ -3701,25 +3605,25 @@
 
       </div>
             <!-- ข้อมูลการส่งออก -->
+            <!-- ข้อมูลการส่งออก -->
       <div style="margin-top:3rem" class="reveal">
         <h3 style="font-family:var(--font-display);color:var(--green-dark);margin-bottom:1.5rem">
-          📊 สัดส่วนการส่งออกผลไม้ภาคใต้
+          📊 สัดส่วนการส่งออกมังคุดสด (ผลไม้เด่นภาคใต้)
         </h3>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="MY.png"style="height:25px;width:auto;object-fit:contain;border-radius:5px"/><span>35%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>91.0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:91.0%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="CN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>25%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+          <div class="progress-label"><img src="VN.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>4.8%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:4.8%"></div></div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-label"><img src="SG.png"style="height:30px;width:auto;object-fit:contain;border-radius:5px"/><span>20%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>4.2%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:4.2%"></div></div>
         </div>
-        <div class="progress-wrap">
-          <div class="progress-label"><img src="E.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/><span>20%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+                <p style="font-size:0.85rem;color:#888;margin-top:0.8rem">ที่มา: <a href="https://www.tpso.go.th/news/2503-0000000006" target="_blank" rel="noopener" style="color:var(--green-dark);text-decoration:underline">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์, ข้อมูลปี 2567</a></p>
+      </div>
         </div>
       </div>
     </div>
@@ -3802,6 +3706,14 @@
           <p class="timeline-desc">นำเทคโนโลยี IoT และ AI มาใช้ในสวนผลไม้เพื่อเพิ่มผลผลิตและควบคุมคุณภาพอย่างแม่นยำ</p>
         </div>
       </div>
+
+      <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:2rem">
+        📊 ที่มาข้อมูล:
+        <a href="https://www.doa.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมวิชาการเกษตร (มาตรฐาน GAP)</a> ·
+        <a href="https://www.globalgap.org" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">GlobalGAP</a> ·
+        <a href="https://www.fda.moph.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานคณะกรรมการอาหารและยา (GMP/HACCP)</a> ·
+        <a href="https://www.ipthailand.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมทรัพย์สินทางปัญญา (สิ่งบ่งชี้ทางภูมิศาสตร์ GI)</a>
+      </p>
     </div>
   </section>
 </div>
@@ -4133,6 +4045,13 @@
         <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem">* ข้อมูลแนวโน้มเป็นค่าประมาณเพื่อการศึกษา รวบรวมจากทิศทางตลาดปี 2567-2568 อาจเปลี่ยนแปลงตามสถานการณ์จริง</p>
       </div>
 
+      <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:2rem">
+        📊 ที่มาข้อมูล:
+        <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a> ·
+        <a href="https://www.moc.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กระทรวงพาณิชย์</a> ·
+        <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a>
+      </p>
+
     </div>
   </section>
 </div>
@@ -4365,6 +4284,12 @@
           </tbody>
         </table>
       </div>
+      <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
+        📊 ที่มาข้อมูล:
+        <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a> ·
+        <a href="https://www.customs.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมศุลกากร</a> ·
+        <a href="https://www.tpso.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.)</a>
+      </p>
     </div>
   </section>
 </div>
@@ -5797,7 +5722,10 @@
       </div>
 
       <p style="text-align:center;font-size:.85rem;color:var(--text-light);margin-top:2rem">
-        📚 ที่มา: USDA FoodData Central · กองโภชนาการ กรมอนามัย กระทรวงสาธารณสุข (ข้อมูลต่อ 100g)
+        📚 ที่มาข้อมูล:
+        <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">USDA FoodData Central</a> ·
+        <a href="https://nutrition2.anamai.moph.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กองโภชนาการ กรมอนามัย กระทรวงสาธารณสุข</a>
+        (ข้อมูลต่อ 100g)
       </p>
     </div>
   </section>
@@ -6057,6 +5985,14 @@
         </div>
       </div>
 
+      <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
+        📊 ที่มาข้อมูลจังหวัด/ผลไม้ประจำถิ่น/ตลาดส่งออก:
+        <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการเกษตร</a> ·
+        <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a> ·
+        <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a> ·
+        แผนที่: <a href="https://github.com/apisit/thailand.json" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">TopoJSON ขอบเขตจังหวัดไทย (apisit/thailand.json)</a>
+      </p>
+
     </div>
   </section>
 </div>
@@ -6104,6 +6040,13 @@
           <div id="seasonTable"></div>
         </div>
       </div>
+
+      <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
+        📊 ที่มาข้อมูล:
+        <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการเกษตร</a> ·
+        <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a>
+        (ปฏิทินผลผลิตทางการเกษตร)
+      </p>
 
       <!-- FAQ ฤดูกาล -->
       <div style="margin-top:3rem">
@@ -6228,6 +6171,76 @@
             </a>
           </div>
         </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🌱</div>
+          <div class="ext-body">
+            <div class="ext-title">กรมส่งเสริมการเกษตร</div>
+            <p class="ext-desc">ข้อมูลเกษตรกร แหล่งเพาะปลูก และผลไม้ประจำถิ่นรายจังหวัด</p>
+            <div class="ext-url">www.doae.go.th</div>
+            <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">💰</div>
+          <div class="ext-body">
+            <div class="ext-title">กระทรวงพาณิชย์</div>
+            <p class="ext-desc">นโยบายการค้า สถิติราคาสินค้าเกษตร และการส่งออก</p>
+            <div class="ext-url">www.moc.go.th</div>
+            <a href="https://www.moc.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🛃</div>
+          <div class="ext-body">
+            <div class="ext-title">กรมศุลกากร</div>
+            <p class="ext-desc">สถิติการนำเข้า-ส่งออกสินค้าผ่านแดน ข้อมูลมูลค่าการค้า</p>
+            <div class="ext-url">www.customs.go.th</div>
+            <a href="https://www.customs.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">💊</div>
+          <div class="ext-body">
+            <div class="ext-title">สำนักงานคณะกรรมการอาหารและยา (อย.)</div>
+            <p class="ext-desc">มาตรฐาน GMP/HACCP สำหรับการผลิตและแปรรูปผลไม้</p>
+            <div class="ext-url">www.fda.moph.go.th</div>
+            <a href="https://www.fda.moph.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🎯</div>
+          <div class="ext-body">
+            <div class="ext-title">กรมทรัพย์สินทางปัญญา</div>
+            <p class="ext-desc">ข้อมูลสิ่งบ่งชี้ทางภูมิศาสตร์ (GI) ของผลไม้ไทย เช่น มะขามหวานเพชรบูรณ์ ทุเรียนนนทบุรี</p>
+            <div class="ext-url">www.ipthailand.go.th</div>
+            <a href="https://www.ipthailand.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="section-header reveal">
@@ -6285,6 +6298,55 @@
             <p class="ext-desc">ข่าวสารตลาดผลไม้โลก ราคา แนวโน้ม นวัตกรรมบรรจุภัณฑ์</p>
             <div class="ext-url">www.freshplaza.com</div>
             <a href="https://www.freshplaza.com" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header reveal" style="margin-top:3rem">
+        <p class="section-eyebrow">โภชนาการและข้อมูลเทคนิค</p>
+        <h2 class="section-title">แหล่งข้อมูลโภชนาการและแผนที่</h2>
+      </div>
+
+      <div class="cards-grid">
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🥗</div>
+          <div class="ext-body">
+            <div class="ext-title">USDA FoodData Central</div>
+            <p class="ext-desc">ฐานข้อมูลคุณค่าทางโภชนาการของผลไม้และอาหารระดับสากล</p>
+            <div class="ext-url">fdc.nal.usda.gov</div>
+            <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🩺</div>
+          <div class="ext-body">
+            <div class="ext-title">กองโภชนาการ กรมอนามัย</div>
+            <p class="ext-desc">ข้อมูลคุณค่าทางโภชนาการของอาหารไทย กระทรวงสาธารณสุข</p>
+            <div class="ext-url">nutrition2.anamai.moph.go.th</div>
+            <a href="https://nutrition2.anamai.moph.go.th" target="_blank" rel="noopener noreferrer">
+              <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
+                <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="ext-link-card reveal">
+          <div class="ext-icon">🗺️</div>
+          <div class="ext-body">
+            <div class="ext-title">TopoJSON ขอบเขตจังหวัดไทย</div>
+            <p class="ext-desc">ชุดข้อมูลแผนที่เขตแดนจังหวัด ใช้แสดงผลแผนที่ประเทศไทยเชิงโต้ตอบในเว็บไซต์นี้</p>
+            <div class="ext-url">github.com/apisit/thailand.json</div>
+            <a href="https://github.com/apisit/thailand.json" target="_blank" rel="noopener noreferrer">
               <button class="btn btn-green" style="margin-top:.8rem;padding:.4rem 1rem;font-size:.8rem">
                 <i class="fas fa-external-link-alt"></i> เปิดเว็บไซต์
               </button>
@@ -6445,6 +6507,7 @@
           <li><span onclick="navigate('central')">ผลไม้ภาคกลาง</span></li>
           <li><span onclick="navigate('east')">ผลไม้ภาคตะวันออก</span></li>
           <li><span onclick="navigate('south')">ผลไม้ภาคใต้</span></li>
+          <li><span onclick="navigate('mapd3')" style="cursor:pointer">แผนที่ประเทศไทย</span></li>
         </ul>
       </div>
 
@@ -6463,7 +6526,6 @@
       <div class="footer-col">
         <h4>เกี่ยวกับโครงการ</h4>
         <ul>
-          <li><span onclick="navigate('mapd3')" style="cursor:pointer">🗺️ แผนที่ประเทศไทย</span></li>
           <li><span onclick="navigate('gallery')">แกลเลอรี</span></li>
           <li><span onclick="navigate('links')">ลิงก์ภายนอก</span></li>
           <li><span onclick="navigate('contact')">ติดต่อเรา</span></li>
@@ -6473,8 +6535,50 @@
           <li><span>Visual Studio Code</span></li>
           <li><span>Canva</span></li>
           <li><span>ChatGPT</span></li>
+          <li><span>Claude</span></li>
         </ul>
       </div>
+    </div>
+
+    <div class="footer-sources" style="border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.6rem">
+      <h4 style="margin-bottom:.8rem">📊 แหล่งอ้างอิงข้อมูลทั้งหมดในเว็บไซต์นี้</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;font-size:.82rem;line-height:1.9;color:rgba(255,255,255,.75)">
+        <div>
+          <strong style="color:var(--gold)">สถิติการส่งออก/การค้า</strong><br/>
+          <a href="https://www.tpso.go.th" target="_blank" rel="noopener noreferrer">สนค. กระทรวงพาณิชย์</a><br/>
+          <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer">DITP กรมส่งเสริมการค้าระหว่างประเทศ</a><br/>
+          <a href="https://www.customs.go.th" target="_blank" rel="noopener noreferrer">กรมศุลกากร</a>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">ราคา/ผลผลิตทางการเกษตร</strong><br/>
+          <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer">สำนักงานเศรษฐกิจการเกษตร (OAE)</a><br/>
+          <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer">กรมส่งเสริมการเกษตร</a><br/>
+          <a href="https://www.moac.go.th" target="_blank" rel="noopener noreferrer">กระทรวงเกษตรและสหกรณ์</a>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">มาตรฐานคุณภาพ</strong><br/>
+          <a href="https://www.doa.go.th" target="_blank" rel="noopener noreferrer">กรมวิชาการเกษตร (GAP)</a><br/>
+          <a href="https://www.globalgap.org" target="_blank" rel="noopener noreferrer">GlobalGAP</a><br/>
+          <a href="https://www.ipthailand.go.th" target="_blank" rel="noopener noreferrer">กรมทรัพย์สินทางปัญญา (GI)</a>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">โภชนาการ</strong><br/>
+          <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener noreferrer">USDA FoodData Central</a><br/>
+          <a href="https://nutrition2.anamai.moph.go.th" target="_blank" rel="noopener noreferrer">กองโภชนาการ กรมอนามัย</a>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">แผนที่ประเทศไทย</strong><br/>
+          <a href="https://github.com/apisit/thailand.json" target="_blank" rel="noopener noreferrer">TopoJSON ขอบเขตจังหวัด (apisit/thailand.json)</a>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">องค์กรระหว่างประเทศ</strong><br/>
+          <a href="https://www.fao.org" target="_blank" rel="noopener noreferrer">FAO</a><br/>
+          <a href="https://www.thaitrade.com" target="_blank" rel="noopener noreferrer">Thai Trade Center</a>
+        </div>
+      </div>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:1rem">
+        หมายเหตุ: ตัวเลขราคาในตาราง "ราคาผลไม้" เป็นช่วงประมาณการเพื่อการศึกษา ผู้ใช้ควรตรวจสอบตัวเลขล่าสุดจากลิงก์แหล่งที่มาด้านบนก่อนนำไปอ้างอิงหรือใช้งานจริง
+      </p>
     </div>
 
     <div class="footer-bottom">
