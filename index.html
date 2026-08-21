@@ -516,6 +516,18 @@
     /* ============================================================
        FRUIT CARDS
        ============================================================ */
+    .quality-badges-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 900px) {
+      .quality-badges-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .quality-badges-grid { grid-template-columns: 1fr; }
+    }
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1169,6 +1181,57 @@
     }
 
     .quality-desc {
+      font-size: 0.943rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .grade-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: .6rem;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border-top: 4px solid var(--green-pale);
+    }
+
+    .grade-badge:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .grade-badge.grade-plus {
+      border-top-color: var(--gold);
+    }
+
+    .grade-chip-big {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: var(--green-pale);
+      color: var(--green-dark);
+    }
+
+    .grade-badge.grade-plus .grade-chip-big {
+      background: var(--gold-light);
+      color: var(--gold-dark);
+    }
+
+    .grade-title {
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .grade-desc {
       font-size: 0.943rem;
       color: var(--text-light);
       line-height: 1.6;
@@ -2447,31 +2510,31 @@
         <!-- ที่มา: สนค. ปี 2568 — ผลไม้สด+แปรรูป มูลค่า 6,507.0 ล้าน USD (สัดส่วน 23.50% ของสินค้าเกษตร ≈ 213,600 ล้านบาท คำนวณจากอัตราแลกเปลี่ยนเฉลี่ยปี 2568) -->
         <div class="stat-item reveal">
           <div class="stat-number">214<span class="stat-unit">พันล้าน</span></div>
-          <div class="stat-label">มูลค่าส่งออกผลไม้ปี 2568 (บาท) · ที่มา: กระทรวงพาณิชย์</div>
+          <div class="stat-label">มูลค่าส่งออกผลไม้ปี 2568 (บาท) ที่มา: กระทรวงพาณิชย์</div>
         </div>
 
         <!-- ที่มา: กรมส่งเสริมการค้าระหว่างประเทศ (DITP) ปี 2568 — ทุเรียนสดส่งออกทั้งปี 979,045 ตัน มูลค่า 4,368 ล้าน USD -->
         <div class="stat-item reveal">
           <div class="stat-number">0.98<span class="stat-unit">ล้านตัน</span></div>
-          <div class="stat-label">ปริมาณทุเรียนสดส่งออกทั้งปี 2568 · ที่มา: DITP</div>
+          <div class="stat-label">ปริมาณทุเรียนสดส่งออกทั้งปี 2568 ที่มา: DITP</div>
         </div>
 
         <!-- ที่มา: DITP — ทุเรียนไทยส่งออกไปจีน 920,763.85 ตัน จากทั้งหมด 979,045 ตัน ปี 2568 -->
         <div class="stat-item reveal">
           <div class="stat-number">94<span class="stat-unit">%</span></div>
-          <div class="stat-label">สัดส่วนทุเรียนไทยที่ส่งออกไปตลาดจีน ปี 2568 · ที่มา: DITP</div>
+          <div class="stat-label">สัดส่วนทุเรียนไทยที่ส่งออกไปตลาดจีน ปี 2568 ที่มา: DITP</div>
         </div>
 
         <!-- ที่มา: DITP — ปริมาณส่งออกทุเรียนสดปี 2568 เพิ่มขึ้นราว 9.4% จากปี 2567 -->
         <div class="stat-item reveal">
           <div class="stat-number">+9.4<span class="stat-unit">%</span></div>
-          <div class="stat-label">การเติบโตของปริมาณส่งออกทุเรียนสด ปี 2568 · ที่มา: DITP</div>
+          <div class="stat-label">การเติบโตของปริมาณส่งออกทุเรียนสด ปี 2568 ที่มา: DITP</div>
         </div>
 
       </div>
       <!-- แหล่งอ้างอิง -->
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1rem">
-        📊 ที่มาข้อมูล: <a href="https://www.tpso.go.th/news/2602-0000000015" target="_blank" style="color:var(--green-light)">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์</a> และรายงาน DITP ณ นครเฉิงตู · ข้อมูลปี พ.ศ. 2568
+        📑 ที่มาข้อมูล: <a href="https://www.tpso.go.th/news/2602-0000000015" target="_blank" style="color:var(--green-light)">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.) กระทรวงพาณิชย์</a> และรายงาน DITP ณ นครเฉิงตู · ข้อมูลปี พ.ศ. 2568
       </p>
     </div>
   </div>
@@ -2634,7 +2697,7 @@
   ================================================================ -->
 <div class="page" id="page-north">
   <div class="page-banner">
-    <h1>🏔️ ผลไม้ภาคเหนือ</h1>
+    <h1>ผลไม้ภาคเหนือ</h1>
     <p>Northern Region Fruits — ลำไย ลิ้นจี่ และผลไม้เมืองหนาวหลากหลายชนิด</p>
   </div>
 
@@ -2902,7 +2965,7 @@
   ================================================================ -->
 <div class="page" id="page-central">
   <div class="page-banner">
-    <h1>🌾 ผลไม้ภาคกลาง</h1>
+    <h1>ผลไม้ภาคกลาง</h1>
     <p>Central Region Fruits — มะม่วงน้ำดอกไม้ ส้มโอ และพืชผลชื่อดัง</p>
   </div>
 
@@ -3152,7 +3215,7 @@
   ================================================================ -->
 <div class="page" id="page-east">
   <div class="page-banner">
-    <h1>🌊 ผลไม้ภาคตะวันออก</h1>
+    <h1>ผลไม้ภาคตะวันออก</h1>
     <p>Eastern Region — แหล่งทุเรียน มังคุด เงาะ ชั้นนำของโลก</p>
   </div>
 
@@ -3384,7 +3447,7 @@
   ================================================================ -->
 <div class="page" id="page-south">
   <div class="page-banner">
-    <h1>🌴 ผลไม้ภาคใต้</h1>
+    <h1>ผลไม้ภาคใต้</h1>
     <p>Southern Region — สับปะรด ลองกอง ผลไม้แดนใต้รสเด็ด</p>
   </div>
 
@@ -3638,14 +3701,14 @@
   ================================================================ -->
 <div class="page" id="page-quality">
   <div class="page-banner">
-    <h1>⭐ มาตรฐานคุณภาพผลไม้ไทย</h1>
+    <h1>มาตรฐานคุณภาพผลไม้ไทย</h1>
     <p>Thai Fruit Quality Standards — มาตรฐานระดับโลกที่ได้รับการยอมรับ</p>
   </div>
 
   <section class="section">
     <div class="container">
 
-      <div class="cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-bottom:3rem">
+      <div class="quality-badges-grid">
         <div class="quality-badge reveal">
           <div class="quality-icon">🌱</div>
           <div class="quality-title">GAP (Good Agricultural Practices)</div>
@@ -3675,6 +3738,35 @@
           <div class="quality-icon">🎯</div>
           <div class="quality-title">GI (สิ่งบ่งชี้ทางภูมิศาสตร์)</div>
           <p class="quality-desc">คุ้มครองแหล่งกำเนิดสินค้า เช่น ทุเรียนนนทบุรี มะม่วงฉะเชิงเทรา ให้มูลค่าเพิ่มในตลาดพรีเมียม</p>
+        </div>
+      </div>
+
+      <!-- มาตรฐานเกรดสินค้า -->
+      <div class="section-header reveal">
+        <h2 class="section-title">มาตรฐานเกรดผลไม้</h2>
+        <p class="section-desc">เกณฑ์การจัดเกรดคุณภาพผลไม้ไทยที่ใช้อ้างอิงในตารางราคาและการคัดคุณภาพ</p>
+      </div>
+
+      <div class="quality-badges-grid" style="margin-bottom:3rem">
+        <div class="grade-badge grade-plus reveal">
+          <div class="grade-chip-big">A+</div>
+          <div class="grade-title">เกรด A+ (พรีเมียม)</div>
+          <p class="grade-desc">ผลไม้คัดพิเศษ รูปทรงสมบูรณ์ ไม่มีตำหนิ ขนาดใหญ่ได้มาตรฐาน รสชาติดีเยี่ยม ผ่านมาตรฐาน GAP/GlobalGAP เหมาะสำหรับตลาดพรีเมียมและส่งออกไปประเทศที่มีมาตรฐานเข้มงวด เช่น ญี่ปุ่น สหรัฐฯ และสหภาพยุโรป</p>
+        </div>
+        <div class="grade-badge reveal">
+          <div class="grade-chip-big">A</div>
+          <div class="grade-title">เกรด A (คุณภาพดี)</div>
+          <p class="grade-desc">ผลสมบูรณ์ ขนาดได้มาตรฐาน มีตำหนิเล็กน้อยที่ยอมรับได้ ไม่กระทบรสชาติ เหมาะสำหรับส่งออกทั่วไปและวางจำหน่ายในซูเปอร์มาร์เก็ตระดับกลางถึงสูง</p>
+        </div>
+        <div class="grade-badge reveal">
+          <div class="grade-chip-big">B+</div>
+          <div class="grade-title">เกรด B+ (มาตรฐานดี)</div>
+          <p class="grade-desc">คุณภาพดีในระดับมาตรฐาน อาจมีตำหนิเล็กน้อยด้านรูปลักษณ์หรือขนาดไม่สม่ำเสมอ แต่ความสดและรสชาติยังอยู่ในเกณฑ์ดี เหมาะสำหรับตลาดในประเทศและตลาดสด</p>
+        </div>
+        <div class="grade-badge reveal">
+          <div class="grade-chip-big">B</div>
+          <div class="grade-title">เกรด B (มาตรฐานทั่วไป)</div>
+          <p class="grade-desc">คุณภาพทั่วไป ขนาดหรือรูปทรงไม่สม่ำเสมอ มีตำหนิภายนอกมากกว่าเกรดอื่น เหมาะสำหรับจำหน่ายในตลาดท้องถิ่นหรือนำไปแปรรูป ราคาย่อมเยากว่าเกรดอื่น</p>
         </div>
       </div>
 
@@ -3711,7 +3803,7 @@
       </div>
 
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:2rem">
-        📊 ที่มาข้อมูล:
+        📑 ที่มาข้อมูล:
         <a href="https://www.doa.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมวิชาการเกษตร (มาตรฐาน GAP)</a> ·
         <a href="https://www.globalgap.org" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">GlobalGAP</a> ·
         <a href="https://www.fda.moph.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานคณะกรรมการอาหารและยา (GMP/HACCP)</a> ·
@@ -3726,7 +3818,7 @@
   ================================================================ -->
 <div class="page" id="page-price">
   <div class="page-banner">
-    <h1>💰 ตารางราคาผลไม้</h1>
+    <h1>ตารางราคาผลไม้</h1>
     <p>ราคาภายในประเทศและราคาส่งออก ปี 2568-2569</p>
   </div>
 
@@ -3735,9 +3827,9 @@
 
       <!-- Tabs -->
       <div class="tabs reveal">
-        <button class="tab-btn active" onclick="showTab('price-domestic')">🇹🇭 ราคาในประเทศ</button>
-        <button class="tab-btn" onclick="showTab('price-export')">✈️ ราคาส่งออก</button>
-        <button class="tab-btn" onclick="showTab('price-trend')">📈 แนวโน้มราคา</button>
+        <button class="tab-btn active" onclick="showTab('price-domestic')">ราคาในประเทศไทย</button>
+        <button class="tab-btn" onclick="showTab('price-export')">ราคาส่งออก</button>
+        <button class="tab-btn" onclick="showTab('price-trend')">แนวโน้มราคา</button>
       </div>
 
       <!-- ราคาในประเทศ -->
@@ -4049,7 +4141,7 @@
       </div>
 
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:2rem">
-        📊 ที่มาข้อมูล:
+        📑 ที่มาข้อมูล:
         <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a> ·
         <a href="https://www.moc.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กระทรวงพาณิชย์</a> ·
         <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a>
@@ -4064,7 +4156,7 @@
   ================================================================ -->
 <div class="page" id="page-export">
   <div class="page-banner">
-    <h1>✈️ ตลาดส่งออกผลไม้ไทย</h1>
+    <h1>ตลาดส่งออกผลไม้ไทย</h1>
     <p>ประเทศที่นิยมสั่งซื้อผลไม้ไทย และข้อมูลการส่งออก</p>
   </div>
 
@@ -4288,7 +4380,7 @@
         </table>
       </div>
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
-        📊 ที่มาข้อมูล:
+        📑 ที่มาข้อมูล:
         <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a> ·
         <a href="https://www.customs.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมศุลกากร</a> ·
         <a href="https://www.tpso.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานนโยบายและยุทธศาสตร์การค้า (สนค.)</a>
@@ -4302,7 +4394,7 @@
   ================================================================ -->
 <div class="page" id="page-nutrition">
   <div class="page-banner">
-    <h1>🥗 คุณค่าทางโภชนาการ</h1>
+    <h1>คุณค่าทางโภชนาการ</h1>
     <p>Nutritional Value — ข้อมูลโภชนาการ ตลาดส่งออก และฤดูกาลของผลไม้ไทยครบทุกชนิด</p>
   </div>
 
@@ -4310,11 +4402,11 @@
     <div class="container">
 
       <div class="tabs reveal">
-        <button class="tab-btn active" onclick="showNutriTab('all',this)">🌿 ทั้งหมด (36 ชนิด)</button>
-        <button class="tab-btn" onclick="showNutriTab('north',this)">🏔️ ภาคเหนือ</button>
-        <button class="tab-btn" onclick="showNutriTab('central',this)">🌾 ภาคกลาง</button>
-        <button class="tab-btn" onclick="showNutriTab('east',this)">🌊 ตะวันออก</button>
-        <button class="tab-btn" onclick="showNutriTab('south',this)">🌴 ภาคใต้</button>
+        <button class="tab-btn active" onclick="showNutriTab('all',this)">ทั้งหมด</button>
+        <button class="tab-btn" onclick="showNutriTab('north',this)">ภาคเหนือ</button>
+        <button class="tab-btn" onclick="showNutriTab('central',this)">ภาคกลาง</button>
+        <button class="tab-btn" onclick="showNutriTab('east',this)">ตะวันออก</button>
+        <button class="tab-btn" onclick="showNutriTab('south',this)">ภาคใต้</button>
       </div>
 
       <div class="cards-grid" id="nutriGrid">
@@ -5725,7 +5817,7 @@
       </div>
 
       <p style="text-align:center;font-size:.85rem;color:var(--text-light);margin-top:2rem">
-        📚 ที่มาข้อมูล:
+        📑 ที่มาข้อมูล:
         <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">USDA FoodData Central</a> ·
         <a href="https://nutrition2.anamai.moph.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กองโภชนาการ กรมอนามัย กระทรวงสาธารณสุข</a>
         (ข้อมูลต่อ 100g)
@@ -5739,7 +5831,7 @@
   ================================================================ -->
 <div class="page" id="page-gallery">
   <div class="page-banner">
-    <h1>📸 แกลเลอรีผลไม้ไทย</h1>
+    <h1>แกลเลอรีผลไม้ไทย</h1>
     <p>ชมภาพผลไม้ไทยคุณภาพสูงจากทั่วทุกภูมิภาค</p>
   </div>
 
@@ -5945,7 +6037,7 @@
   ================================================================ -->
 <div class="page" id="page-mapd3">
   <div class="page-banner">
-    <h1>🗺️ แผนที่ผลไม้ไทย</h1>
+    <h1>แผนที่ผลไม้ไทย</h1>
     <p>คลิกที่จังหวัดหรือภาคเพื่อดูผลไม้และตลาดส่งออก</p>
   </div>
 
@@ -5989,7 +6081,7 @@
       </div>
 
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
-        📊 ที่มาข้อมูลจังหวัด/ผลไม้ประจำถิ่น/ตลาดส่งออก:
+        📑 ที่มาข้อมูลจังหวัด/ผลไม้ประจำถิ่น/ตลาดส่งออก:
         <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการเกษตร</a> ·
         <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a> ·
         <a href="https://www.ditp.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการค้าระหว่างประเทศ (DITP)</a> ·
@@ -6005,7 +6097,7 @@
   ================================================================ -->
 <div class="page" id="page-season">
   <div class="page-banner">
-    <h1>📅 ปฏิทินฤดูกาลผลไม้</h1>
+    <h1>ปฏิทินฤดูกาลผลไม้</h1>
     <p>Seasonal Calendar — ช่วงเวลาเก็บเกี่ยวผลไม้ไทยตลอดทั้งปี</p>
   </div>
 
@@ -6044,7 +6136,7 @@
       </div>
 
       <p style="text-align:center;font-size:.72rem;color:var(--text-light);margin-top:1.5rem">
-        📊 ที่มาข้อมูล:
+        📑 ที่มาข้อมูล:
         <a href="https://www.doae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">กรมส่งเสริมการเกษตร</a> ·
         <a href="https://www.oae.go.th" target="_blank" rel="noopener noreferrer" style="color:var(--green-light)">สำนักงานเศรษฐกิจการเกษตร (OAE)</a>
         (ปฏิทินผลผลิตทางการเกษตร)
@@ -6105,7 +6197,7 @@
   ================================================================ -->
 <div class="page" id="page-links">
   <div class="page-banner">
-    <h1>🔗 ลิงก์ที่เกี่ยวข้อง</h1>
+    <h1>ลิงก์ที่เกี่ยวข้อง</h1>
     <p>แหล่งข้อมูลผลไม้ไทยและการส่งออกที่น่าเชื่อถือ</p>
   </div>
 
@@ -6366,7 +6458,7 @@
   ================================================================ -->
 <div class="page" id="page-contact">
   <div class="page-banner">
-    <h1>📞 ติดต่อเรา</h1>
+    <h1>ติดต่อเรา</h1>
     <p>Contact Us — สอบถามข้อมูล สั่งซื้อ หรือร่วมเป็นพาร์ตเนอร์</p>
   </div>
 
@@ -6404,10 +6496,9 @@
 
           <div class="social-links">
             <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-btn" title="LINE"><i class="fab fa-line"></i></a>
             <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn" title="LINE"><i class="fab fa-line"></i></a>
             <a href="#" class="social-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-btn" title="WeChat"><i class="fab fa-weixin"></i></a>
           </div>
         </div>
 
@@ -7218,33 +7309,33 @@
   const REGION_DATA = {
     north:{label:'ภาคเหนือ',color:'#7986CB',
       desc:'9 จังหวัด — เชียงใหม่ เชียงราย ลำพูน ลำปาง แพร่ น่าน พะเยา แม่ฮ่องสอน อุตรดิตถ์',
-      fruits:['🟡 ลำไย','🔴 ลิ้นจี่','🍓 สตรอว์เบอร์รี','🍑 ท้อ','🔵 บ๊วย','🟠 ส้มสายน้ำผึ้ง','🟫 มะขามหวาน','🥝 กีวี่ดอย','💜 เสาวรส'],
-      exports:['🇨🇳 จีน 62%','🇻🇳 เวียดนาม 18%','🇮🇩 อินโดนีเซีย 10%','🇯🇵 ญี่ปุ่น 6%','🌏 อื่นๆ 4%'],
-      highlight:'💡 ลำไยภาคเหนือส่งออกอันดับ 1 ของโลก มูลค่ากว่า 8,000 ล้านบาท/ปี สตรอว์เบอร์รีดอยเป็น Soft Power ไทยในตลาดจีน'},
+      fruits:['ลำไย','ลิ้นจี่','สตรอว์เบอร์รี','ท้อ','บ๊วย','ส้มสายน้ำผึ้ง','มะขามหวาน','กีวี่ดอย','เสาวรส'],
+      exports:['จีน 62%','เวียดนาม 18%','อินโดนีเซีย 10%','ญี่ปุ่น 6%','อื่นๆ 4%'],
+      highlight:'💡ลำไยภาคเหนือส่งออกอันดับ 1 ของโลก มูลค่ากว่า 8,000 ล้านบาท/ปี สตรอว์เบอร์รีดอยเป็น Soft Power ไทยในตลาดจีน'},
     northeast:{label:'ภาคตะวันออกเฉียงเหนือ',color:'#FFB300',
       desc:'20 จังหวัด — ขอนแก่น นครราชสีมา อุบลราชธานี อุดรธานี เลย ฯลฯ',
-      fruits:['🟫 มะขามหวาน','🌿 มะกรูด','🍈 มะเฟือง','🟢 มะม่วง','🌶️ พริก','🫘 ถั่วฝักยาว'],
-      exports:['🇨🇳 จีน 45%','🇯🇵 ญี่ปุ่น 20%','🇺🇸 สหรัฐฯ 15%','🇪🇺 ยุโรป 12%','🌏 อื่นๆ 8%'],
+      fruits:['มะขามหวาน','มะกรูด','มะเฟือง','มะม่วง','พริก','ถั่วฝักยาว'],
+      exports:['จีน 45%','ญี่ปุ่น 20%','สหรัฐฯ 15%','ยุโรป 12%','อื่นๆ 8%'],
       highlight:'💡 เพชรบูรณ์ขึ้นชื่อเรื่องมะขามหวาน GI ส่งออกกว่า 20 ประเทศ นครราชสีมาเป็นแหล่งผักและสมุนไพรส่งออกสำคัญ'},
     central:{label:'ภาคกลาง',color:'#4CAF50',
       desc:'21 จังหวัด — นครปฐม สมุทรสาคร อยุธยา ราชบุรี กาญจนบุรี กรุงเทพฯ ฯลฯ',
-      fruits:['🟠 มะม่วงน้ำดอกไม้','🟡 ส้มโอ','🟡 กล้วยหอมทอง','🟢 ฝรั่ง','🟠 มะละกอ','🍉 แตงโม','🥥 มะพร้าวน้ำหอม','🍈 ชมพู่','🟢 มะนาว'],
-      exports:['🇯🇵 ญี่ปุ่น 35%','🇨🇳 จีน 28%','🇰🇷 เกาหลี 15%','🇸🇬 สิงคโปร์ 10%','🌏 อื่นๆ 12%'],
+      fruits:['มะม่วงน้ำดอกไม้','ส้มโอ','กล้วยหอมทอง','ฝรั่ง','มะละกอ','แตงโม','มะพร้าวน้ำหอม','ชมพู่','มะนาว'],
+      exports:['ญี่ปุ่น 35%','จีน 28%','เกาหลี 15%','สิงคโปร์ 10%','อื่นๆ 12%'],
       highlight:'💡 มะพร้าวน้ำหอมส่งออกจีนมูลค่ากว่า 8,000 ล้านบาท/ปี กล้วยหอมส่งออกญี่ปุ่นมากที่สุดใน ASEAN'},
     west:{label:'ภาคตะวันตก',color:'#26C6DA',
       desc:'5 จังหวัด — กาญจนบุรี ราชบุรี เพชรบุรี ประจวบคีรีขันธ์ ตาก',
-      fruits:['🟡 สับปะรด','🟡 กล้วยหอม','🟠 มะม่วง','🍉 แตงโม','🍓 สตรอว์เบอร์รี'],
-      exports:['🌍 ทั่วโลก 40%','🇨🇳 จีน 25%','🇯🇵 ญี่ปุ่น 20%','🇺🇸 สหรัฐฯ 15%'],
+      fruits:['สับปะรด','กล้วยหอม','มะม่วง','แตงโม','สตรอว์เบอร์รี'],
+      exports:['ทั่วโลก 40%','จีน 25%','ญี่ปุ่น 20%','สหรัฐฯ 15%'],
       highlight:'💡 ประจวบคีรีขันธ์เป็นแหล่งสับปะรดส่งออกใหญ่ที่สุดของไทย มูลค่ากว่า 20,000 ล้านบาท/ปี'},
     east:{label:'ภาคตะวันออก',color:'#FF7043',
       desc:'8 จังหวัด — ระยอง จันทบุรี ตราด ชลบุรี ฉะเชิงเทรา สระแก้ว ปราจีนบุรี นครนายก',
-      fruits:['🟡 ทุเรียน','🟣 มังคุด','🔴 เงาะ','🟡 ขนุน','🟡 มะปราง','🟫 สละ','🟠 กระท้อน','🟢 หนำเลี้ยบ','🔴 ระกำ'],
-      exports:['🇨🇳 จีน 82%','🇭🇰 ฮ่องกง 8%','🇸🇬 สิงคโปร์ 5%','🇻🇳 เวียดนาม 3%','🌏 อื่นๆ 2%'],
+      fruits:['ทุเรียน','มังคุด','เงาะ','ขนุน','มะปราง','สละ','กระท้อน','หนำเลี้ยบ','ระกำ'],
+      exports:['จีน 82%','ฮ่องกง 8%','สิงคโปร์ 5%','เวียดนาม 3%','อื่นๆ 2%'],
       highlight:'💡 จันทบุรี-ระยองผลิตทุเรียน 60% ของทุเรียนส่งออกไทยทั้งหมด มูลค่ากว่า 100,000 ล้านบาท/ปี'},
     south:{label:'ภาคใต้',color:'#EC407A',
       desc:'14 จังหวัด — สุราษฎร์ธานี นครศรีธรรมราช ชุมพร กระบี่ ภูเก็ต สงขลา ปัตตานี ฯลฯ',
-      fruits:['🟡 สับปะรด','⚪ ลองกอง','🥥 มะพร้าวน้ำหอม','🟡 ทุเรียนใต้','🔴 เงาะ','🟣 มังคุด','⚪ ลางสาด','💜 เสาวรส','🟢 ส้มแขก','🟡 กล้วยน้ำว้า'],
-      exports:['🇨🇳 จีน 45%','🇲🇾 มาเลเซีย 22%','🇸🇬 สิงคโปร์ 18%','🇮🇩 อินโดนีเซีย 10%','🌏 อื่นๆ 5%'],
+      fruits:['สับปะรด','ลองกอง','มะพร้าวน้ำหอม','ทุเรียนใต้','เงาะ','มังคุด','ลางสาด','เสาวรส','ส้มแขก','กล้วยน้ำว้า'],
+      exports:['จีน 45%','มาเลเซีย 22%','สิงคโปร์ 18%','อินโดนีเซีย 10%','อื่นๆ 5%'],
       highlight:'💡 สุราษฎร์ธานีผลิตผลไม้ส่งออกมากที่สุดในภาคใต้ นราธิวาสขึ้นชื่อเรื่องลองกองหวานที่สุดในโลก'}
   };
 
@@ -7492,33 +7583,33 @@
   const D3_REGION_INFO = {
     north:{label:'ภาคเหนือ',color:'#7B1FA2',
       desc:'9 จังหวัด — เชียงใหม่ เชียงราย ลำพูน ลำปาง แพร่ น่าน พะเยา แม่ฮ่องสอน อุตรดิตถ์',
-      fruits:['🟡 ลำไย','🔴 ลิ้นจี่','🍓 สตรอว์เบอร์รี','🍑 ท้อ','🔵 บ๊วย','🟠 ส้มสายน้ำผึ้ง','🟫 มะขามหวาน','🥝 กีวี่ดอย'],
-      exports:['🇨🇳 จีน 62%','🇻🇳 เวียดนาม 18%','🇮🇩 อินโดนีเซีย 10%','🇯🇵 ญี่ปุ่น 6%'],
+      fruits:['ลำไย','ลิ้นจี่','สตรอว์เบอร์รี','ท้อ','บ๊วย','ส้มสายน้ำผึ้ง','มะขามหวาน','กีวี่ดอย'],
+      exports:['จีน 62%','เวียดนาม 18%','อินโดนีเซีย 10%','ญี่ปุ่น 6%'],
       note:'💡 ลำไยภาคเหนือส่งออกอันดับ 1 ของโลก มูลค่ากว่า 8,000 ล้านบาท/ปี'},
     northeast:{label:'ภาคตะวันออกเฉียงเหนือ',color:'#E65100',
       desc:'20 จังหวัด — ขอนแก่น นครราชสีมา อุบลราชธานี อุดรธานี เลย ฯลฯ',
-      fruits:['🟫 มะขามหวาน','🌿 มะกรูด','🍈 มะเฟือง','🟢 มะม่วง','🌶️ พริก'],
-      exports:['🇨🇳 จีน 45%','🇯🇵 ญี่ปุ่น 20%','🇺🇸 สหรัฐฯ 15%','🇪🇺 ยุโรป 12%'],
+      fruits:['มะขามหวาน','มะเฟือง','มะม่วง','พริก'],
+      exports:['จีน 45%','ญี่ปุ่น 20%','สหรัฐฯ 15%','ยุโรป 12%'],
       note:'💡 เพชรบูรณ์ขึ้นชื่อเรื่องมะขามหวาน GI ส่งออกกว่า 20 ประเทศ'},
     central:{label:'ภาคกลาง',color:'#1B5E20',
       desc:'21 จังหวัด — นครปฐม สมุทรสาคร อยุธยา ราชบุรี กรุงเทพฯ ฯลฯ',
-      fruits:['🟠 มะม่วงน้ำดอกไม้','🟡 ส้มโอ','🟡 กล้วยหอมทอง','🟢 ฝรั่ง','🟠 มะละกอ','🍉 แตงโม','🥥 มะพร้าวน้ำหอม'],
-      exports:['🇯🇵 ญี่ปุ่น 35%','🇨🇳 จีน 28%','🇰🇷 เกาหลี 15%','🇸🇬 สิงคโปร์ 10%'],
+      fruits:['มะม่วงน้ำดอกไม้','ส้มโอ','กล้วยหอมทอง','ฝรั่ง','มะละกอ','แตงโม','มะพร้าวน้ำหอม'],
+      exports:['ญี่ปุ่น 35%','จีน 28%','เกาหลี 15%','สิงคโปร์ 10%'],
       note:'💡 มะพร้าวน้ำหอมส่งออกจีนมูลค่ากว่า 8,000 ล้านบาท/ปี'},
     west:{label:'ภาคตะวันตก',color:'#0D47A1',
       desc:'5 จังหวัด — กาญจนบุรี ราชบุรี เพชรบุรี ประจวบคีรีขันธ์ ตาก',
-      fruits:['🟡 สับปะรด','🟡 กล้วยหอม','🟠 มะม่วง','🍉 แตงโม'],
-      exports:['🌍 ทั่วโลก 40%','🇨🇳 จีน 25%','🇯🇵 ญี่ปุ่น 20%'],
+      fruits:['สับปะรด','กล้วยหอม','มะม่วง','แตงโม'],
+      exports:['ทั่วโลก 40%','จีน 25%','ญี่ปุ่น 20%'],
       note:'💡 ประจวบฯ เป็นแหล่งสับปะรดส่งออกใหญ่ที่สุดของไทย มูลค่ากว่า 20,000 ล้านบาท/ปี'},
     east:{label:'ภาคตะวันออก',color:'#BF360C',
       desc:'8 จังหวัด — ระยอง จันทบุรี ตราด ชลบุรี ฉะเชิงเทรา สระแก้ว ปราจีนบุรี นครนายก',
-      fruits:['🟡 ทุเรียน','🟣 มังคุด','🔴 เงาะ','🟡 ขนุน','🟡 มะปราง','🟫 สละ','🟠 กระท้อน'],
-      exports:['🇨🇳 จีน 82%','🇭🇰 ฮ่องกง 8%','🇸🇬 สิงคโปร์ 5%','🇻🇳 เวียดนาม 3%'],
+      fruits:['ทุเรียน','มังคุด','เงาะ','ขนุน','มะปราง','สละ','กระท้อน'],
+      exports:['จีน 82%','ฮ่องกง 8%','สิงคโปร์ 5%','เวียดนาม 3%'],
       note:'💡 จันทบุรี-ระยองผลิตทุเรียน 60% ของทุเรียนส่งออกทั้งหมด มูลค่ากว่า 100,000 ล้านบาท/ปี'},
     south:{label:'ภาคใต้',color:'#006064',
       desc:'14 จังหวัด — สุราษฎร์ธานี นครศรีธรรมราช ชุมพร กระบี่ ภูเก็ต สงขลา ฯลฯ',
-      fruits:['🟡 สับปะรด','⚪ ลองกอง','🥥 มะพร้าวน้ำหอม','🟡 ทุเรียนใต้','🔴 เงาะ','🟣 มังคุด','⚪ ลางสาด'],
-      exports:['🇨🇳 จีน 45%','🇲🇾 มาเลเซีย 22%','🇸🇬 สิงคโปร์ 18%','🇮🇩 อินโดนีเซีย 10%'],
+      fruits:['สับปะรด','ลองกอง','มะพร้าวน้ำหอม','ทุเรียนใต้','เงาะ','มังคุด','ลางสาด'],
+      exports:['จีน 45%','มาเลเซีย 22%','สิงคโปร์ 18%','อินโดนีเซีย 10%'],
       note:'💡 นราธิวาสขึ้นชื่อเรื่องลองกองหวานที่สุดในโลก ภูเก็ตมีสับปะรด GI'}
   };
 
