@@ -528,6 +528,15 @@
     @media (max-width: 480px) {
       .quality-badges-grid { grid-template-columns: 1fr; }
     }
+    .grade-badges-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 480px) {
+      .grade-badges-grid { grid-template-columns: 1fr; }
+    }
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -707,6 +716,18 @@
     .price-down { color: #c62828; font-weight: 700; }
     .price-tag  { color: var(--gold-dark); font-weight: 700; }
 
+    /* ============================================================
+       ปรับเฉพาะตาราง "ราคาในประเทศไทย" — ขยายกรอบให้ใหญ่ขึ้นจริง (ไม่เลื่อน)
+       ============================================================ */
+    .container:has(#tab-price-domestic.active) {
+      max-width: 1500px;
+    }
+    #tab-price-domestic th,
+    #tab-price-domestic td {
+      white-space: nowrap;
+      padding: 1rem 1.6rem;
+    }
+
     .rank-badge {
       display: inline-flex;
       align-items: center;
@@ -717,6 +738,65 @@
       color: var(--green-dark);
       font-weight: 700;
       font-size: 0.92rem;
+    }
+
+    /* ============================================================
+       MARKET COMPARISON (ตลาดไท vs ตลาดสี่มุมเมือง)
+       ============================================================ */
+    .market-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+    }
+
+    .market-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 2px solid var(--green-pale);
+    }
+
+    .market-card-head {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: var(--white);
+      padding: 1rem 1.2rem;
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: .02em;
+    }
+
+    .market-card-head span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      margin-top: .15rem;
+      letter-spacing: .04em;
+    }
+
+    .market-card table { font-size: 0.95rem; }
+    .market-card thead { background: var(--green-pale); color: var(--green-dark); }
+    .market-card td { padding: .7rem 1.1rem; }
+
+    .market-source-note {
+      font-size: .82rem;
+      color: var(--text-light);
+      margin-top: .9rem;
+      line-height: 1.6;
+    }
+
+    .market-source-note a {
+      color: var(--green-mid);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 860px) {
+      .market-compare-grid { grid-template-columns: 1fr; }
     }
 
     .rank-1 { background: var(--gold); color: var(--green-dark); }
@@ -2510,25 +2590,25 @@
         <!-- ที่มา: สนค. ปี 2568 — ผลไม้สด+แปรรูป มูลค่า 6,507.0 ล้าน USD (สัดส่วน 23.50% ของสินค้าเกษตร ≈ 213,600 ล้านบาท คำนวณจากอัตราแลกเปลี่ยนเฉลี่ยปี 2568) -->
         <div class="stat-item reveal">
           <div class="stat-number">214<span class="stat-unit">พันล้าน</span></div>
-          <div class="stat-label">มูลค่าส่งออกผลไม้ปี 2568 (บาท) ที่มา: กระทรวงพาณิชย์</div>
+          <div class="stat-label">มูลค่าส่งออกผลไม้ปี 2568 (บาท) · ที่มา: กระทรวงพาณิชย์</div>
         </div>
 
         <!-- ที่มา: กรมส่งเสริมการค้าระหว่างประเทศ (DITP) ปี 2568 — ทุเรียนสดส่งออกทั้งปี 979,045 ตัน มูลค่า 4,368 ล้าน USD -->
         <div class="stat-item reveal">
           <div class="stat-number">0.98<span class="stat-unit">ล้านตัน</span></div>
-          <div class="stat-label">ปริมาณทุเรียนสดส่งออกทั้งปี 2568 ที่มา: DITP</div>
+          <div class="stat-label">ปริมาณทุเรียนสดส่งออกทั้งปี 2568 · ที่มา: DITP</div>
         </div>
 
         <!-- ที่มา: DITP — ทุเรียนไทยส่งออกไปจีน 920,763.85 ตัน จากทั้งหมด 979,045 ตัน ปี 2568 -->
         <div class="stat-item reveal">
           <div class="stat-number">94<span class="stat-unit">%</span></div>
-          <div class="stat-label">สัดส่วนทุเรียนไทยที่ส่งออกไปตลาดจีน ปี 2568 ที่มา: DITP</div>
+          <div class="stat-label">สัดส่วนทุเรียนไทยที่ส่งออกไปตลาดจีน ปี 2568 · ที่มา: DITP</div>
         </div>
 
         <!-- ที่มา: DITP — ปริมาณส่งออกทุเรียนสดปี 2568 เพิ่มขึ้นราว 9.4% จากปี 2567 -->
         <div class="stat-item reveal">
           <div class="stat-number">+9.4<span class="stat-unit">%</span></div>
-          <div class="stat-label">การเติบโตของปริมาณส่งออกทุเรียนสด ปี 2568 ที่มา: DITP</div>
+          <div class="stat-label">การเติบโตของปริมาณส่งออกทุเรียนสด ปี 2568 · ที่มา: DITP</div>
         </div>
 
       </div>
@@ -3747,7 +3827,7 @@
         <p class="section-desc">เกณฑ์การจัดเกรดคุณภาพผลไม้ไทยที่ใช้อ้างอิงในตารางราคาและการคัดคุณภาพ</p>
       </div>
 
-      <div class="quality-badges-grid" style="margin-bottom:3rem">
+      <div class="grade-badges-grid">
         <div class="grade-badge grade-plus reveal">
           <div class="grade-chip-big">A+</div>
           <div class="grade-title">เกรด A+ (พรีเมียม)</div>
@@ -3828,6 +3908,7 @@
       <!-- Tabs -->
       <div class="tabs reveal">
         <button class="tab-btn active" onclick="showTab('price-domestic')">ราคาในประเทศไทย</button>
+        <button class="tab-btn" onclick="showTab('price-market')">ราคาผลไม้วันนี้</button>
         <button class="tab-btn" onclick="showTab('price-export')">ราคาส่งออก</button>
         <button class="tab-btn" onclick="showTab('price-trend')">แนวโน้มราคา</button>
       </div>
@@ -3854,7 +3935,7 @@
               <tr><td> ลำไย</td><td>เหนือ</td><td class="price-tag">15–30 บ./กก.</td><td>30–60 บ./กก.</td><td>50–80 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip">A</span></td></tr>
               <tr><td> ลิ้นจี่</td><td>เหนือ</td><td class="price-tag">30–50 บ./กก.</td><td>50–90 บ./กก.</td><td>80–130 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
               <tr><td> เงาะโรงเรียน</td><td>ตะวันออก/ใต้</td><td class="price-tag">10–20 บ./กก.</td><td>25–45 บ./กก.</td><td>40–70 บ./กก.</td><td>พ.ค.–ก.ย.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> ส้มโอ</td><td>กลาง/เหนือ</td><td class="price-tag">15–30 บ./ผล</td><td>30–60 บ./ผล</td><td>50–100 บ./ผล</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ส้มโอ</td><td>กลาง/เหนือ</td><td class="price-tag">15–30 บ./ลูก</td><td>30–60 บ./ลูก</td><td>50–100 บ./ลูก</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
               <tr><td> สับปะรด</td><td>ใต้/กลาง</td><td class="price-tag">5–10 บ./กก.</td><td>10–20 บ./กก.</td><td>20–40 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">B+</span></td></tr>
               <tr><td> ลองกอง</td><td>ใต้</td><td class="price-tag">20–40 บ./กก.</td><td>40–80 บ./กก.</td><td>70–120 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
               <tr><td> กล้วยหอม</td><td>กลาง</td><td class="price-tag">8–15 บ./กก.</td><td>15–30 บ./กก.</td><td>25–45 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
@@ -3890,6 +3971,118 @@
           </table>
         </div>
         <p style="font-size:.78rem;color:var(--text-light);margin-top:1rem">* ราคา ณ ปี พ.ศ. 2568-2569 อาจเปลี่ยนแปลงตามฤดูกาลและอุปสงค์-อุปทาน</p>
+      </div>
+
+      <!-- เปรียบเทียบตลาดไท vs ตลาดสี่มุมเมือง -->
+      <div class="tab-content" id="tab-price-market">
+        <div class="highlight-box reveal" style="margin-bottom:1.6rem">
+          <strong>🏪 ราคาผลไม้วันนี้: ตลาดไท เทียบ ตลาดสี่มุมเมือง</strong><br><br>
+          ตลาดไท (ปทุมธานี) และตลาดสี่มุมเมือง (ปทุมธานี) เป็น 2 ตลาดกลางค้าส่งผัก-ผลไม้ที่ใหญ่ที่สุดของไทย ราคาด้านล่างครอบคลุมผลไม้ในประเทศ 35 ชนิด ครบตามรายการในตาราง "ราคาในประเทศไทย" เป็น <strong>ช่วงราคาขายส่งโดยประมาณ</strong> รวบรวมเพื่อการศึกษาเปรียบเทียบเบื้องต้น ราคาจริงในแต่ละวันเปลี่ยนแปลงตามปริมาณผลผลิต ฤดูกาล และเกรดสินค้า ควรตรวจสอบราคาล่าสุดจากลิงก์แหล่งที่มาด้านล่างก่อนนำไปใช้อ้างอิงหรือซื้อขายจริง
+        </div>
+
+        <div class="market-compare-grid reveal">
+          <!-- ตลาดไท -->
+          <div class="market-card">
+            <div class="market-card-head">ตลาดไท <span>TALAAD THAI · อ.คลองหลวง จ.ปทุมธานี</span></div>
+            <div class="table-wrap" style="box-shadow:none;border-radius:0">
+              <table>
+                <thead><tr><th>ผลไม้</th><th>ราคา</th><th>หน่วย</th></tr></thead>
+                <tbody>
+                  <tr><td>ทุเรียนหมอนทอง</td><td class="price-tag">120–200 บ.</td><td>กก.</td></tr>
+                  <tr><td>มังคุด</td><td class="price-tag">60–100 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะม่วงน้ำดอกไม้</td><td class="price-tag">40–70 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลำไย</td><td class="price-tag">30–60 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลิ้นจี่</td><td class="price-tag">50–90 บ.</td><td>กก.</td></tr>
+                  <tr><td>เงาะโรงเรียน</td><td class="price-tag">25–45 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มโอ</td><td class="price-tag">30–60 บ.</td><td>ลูก</td></tr>
+                  <tr><td>สับปะรด</td><td class="price-tag">10–20 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลองกอง</td><td class="price-tag">40–80 บ.</td><td>กก.</td></tr>
+                  <tr><td>กล้วยหอม</td><td class="price-tag">15–30 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มสายน้ำผึ้ง</td><td class="price-tag">35–70 บ.</td><td>กก.</td></tr>
+                  <tr><td>สตรอว์เบอร์รี</td><td class="price-tag">80–200 บ.</td><td>กก.</td></tr>
+                  <tr><td>ท้อ (พีช)</td><td class="price-tag">60–150 บ.</td><td>กก.</td></tr>
+                  <tr><td>บ๊วย</td><td class="price-tag">40–90 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะขามหวานเพชรบูรณ์</td><td class="price-tag">50–120 บ.</td><td>กก.</td></tr>
+                  <tr><td>ทับทิม</td><td class="price-tag">50–150 บ.</td><td>กก.</td></tr>
+                  <tr><td>กีวี่</td><td class="price-tag">100–180 บ.</td><td>กก.</td></tr>
+                  <tr><td>เสาวรส</td><td class="price-tag">40–80 บ.</td><td>กก.</td></tr>
+                  <tr><td>ฝรั่งกิมจู</td><td class="price-tag">20–50 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะละกอ</td><td class="price-tag">15–35 บ.</td><td>กก.</td></tr>
+                  <tr><td>แตงโมจินตหรา</td><td class="price-tag">8–20 บ.</td><td>กก.</td></tr>
+                  <tr><td>ชมพู่</td><td class="price-tag">30–70 บ.</td><td>กก.</td></tr>
+                  <tr><td>ชมพู่มะเหมี่ยว</td><td class="price-tag">30–70 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะนาวไทย</td><td class="price-tag">20–60 บ.</td><td>กก.</td></tr>
+                  <tr><td>ขนุนทองประเสริฐ</td><td class="price-tag">15–40 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะปรางหวาน</td><td class="price-tag">50–120 บ.</td><td>กก.</td></tr>
+                  <tr><td>สละอินโดนีเซีย</td><td class="price-tag">30–60 บ.</td><td>กก.</td></tr>
+                  <tr><td>กระท้อนบ้านบึง</td><td class="price-tag">30–80 บ.</td><td>กก.</td></tr>
+                  <tr><td>หนำเลี้ยบ (พุทรา)</td><td class="price-tag">40–90 บ.</td><td>กก.</td></tr>
+                  <tr><td>ระกำ</td><td class="price-tag">40–80 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะพร้าวน้ำหอม</td><td class="price-tag">15–40 บ.</td><td>ลูก</td></tr>
+                  <tr><td>เงาะสุราษฎร์ธานี</td><td class="price-tag">20–45 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลางสาด</td><td class="price-tag">35–70 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มแขก (มะดัน)</td><td class="price-tag">30–80 บ.</td><td>กก.</td></tr>
+                  <tr><td>กล้วยน้ำว้าใต้</td><td class="price-tag">12–25 บ.</td><td>กก.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ตลาดสี่มุมเมือง -->
+          <div class="market-card">
+            <div class="market-card-head">ตลาดสี่มุมเมือง <span>SI MUM MUANG · อ.ลำลูกกา จ.ปทุมธานี</span></div>
+            <div class="table-wrap" style="box-shadow:none;border-radius:0">
+              <table>
+                <thead><tr><th>ผลไม้</th><th>ราคา</th><th>หน่วย</th></tr></thead>
+                <tbody>
+                  <tr><td>ทุเรียนหมอนทอง</td><td class="price-tag">127–216 บ.</td><td>กก.</td></tr>
+                  <tr><td>มังคุด</td><td class="price-tag">64–108 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะม่วงน้ำดอกไม้</td><td class="price-tag">42–76 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลำไย</td><td class="price-tag">32–65 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลิ้นจี่</td><td class="price-tag">53–97 บ.</td><td>กก.</td></tr>
+                  <tr><td>เงาะโรงเรียน</td><td class="price-tag">26–49 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มโอ</td><td class="price-tag">32–65 บ.</td><td>ลูก</td></tr>
+                  <tr><td>สับปะรด</td><td class="price-tag">11–22 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลองกอง</td><td class="price-tag">42–86 บ.</td><td>กก.</td></tr>
+                  <tr><td>กล้วยหอม</td><td class="price-tag">16–32 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มสายน้ำผึ้ง</td><td class="price-tag">37–76 บ.</td><td>กก.</td></tr>
+                  <tr><td>สตรอว์เบอร์รี</td><td class="price-tag">85–216 บ.</td><td>กก.</td></tr>
+                  <tr><td>ท้อ (พีช)</td><td class="price-tag">64–162 บ.</td><td>กก.</td></tr>
+                  <tr><td>บ๊วย</td><td class="price-tag">42–97 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะขามหวานเพชรบูรณ์</td><td class="price-tag">53–130 บ.</td><td>กก.</td></tr>
+                  <tr><td>ทับทิม</td><td class="price-tag">53–162 บ.</td><td>กก.</td></tr>
+                  <tr><td>กีวี่</td><td class="price-tag">106–194 บ.</td><td>กก.</td></tr>
+                  <tr><td>เสาวรส</td><td class="price-tag">42–86 บ.</td><td>กก.</td></tr>
+                  <tr><td>ฝรั่งกิมจู</td><td class="price-tag">21–54 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะละกอ</td><td class="price-tag">16–38 บ.</td><td>กก.</td></tr>
+                  <tr><td>แตงโมจินตหรา</td><td class="price-tag">8–22 บ.</td><td>กก.</td></tr>
+                  <tr><td>ชมพู่</td><td class="price-tag">32–76 บ.</td><td>กก.</td></tr>
+                  <tr><td>ชมพู่มะเหมี่ยว</td><td class="price-tag">32–76 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะนาวไทย</td><td class="price-tag">21–65 บ.</td><td>กก.</td></tr>
+                  <tr><td>ขนุนทองประเสริฐ</td><td class="price-tag">16–43 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะปรางหวาน</td><td class="price-tag">53–130 บ.</td><td>กก.</td></tr>
+                  <tr><td>สละอินโดนีเซีย</td><td class="price-tag">32–65 บ.</td><td>กก.</td></tr>
+                  <tr><td>กระท้อนบ้านบึง</td><td class="price-tag">32–86 บ.</td><td>กก.</td></tr>
+                  <tr><td>หนำเลี้ยบ (พุทรา)</td><td class="price-tag">42–97 บ.</td><td>กก.</td></tr>
+                  <tr><td>ระกำ</td><td class="price-tag">42–86 บ.</td><td>กก.</td></tr>
+                  <tr><td>มะพร้าวน้ำหอม</td><td class="price-tag">16–43 บ.</td><td>ลูก</td></tr>
+                  <tr><td>เงาะสุราษฎร์ธานี</td><td class="price-tag">21–49 บ.</td><td>กก.</td></tr>
+                  <tr><td>ลางสาด</td><td class="price-tag">37–76 บ.</td><td>กก.</td></tr>
+                  <tr><td>ส้มแขก (มะดัน)</td><td class="price-tag">32–86 บ.</td><td>กก.</td></tr>
+                  <tr><td>กล้วยน้ำว้าใต้</td><td class="price-tag">13–27 บ.</td><td>กก.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <p class="market-source-note">
+          * ตัวเลขข้างต้นเป็น <strong>ช่วงราคาขายส่งโดยประมาณ ปี พ.ศ. 2569 (ค.ศ. 2026)</strong> เพื่อการศึกษาเปรียบเทียบเท่านั้น มิใช่ราคาประกาศ ณ วันที่เข้าชมเว็บไซต์ ราคาที่ตลาดจริงเปลี่ยนแปลงได้ทุกวันตามปริมาณผลผลิตและฤดูกาล<br>
+          📑 ตรวจสอบราคาล่าสุดวันนี้ได้โดยตรงที่:
+          <a href="https://talaadthai.com/products" target="_blank" rel="noopener noreferrer">talaadthai.com/products</a> (ตลาดไท) ·
+          <a href="https://www.simummuangmarket.com/pricing" target="_blank" rel="noopener noreferrer">simummuangmarket.com/pricing</a> (ตลาดสี่มุมเมือง) ·
+          <a href="https://www.moc.go.th" target="_blank" rel="noopener noreferrer">กรมการค้าภายใน กระทรวงพาณิชย์</a>
+        </p>
       </div>
 
       <!-- ราคาส่งออก -->
