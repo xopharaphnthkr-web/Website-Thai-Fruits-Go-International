@@ -866,15 +866,37 @@
     }
 
     /* ============================================================
-       ปรับเฉพาะตาราง "ราคาในประเทศไทย" — ขยายกรอบให้ใหญ่ขึ้นจริง (ไม่เลื่อน)
+       ปรับตาราง "ราคาในประเทศไทย" — ขยายกรอบให้ใหญ่ขึ้นจริง (ไม่เลื่อน)
        ============================================================ */
-    .container:has(#tab-price-domestic.active) {
+    .container:has(#tab-price-domestic.active),
+    .container:has(#tab-price-export.active) {
       max-width: 1500px;
     }
     #tab-price-domestic th,
     #tab-price-domestic td {
       white-space: nowrap;
       padding: 1rem 1.6rem;
+    }
+
+    /* ============================================================
+       ตาราง "ราคาส่งออก" — ไม่ใช้ nowrap/เลื่อนแนวนอน ให้ตกบรรทัดได้แทน
+       ============================================================ */
+    #tab-price-export .table-wrap {
+      overflow-x: hidden;
+      border-radius: var(--radius-md);
+    }
+    #tab-price-export table {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    #tab-price-export table {
+      table-layout: fixed;
+    }
+    #tab-price-export th,
+    #tab-price-export td {
+      white-space: normal;
+      word-break: break-word;
+      padding: 1rem 1.2rem;
     }
 
     .rank-badge {
@@ -2819,7 +2841,7 @@
           <div class="card-body">
             <div class="card-title">ทุเรียน</div>
             <div class="card-en">Durian · Durio zibethinus</div>
-            <p class="card-desc">ราชาแห่งผลไม้ไทย ทุเรียนหมอนทองมีรสชาติเนื้อหนา หวานมัน เป็นที่ต้องการสูงในตลาดจีน ฮ่องกง และสิงคโปร์</p>
+            <p class="card-desc">ราชาแห่งผลไม้ไทย ทุเรียนหมอนทองมีรสชาติเนื้อหนา หวานมัน</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -2844,7 +2866,7 @@
             <p class="card-desc">มะม่วงพันธุ์ดีที่ได้รับความนิยมทั่วโลก เนื้อแน่น ไม่มีเส้นใย กลิ่นหอม รสหวานอมเปรี้ยว</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ญี่ปุ่น</span>
+              <span style="color:var(--text-mid)">ญี่ปุ่น, เกาหลีใต้</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -3001,7 +3023,7 @@
           <div class="card-body">
             <div class="card-title">ลำไย</div>
             <div class="card-en">Dimocarpus longan</div>
-            <p class="card-desc">ผลไม้ขึ้นชื่อของจังหวัดลำพูนและเชียงใหม่ เนื้อสีขาวใส หวานฉ่ำ เมล็ดกลม นิยมรับประทานสดและแปรรูปเป็นลำไยอบแห้งส่งออกตลาดจีน เวียดนาม และฮ่องกง</p>
+            <p class="card-desc">ผลไม้ขึ้นชื่อของจังหวัดลำพูนและเชียงใหม่ เนื้อสีขาวใส หวานฉ่ำ เมล็ดกลม นิยมรับประทานสดและแปรรูปเป็นลำไยอบแห้ง</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3024,7 +3046,7 @@
           <div class="card-body">
             <div class="card-title">ลิ้นจี่</div>
             <div class="card-en">Litchi chinensis</div>
-            <p class="card-desc">ลิ้นจี่ไทยมีชื่อเสียงด้านรสชาติหวานอมเปรี้ยว เนื้อแน่น กลิ่นหอม พันธุ์ที่นิยม ได้แก่ ฮงฮวย จักรพรรดิ และกิมจิก ส่งออกไปยังมาเลเซียเป็นหลัก รวมถึงตะวันออกกลาง</p>
+            <p class="card-desc">ลิ้นจี่ไทยมีชื่อเสียงด้านรสชาติหวานอมเปรี้ยว เนื้อแน่น กลิ่นหอม พันธุ์ที่นิยม ได้แก่ ฮงฮวย จักรพรรดิ และกิมจิก</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">มาเลเซีย</span>
@@ -3044,7 +3066,7 @@
           <div class="card-body">
             <div class="card-title">ส้มสายน้ำผึ้ง</div>
             <div class="card-en">Sai Nam Phueng Orange</div>
-            <p class="card-desc">ส้มชื่อดังจากอำเภอฝาง แม่อาย และไชยปราการ จังหวัดเชียงใหม่ รสหวานอมเปรี้ยว เปลือกบาง น้ำเยอะ ผลเกรดพรีเมียมส่งออกไปมาเลเซียและสิงคโปร์</p>
+            <p class="card-desc">ส้มชื่อดังจากอำเภอฝาง แม่อาย และไชยปราการ จังหวัดเชียงใหม่ รสหวานอมเปรี้ยว เปลือกบาง น้ำเยอะ </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">มาเลเซีย</span>
@@ -3088,8 +3110,8 @@
             <div class="card-en">Peach</div>
             <p class="card-desc">ท้อไทยปลูกบนดอยสูงกว่า 1,000 เมตร ผลสีเหลืองอมส้ม เนื้อนุ่มฉ่ำ หวานหอม นิยมรับประทานสดและแปรรูปเป็นท้อดอง ท้ออบแห้ง</p>
             <div style="margin:1rem 0">
-              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ตลาดในประเทศเป็นหลัก</div>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 60–150 บ./กก.</span>
@@ -3106,7 +3128,7 @@
           <div class="card-body">
             <div class="card-title">บ๊วย</div>
             <div class="card-en">Japanese Plum</div>
-            <p class="card-desc">บ๊วยไทยปลูกมากในอำเภอแม่แตง จ.เชียงใหม่ ผลกลมรีสีเขียวอมเหลือง รสเปรี้ยวอมหวาน นิยมแปรรูปเป็นบ๊วยดอง น้ำบ๊วย และส่งออกไปจีน ญี่ปุ่น</p>
+            <p class="card-desc">บ๊วยไทยปลูกมากในอำเภอแม่แตง จ.เชียงใหม่ ผลกลมรีสีเขียวอมเหลือง รสเปรี้ยวอมหวาน นิยมแปรรูปเป็นบ๊วยดอง น้ำบ๊วย</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3127,10 +3149,10 @@
           <div class="card-body">
             <div class="card-title">มะขามหวาน</div>
             <div class="card-en">Sweet Tamarind</div>
-            <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์ (GI) ฝักใหญ่ เนื้อหนา หวาน ส่งออกไปกว่า 20 ประเทศทั่วโลก โดยเฉพาะตลาดยุโรปและสหรัฐอเมริกา</p>
+            <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์  ฝักใหญ่ เนื้อหนา หวาน </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, ฮ่องกง, สหรัฐอเมริกา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–120 บ./กก.</span>
@@ -3147,10 +3169,10 @@
           <div class="card-body">
             <div class="card-title">ทับทิม</div>
             <div class="card-en">Punica granatum</div>
-            <p class="card-desc">ทับทิมเป็นผลไม้ที่มีเมล็ดสีแดงสด รสหวานอมเปรี้ยว อุดมด้วยสารต้านอนุมูลอิสระ วิตามินซี และใยอาหาร นิยมรับประทานสด คั้นน้ำ และแปรรูปเป็นผลิตภัณฑ์สุขภาพ ส่งออกไปยังหลายประเทศในเอเชีย</p>
+            <p class="card-desc">ทับทิมเป็นผลไม้ที่มีเมล็ดสีแดงสด รสหวานอมเปรี้ยว อุดมด้วยสารต้านอนุมูลอิสระ วิตามินซี และใยอาหาร นิยมรับประทานสด คั้นน้ำ และแปรรูปเป็นผลิตภัณฑ์สุขภาพ</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ลาว</span>
+              <span style="color:var(--text-mid)">ลาว, กัมพูชา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–150 บ./กก.</span>
@@ -3169,8 +3191,8 @@
             <div class="card-en">Kiwifruit</div>
             <p class="card-desc">กีวี่ที่ปลูกบนดอยสูงในจ.เชียงราย และน่าน เริ่มเป็นที่รู้จักในตลาดภายในประเทศ มีแผนขยายการผลิตเพื่อส่งออกในอนาคต</p>
             <div style="margin:1rem 0">
-              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จำหน่ายในประเทศ</span>
+              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">จำหน่ายในประเทศเป็นหลัก</div>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 100–180 บ./กก.</span>
@@ -3187,7 +3209,7 @@
           <div class="card-body">
             <div class="card-title">เสาวรส</div>
             <div class="card-en">Passion Fruit</div>
-            <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส สกัดส่งออกไปยุโรปและออสเตรเลีย</p>
+            <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">ไต้หวัน</span>
@@ -3288,10 +3310,10 @@
           <div class="card-body">
             <div class="card-title">มะม่วงน้ำดอกไม้</div>
             <div class="card-en">Nam Dok Mai Mango</div>
-            <p class="card-desc">มะม่วงพันธุ์ดีที่ได้รับความนิยมสูงสุด เนื้อละเอียด ไม่มีเส้นใย กลิ่นหอมเป็นเอกลักษณ์ รสหวานอมเปรี้ยว ส่งออกไปยังญี่ปุ่น เกาหลี และยุโรปได้ราคาดี</p>
+            <p class="card-desc">มะม่วงพันธุ์ดีที่ได้รับความนิยมสูงสุด เนื้อละเอียด ไม่มีเส้นใย กลิ่นหอมเป็นเอกลักษณ์ รสหวานอมเปรี้ยว</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ญี่ปุ่น</span>
+              <span style="color:var(--text-mid)">ญี่ปุ่น, เกาหลีใต้</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -3308,10 +3330,10 @@
           <div class="card-body">
             <div class="card-title">ส้มโอ</div>
             <div class="card-en">Pomelo</div>
-            <p class="card-desc">ส้มโอขาวแตงกวาและทองดีบ้านแพ้ว ผลใหญ่ เนื้อแน่น ฉ่ำน้ำ หวานกรอบ เป็นที่นิยมในเทศกาลต่างๆ โดยเฉพาะตรุษจีน ส่งออกไปฮ่องกง สิงคโปร์ และจีน</p>
+            <p class="card-desc">ส้มโอขาวแตงกวาและทองดีบ้านแพ้ว ผลใหญ่ เนื้อแน่น ฉ่ำน้ำ หวานกรอบ เป็นที่นิยมในเทศกาลต่างๆ โดยเฉพาะตรุษจีน</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, สหรัฐอเมริกา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–80 บ./ผล</span>
@@ -3327,10 +3349,10 @@
           <div class="card-body">
             <div class="card-title">กล้วยหอม</div>
             <div class="card-en">Cavendish Banana</div>
-            <p class="card-desc">กล้วยหอมไทยส่งออกมากเป็นอันดับต้นๆ ของ ASEAN รสหวานหอม เนื้อนุ่ม ส่งออกไปญี่ปุ่น จีน และตะวันออกกลาง มูลค่าส่งออกกว่า 3,000 ล้านบาท/ปี</p>
+            <p class="card-desc">กล้วยหอมไทยส่งออกมากเป็นอันดับต้นๆ ของ ASEAN รสหวานหอม เนื้อนุ่ม </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ญี่ปุ่น</span>
+              <span style="color:var(--text-mid)">ญี่ปุ่น, จีน</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–35 บ./กก.</span>
@@ -3348,10 +3370,10 @@
           <div class="card-body">
             <div class="card-title">ฝรั่งกิมจู</div>
             <div class="card-en">Kim Ju Guava</div>
-            <p class="card-desc">ฝรั่งกิมจูเนื้อกรอบ หวาน ไม่ฝาด ผิวเรียบสวยงาม ส่งออกไปญี่ปุ่น เกาหลี และจีน มูลค่าส่งออกกว่า 1,500 ล้านบาท/ปี</p>
+            <p class="card-desc">ฝรั่งกิมจูเนื้อกรอบ หวาน ไม่ฝาด ผิวเรียบสวยงาม </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, ฮ่องกง</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 20–50 บ./กก.</span>
@@ -3368,10 +3390,10 @@
           <div class="card-body">
             <div class="card-title">มะละกอ</div>
             <div class="card-en">Holland Papaya</div>
-            <p class="card-desc">มะละกอฮอลแลนด์ผลขนาดใหญ่ เนื้อสีส้มสด รสหวานหอม อุดมด้วยเบต้าแคโรทีนและวิตามิน C ส่งออกทั้งแบบสดและแปรรูปไปกว่า 30 ประเทศ</p>
+            <p class="card-desc">มะละกอฮอลแลนด์ผลขนาดใหญ่ เนื้อสีส้มสด รสหวานหอม อุดมด้วยเบต้าแคโรทีนและวิตามิน C </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, ฮ่องกง</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–35 บ./กก.</span>
@@ -3388,10 +3410,10 @@
           <div class="card-body">
             <div class="card-title">แตงโม</div>
             <div class="card-en">Jinthara Watermelon</div>
-            <p class="card-desc">แตงโมไทยพันธุ์จินตหราและ Sugar Baby มีชื่อเสียงด้านความหวานฉ่ำ เนื้อสีแดงเข้ม ส่งออกไปจีน ฮ่องกง และสิงคโปร์ มูลค่าส่งออกกว่า 2,000 ล้านบาท/ปี</p>
+            <p class="card-desc">แตงโมไทยพันธุ์จินตหราและ Sugar Baby มีชื่อเสียงด้านความหวานฉ่ำ เนื้อสีแดงเข้ม </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, กัมพูชา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 8–20 บ./กก.</span>
@@ -3412,7 +3434,7 @@
             
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">สิงคโปร์</span>
+              <span style="color:var(--text-mid)">สิงคโปร์, ฮ่องกง</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–70 บ./กก.</span>
@@ -3429,10 +3451,10 @@
           <div class="card-body">
             <div class="card-title">ชมพู่มะเหมี่ยว</div>
             <div class="card-en">Rose Apple</div>
-            <p class="card-desc">ชมพู่มะเหมี่ยวพันธุ์ดีจากไทย ผลสีเขียวอมแดง กรอบ หวาน ฉ่ำน้ำ ส่งออกไปสิงคโปร์ ฮ่องกง และมาเลเซีย ได้รับความนิยมในหมู่นักท่องเที่ยว</p>
+            <p class="card-desc">ชมพู่มะเหมี่ยวพันธุ์ดีจากไทย ผลสีเขียวอมแดง กรอบ หวาน ฉ่ำน้ำ ได้รับความนิยมในหมู่นักท่องเที่ยว</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">สิงคโปร์</span>
+              <span style="color:var(--text-mid)">สิงคโปร์, ฮ่องกง</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–70 บ./กก.</span>
@@ -3449,10 +3471,10 @@
           <div class="card-body">
             <div class="card-title">มะนาวไทย</div>
             <div class="card-en">Thai Lime</div>
-            <p class="card-desc">มะนาวไทยมีกลิ่นหอมเป็นเอกลักษณ์ น้ำมาก ส่งออกทั้งสด แช่เย็น และน้ำมะนาวแปรรูปไปกว่า 40 ประเทศ มูลค่ากว่า 1,000 ล้านบาท/ปี</p>
+            <p class="card-desc">มะนาวไทยมีกลิ่นหอมเป็นเอกลักษณ์ น้ำมาก </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ลาว</span>
+              <span style="color:var(--text-mid)">ลาว, กัมพูชา, จีน</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 20–60 บ./กก.</span>
@@ -3470,10 +3492,10 @@
           <div class="card-body">
             <div class="card-title">มะขามหวานเพชรบูรณ์</div>
             <div class="card-en">Sweet Tamarind</div>
-            <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์ (GI) ฝักใหญ่ เนื้อหนา หวาน ส่งออกไปกว่า 20 ประเทศ โดยเฉพาะตลาดยุโรปและสหรัฐอเมริกา</p>
+            <p class="card-desc">มะขามหวานเพชรบูรณ์ได้รับสิ่งบ่งชี้ทางภูมิศาสตร์ ฝักใหญ่ เนื้อหนา หวาน </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, ฮ่องกง, สหรัฐอเมริกา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 50–120 บ./กก.</span>
@@ -3571,7 +3593,7 @@
           <div class="card-body">
             <div class="card-title">ทุเรียนหมอนทอง</div>
             <div class="card-en">Monthong Durian</div>
-            <p class="card-desc">ทุเรียนพันธุ์หมอนทองของไทยเป็นที่ยอมรับว่าดีที่สุดในโลก เนื้อหนา สีเหลืองทอง กลิ่นหอม รสหวานมัน ไม่ขม ส่งออกไปจีนมูลค่ากว่า 100,000 ล้านบาท/ปี</p>
+            <p class="card-desc">ทุเรียนพันธุ์หมอนทองของไทยเป็นที่ยอมรับว่าดีที่สุดในโลก เนื้อหนา สีเหลืองทอง กลิ่นหอม รสหวานมัน ไม่ขม </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3591,7 +3613,7 @@
           <div class="card-body">
             <div class="card-title">มังคุด</div>
             <div class="card-en">Mangosteen</div>
-            <p class="card-desc">มังคุดไทยขึ้นชื่อว่าดีที่สุดในโลก เปลือกสีม่วงเข้ม เนื้อขาวนวล หวานอมเปรี้ยว อุดมด้วย Xanthone สารต้านอนุมูลอิสระทรงพลัง ส่งออกไปจีน ฮ่องกง และยุโรป</p>
+            <p class="card-desc">มังคุดไทยขึ้นชื่อว่าดีที่สุดในโลก เปลือกสีม่วงเข้ม เนื้อขาวนวล หวานอมเปรี้ยว อุดมด้วย Xanthone สารต้านอนุมูลอิสระทรงพลัง </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3613,7 +3635,7 @@
             <p class="card-desc">เงาะพันธุ์โรงเรียนเนื้อหนา แกะง่าย ไม่ติดเมล็ด หวานฉ่ำ เป็นที่นิยมทั้งในและต่างประเทศ โดยเฉพาะตลาดจีนและ ASEAN</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, มาเลเซีย</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 25–50 บ./กก.</span>
@@ -3651,7 +3673,7 @@
           <div class="card-body">
             <div class="card-title">มะปรางหวาน</div>
             <div class="card-en">Maprang</div>
-            <p class="card-desc">มะปรางพันธุ์หวานจากภาคตะวันออก ผลสีเหลืองทอง เนื้อละเอียด หวานอมเปรี้ยว กลิ่นหอมหวล มีราคาสูงในตลาดกรุงเทพฯ และเริ่มส่งออกไปประเทศใกล้เคียง</p>
+            <p class="card-desc">มะปรางพันธุ์หวานจากภาคตะวันออก ผลสีเหลืองทอง เนื้อละเอียด หวานอมเปรี้ยว กลิ่นหอมหวล มีราคาสูงในตลาดกรุงเทพฯ </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">สิงคโปร์</span>
@@ -3674,7 +3696,7 @@
             <p class="card-desc">สละเปลือกแข็งคล้ายเกล็ด เนื้อสีขาวนวล รสหวานอมเปรี้ยว กรอบ ส่งออกไปจีน ฮ่องกง และประเทศ ASEAN ตลาดจีนให้ความสนใจเพิ่มขึ้นต่อเนื่อง</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, กัมพูชา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–60 บ./กก.</span>
@@ -3693,8 +3715,8 @@
             <div class="card-en">Santol</div>
             <p class="card-desc">กระท้อนบ้านบึงขึ้นชื่อเรื่องความหวานและขนาดผลใหญ่ เนื้อขาว รสหวานอมเปรี้ยว เมล็ดเล็ก นิยมทั้งรับประทานสดและแปรรูปเป็นกระท้อนดอง กวน ส่งออกไปประเทศ ASEAN</p>
             <div style="margin:1rem 0">
-              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ตลาดในประเทศ</span>
+              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ตลาดในประเทศเป็นหลัก</div>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 30–80 บ./กก.</span>
@@ -3713,8 +3735,8 @@
             <div class="card-en">Jujube</div>
             <p class="card-desc">หนำเลี้ยบหรือพุทราจีนพันธุ์ไทย ผลกลมสีเขียว เนื้อกรอบ หวานฉ่ำ นิยมรับประทานสดและส่งออกไปจีน ฮ่องกง ในฐานะสินค้าสุขภาพ</p>
             <div style="margin:1rem 0">
-              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">ตลาดในประเทศ</span>
+              <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ตลาดในประเทศเป็นหลัก</div>
+              
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–90 บ./กก.</span>
@@ -3733,10 +3755,10 @@
           <div class="card-body">
             <div class="card-title">ระกำ</div>
             <div class="card-en">Ragan</div>
-            <p class="card-desc">ระกำเป็นผลไม้เขตร้อนหายาก พบเฉพาะภาคตะวันออก เนื้อสีส้มแดง รสเปรี้ยวอมหวาน กลิ่นเฉพาะตัว นิยมรับประทานสดกับพริกเกลือหรือทำน้ำระกำส่งออก</p>
+            <p class="card-desc">ระกำเป็นผลไม้เขตร้อนหายาก พบเฉพาะภาคตะวันออก เนื้อสีส้มแดง รสเปรี้ยวอมหวาน กลิ่นเฉพาะตัว นิยมรับประทานสดกับพริกเกลือหรือทำน้ำระกำ</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, สิงคโปร์</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–80 บ./กก.</span>
@@ -3834,10 +3856,10 @@
           <div class="card-body">
             <div class="card-title">สับปะรด</div>
             <div class="card-en">Pattavia Pineapple</div>
-            <p class="card-desc">ไทยเป็นผู้ส่งออกสับปะรดกระป๋องอันดับ 1 ของโลก สับปะรดมีขนาดใหญ่ เนื้อสีเหลืองทอง หวานอมเปรี้ยว เหมาะทั้งรับประทานสดและแปรรูป ส่งออกมูลค่ากว่า 20,000 ล้านบาท/ปี</p>
+            <p class="card-desc">ไทยเป็นผู้ส่งออกสับปะรดกระป๋องอันดับ 1 ของโลก สับปะรดมีขนาดใหญ่ เนื้อสีเหลืองทอง หวานอมเปรี้ยว เหมาะทั้งรับประทานสดและแปรรูป </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">สหรัฐอเมริกา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 10–25 บ./กก.</span>
@@ -3853,10 +3875,10 @@
           <div class="card-body">
             <div class="card-title">ลองกอง</div>
             <div class="card-en">Longkong</div>
-            <p class="card-desc">ลองกองนราธิวาสขึ้นชื่อว่าหวานที่สุดในโลก เนื้อสีขาวใสคล้ายแก้ว หวานหอม ไม่มียาง ส่งออกไปมาเลเซีย สิงคโปร์ และอินโดนีเซีย</p>
+            <p class="card-desc">ลองกองนราธิวาสขึ้นชื่อว่าหวานที่สุดในโลก เนื้อสีขาวใสคล้ายแก้ว หวานหอม ไม่มียาง </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">มาเลเซีย</span>
+              <span style="color:var(--text-mid)">จีน, มาเลเซีย</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 40–90 บ./กก.</span>
@@ -3872,10 +3894,10 @@
           <div class="card-body">
             <div class="card-title">มะพร้าวน้ำหอม</div>
             <div class="card-en">Aromatic Coconut</div>
-            <p class="card-desc">มะพร้าวน้ำหอมไทยส่งออกไปยังจีนและ ASEAN เนื้ออ่อน น้ำหวานหอม กลิ่นมะพร้าวเข้มข้น ส่งออกมูลค่ากว่า 8,000 ล้านบาท/ปี</p>
+            <p class="card-desc">มะพร้าวน้ำหอมไทยส่งออกไปยังจีนและ ASEAN เนื้ออ่อน น้ำหวานหอม กลิ่นมะพร้าวเข้มข้น </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, สหรัฐอเมริกา</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 15–40 บ./ลูก</span>
@@ -3913,10 +3935,10 @@
           <div class="card-body">
             <div class="card-title">เงาะโรงเรียน</div>
             <div class="card-en">Rambutan</div>
-            <p class="card-desc">เงาะสุราษฎร์ธานีชื่อดังด้านความหวานและขนาดผลใหญ่ พันธุ์โรงเรียนและสีชมพู เป็นที่ต้องการทั้งในและต่างประเทศ ส่งออกไปจีน มาเลเซีย อินโดนีเซีย</p>
+            <p class="card-desc">เงาะสุราษฎร์ธานีชื่อดังด้านความหวานและขนาดผลใหญ่ พันธุ์โรงเรียนและสีชมพู </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
-              <span style="color:var(--text-mid)">จีน</span>
+              <span style="color:var(--text-mid)">จีน, มาเลเซีย</span>
             </div>
             <div class="card-meta">
               <span class="card-price">💰 20–45 บ./กก.</span>
@@ -3934,7 +3956,7 @@
           <div class="card-body">
             <div class="card-title">มังคุดภาคใต้</div>
             <div class="card-en">Mangosteen</div>
-            <p class="card-desc">มังคุดภาคใต้ออกช้ากว่าภาคตะวันออก ทำให้ตลาดมีมังคุดต่อเนื่องตลอดปี ส่งออกจีนและฮ่องกงมูลค่ากว่า 5,000 ล้านบาท/ปี</p>
+            <p class="card-desc">มังคุดภาคใต้ออกช้ากว่าภาคตะวันออก ทำให้ตลาดมีมังคุดต่อเนื่องตลอดปี </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3954,7 +3976,7 @@
           <div class="card-body">
             <div class="card-title">ลางสาด</div>
             <div class="card-en">Lansium</div>
-            <p class="card-desc">ลางสาดคล้ายลองกองแต่เมล็ดขมน้อยกว่า เนื้อใสฉ่ำ หวานหอม ส่งออกไปมาเลเซียและอินโดนีเซีย มีสารต้านอนุมูลอิสระสูง</p>
+            <p class="card-desc">ลางสาดคล้ายลองกองแต่เมล็ดขมน้อยกว่า เนื้อใสฉ่ำ หวานหอม </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">มาเลเซีย</span>
@@ -3974,7 +3996,7 @@
           <div class="card-body">
             <div class="card-title">เสาวรสภาคใต้</div>
             <div class="card-en">Passion Fruit</div>
-            <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส สกัดส่งออกไปยุโรปและออสเตรเลีย</p>
+            <p class="card-desc">เสาวรสไทยมี 2 สายพันธุ์หลัก คือ เสาวรสหวาน (สีเหลือง) และเสาวรสเปรี้ยว (สีม่วง) นิยมแปรรูปเป็นน้ำเสาวรส </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">ไต้หวัน</span>
@@ -3994,7 +4016,7 @@
           <div class="card-body">
             <div class="card-title">ส้มแขก (มะดัน)</div>
             <div class="card-en">Garcinia cambogia</div>
-            <p class="card-desc">ส้มแขกเป็นผลไม้สมุนไพรภาคใต้ที่ได้รับความสนใจทั่วโลก สาร HCA ช่วยลดน้ำหนัก ส่งออกไปยุโรปและสหรัฐฯ ในรูปอาหารเสริมมูลค่าสูง</p>
+            <p class="card-desc">ส้มแขกเป็นผลไม้สมุนไพรภาคใต้ที่ได้รับความสนใจทั่วโลก สาร HCA ช่วยลดน้ำหนัก </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">สหรัฐอเมริกา</span>
@@ -4014,7 +4036,7 @@
           <div class="card-body">
             <div class="card-title">กล้วยน้ำว้าใต้</div>
             <div class="card-en">Nam Wa Banana</div>
-            <p class="card-desc">กล้วยน้ำว้าพันธุ์พื้นเมืองภาคใต้ ผลสั้น เนื้อหนา หวาน เหมาะแปรรูปเป็นกล้วยฉาบ กล้วยทอด กล้วยอบ ส่งออกมาเลเซีย สิงคโปร์ และญี่ปุ่น</p>
+            <p class="card-desc">กล้วยน้ำว้าพันธุ์พื้นเมืองภาคใต้ ผลสั้น เนื้อหนา หวาน เหมาะแปรรูปเป็นกล้วยฉาบ กล้วยทอด กล้วยอบ </p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -4400,7 +4422,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>ลำไย</td><td>เหนือ</td><td>จีน (73.1%)</td><td class="price-tag">30–45</td><td>40–55</td><td>~19,698 ล้านบาท</td><td class="price-up">▲ +15% (ปี 2567)</td></tr>
+              <tr><td>ลำไย</td><td>เหนือ</td><td>จีน</td><td class="price-tag">30–45</td><td>40–55</td><td>~19,698 ล้านบาท</td><td class="price-up">▲ +15% (ปี 2567)</td></tr>
               <tr><td>ลิ้นจี่</td><td>เหนือ</td><td>มาเลเซีย</td><td class="price-tag">70–110</td><td>90–140</td><td>~2,000 ล้านบาท*</td><td class="price-up">▲ ทรงตัว–เพิ่มขึ้นเล็กน้อย</td></tr>
               <tr><td>ส้มสายน้ำผึ้ง</td><td>เหนือ</td><td>มาเลเซีย</td><td class="price-tag">30–55</td><td>45–70</td><td>~600 ล้านบาท*</td><td class="price-up">▲ +5%*</td></tr>
               <tr><td>สตรอว์เบอร์รี</td><td>เหนือ</td><td>สิงคโปร์</td><td class="price-tag">90–180</td><td>120–220</td><td>~300 ล้านบาท*</td><td class="price-up">▲ +9%*</td></tr>
@@ -4422,8 +4444,8 @@
               <tr><td>มะนาวไทย</td><td>กลาง</td><td>ลาว กัมพูชา จีน</td><td class="price-tag">25–55</td><td>35–70</td><td>~300 ล้านบาท*</td><td class="price-up">▲ +4%*</td></tr>
               <tr><td>มะขามหวานเพชรบูรณ์</td><td>กลาง</td><td>จีน ฮ่องกง สหรัฐอเมริกา</td><td class="price-tag">60–130</td><td>80–160</td><td>~900 ล้านบาท*</td><td class="price-up">▲ +14%* (สินค้า GI)</td></tr>
 
-              <tr><td>ทุเรียนหมอนทอง</td><td>ตะวันออก</td><td>จีน (&gt;90%)</td><td class="price-tag">130–190</td><td>150–210</td><td>~134,852 ล้านบาท</td><td class="price-up">▲ +7% (ปี 2567 vs 2566)</td></tr>
-              <tr><td>มังคุด</td><td>ตะวันออก</td><td>จีน (91.0%)</td><td class="price-tag">45–80</td><td>60–95</td><td>~17,573 ล้านบาท</td><td class="price-down">▼ ราคาร่วงปี 2568 (ผลผลิตล้นตลาด)</td></tr>
+              <tr><td>ทุเรียนหมอนทอง</td><td>ตะวันออก</td><td>จีน</td><td class="price-tag">130–190</td><td>150–210</td><td>~134,852 ล้านบาท</td><td class="price-up">▲ +7% (ปี 2567 vs 2566)</td></tr>
+              <tr><td>มังคุด</td><td>ตะวันออก</td><td>จีน</td><td class="price-tag">45–80</td><td>60–95</td><td>~17,573 ล้านบาท</td><td class="price-down">▼ ราคาร่วงปี 2568 (ผลผลิตล้นตลาด)</td></tr>
               <tr><td>เงาะโรงเรียน</td><td>ตะวันออก</td><td>จีน มาเลเซีย</td><td class="price-tag">20–40</td><td>30–55</td><td>~700 ล้านบาท*</td><td class="price-up">▲ ทรงตัว (ส่งออก 8% ของผลผลิต)</td></tr>
               <tr><td>ขนุน</td><td>ตะวันออก</td><td>จีน</td><td class="price-tag">18–40</td><td>28–55</td><td>~600 ล้านบาท*</td><td class="price-up">▲ +18%*</td></tr>
               <tr><td>มะปรางหวาน</td><td>ตะวันออก</td><td>สิงคโปร์ (ส่งออกน้อย)</td><td class="price-tag">55–100</td><td>70–125</td><td>~120 ล้านบาท*</td><td class="price-up">▲ +3%*</td></tr>
@@ -4432,12 +4454,12 @@
               <tr><td>หนำเลี้ยบ (พุทรา)</td><td>ตะวันออก</td><td>ตลาดในประเทศเป็นหลัก</td><td>–</td><td>–</td><td>–</td><td>ไม่มีสถิติส่งออกแยกรายชนิด</td></tr>
               <tr><td>ระกำ</td><td>ตะวันออก</td><td>จีน สิงคโปร์</td><td class="price-tag">45–80</td><td>60–100</td><td>~70 ล้านบาท*</td><td class="price-up">▲ +2%*</td></tr>
 
-              <tr><td>สับปะรด</td><td>ใต้</td><td>ทั่วโลก (สหรัฐฯ นำเข้าหลัก)</td><td class="price-tag">35–55 (กระป๋อง)</td><td>45–75</td><td>~16,000 ล้านบาท</td><td class="price-up">▲ +7.1% (ปี 2567 สับปะรดกระป๋อง)</td></tr>
+              <tr><td>สับปะรด</td><td>ใต้</td><td>สหรัฐอเมริกา</td><td class="price-tag">35–55 (กระป๋อง)</td><td>45–75</td><td>~16,000 ล้านบาท</td><td class="price-up">▲ +7.1% (ปี 2567 สับปะรดกระป๋อง)</td></tr>
               <tr><td>ลองกอง</td><td>ใต้</td><td>จีน มาเลเซีย</td><td class="price-tag">50–90</td><td>65–110</td><td>~800 ล้านบาท*</td><td class="price-up">▲ ทรงตัว (ส่งออก 15% ของผลผลิต)</td></tr>
-              <tr><td>มะพร้าวน้ำหอม</td><td>ใต้</td><td>จีน (82.7%) สหรัฐอเมริกา (7.1%)</td><td class="price-tag">15–30 บ./ลูก</td><td>22–40 บ./ลูก</td><td>~7,616 ล้านบาท</td><td class="price-up">▲ +20% (ปี 2567)</td></tr>
-              <tr><td>ทุเรียนภาคใต้</td><td>ใต้</td><td>จีน (&gt;90%)</td><td class="price-tag">130–190</td><td>150–210</td><td>~134,852 ล้านบาท**</td><td class="price-up">▲ +7%** (ตัวเลขรวมประเทศ)</td></tr>
+              <tr><td>มะพร้าวน้ำหอม</td><td>ใต้</td><td>จีน สหรัฐอเมริกา</td><td class="price-tag">15–30 บ./ลูก</td><td>22–40 บ./ลูก</td><td>~7,616 ล้านบาท</td><td class="price-up">▲ +20% (ปี 2567)</td></tr>
+              <tr><td>ทุเรียนภาคใต้</td><td>ใต้</td><td>จีน</td><td class="price-tag">130–190</td><td>150–210</td><td>~134,852 ล้านบาท**</td><td class="price-up">▲ +7%** (ตัวเลขรวมประเทศ)</td></tr>
               <tr><td>เงาะโรงเรียน</td><td>ใต้</td><td>จีน มาเลเซีย</td><td class="price-tag">20–40</td><td>30–55</td><td>~700 ล้านบาท**</td><td class="price-up">▲ ทรงตัว**</td></tr>
-              <tr><td>มังคุดภาคใต้</td><td>ใต้</td><td>จีน (91.0%)</td><td class="price-tag">45–80</td><td>60–95</td><td>~17,573 ล้านบาท**</td><td class="price-down">▼ ราคาร่วงปี 2568**</td></tr>
+              <tr><td>มังคุดภาคใต้</td><td>ใต้</td><td>จีน</td><td class="price-tag">45–80</td><td>60–95</td><td>~17,573 ล้านบาท**</td><td class="price-down">▼ ราคาร่วงปี 2568**</td></tr>
               <tr><td>ลางสาด</td><td>ใต้</td><td>มาเลเซีย</td><td class="price-tag">40–70</td><td>50–90</td><td>~90 ล้านบาท*</td><td class="price-up">▲ +3%*</td></tr>
               <tr><td>เสาวรสภาคใต้</td><td>ใต้</td><td>ไต้หวัน</td><td class="price-tag">40–70</td><td>55–90</td><td>~250 ล้านบาท*</td><td class="price-up">▲ +6%*</td></tr>
               <tr><td>ส้มแขก (มะดัน)</td><td>ใต้</td><td>สหรัฐอเมริกา</td><td class="price-tag">40–90</td><td>55–110</td><td>~300 ล้านบาท*</td><td class="price-up">▲ +11%* (ตลาดอาหารเสริม)</td></tr>
