@@ -1044,10 +1044,13 @@
     .lightbox.open { display: flex; }
 
     .lightbox img {
-      max-width: 90vw;
-      max-height: 85vh;
+      width: min(94vw, 1200px);
+      height: min(88vh, 850px);
+      max-width: 94vw;
+      max-height: 88vh;
       border-radius: var(--radius-md);
       object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
     }
 
     .lightbox-close {
@@ -1291,20 +1294,6 @@
       transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
     }
-
-    /* ============================================================
-       กรอบรอบธงประเทศ (ไม่ใช่กรอบการ์ดด้านนอก) — สีกรอบตรงกับสีธงชาติ
-       ============================================================ */
-    .export-country.ec-cn .export-top img { border: 3px solid #DE2910; }
-    .export-country.ec-jp .export-top img { border: 3px solid #BC002D; }
-    .export-country.ec-vn .export-top img { border: 3px solid #DA251D; }
-    .export-country.ec-hk .export-top img { border: 3px solid #DE2910; }
-    .export-country.ec-id .export-top img { border: 3px solid #FF0000; }
-    .export-country.ec-sg .export-top img { border: 3px solid #EF3340; }
-    .export-country.ec-kr .export-top img { border: 3px solid #003478; }
-    .export-country.ec-us .export-top img { border: 3px solid #3C3B6E; }
-    .export-country.ec-gb .export-top img { border: 3px solid #00247D; }
-    .export-country.ec-au .export-top img { border: 3px solid #00008B; }
 
     .export-top {
       display: flex;
@@ -2048,17 +2037,16 @@
        ============================================================ */
     .chip {
       display: inline-block;
-      background: var(--green-pale);
+      background: none;
       color: var(--green-dark);
       font-size: 0.828rem;
       font-weight: 700;
-      padding: .2rem .7rem;
-      border-radius: 999px;
-      margin: .15rem;
+      padding: 0;
+      margin: .15rem .4rem .15rem 0;
     }
 
     .chip-gold {
-      background: var(--gold-light);
+      background: none;
       color: var(--gold-dark);
     }
 
@@ -2210,27 +2198,25 @@
       display: inline-flex;
       align-items: center;
       gap: .3rem;
-      background: var(--green-pale);
+      background: none;
       color: var(--green-dark);
-      padding: .35rem .9rem;
-      border-radius: 999px;
+      padding: 0;
+      margin: 0 .5rem .3rem 0;
       font-size: 0.977rem;
       font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
+      cursor: default;
     }
 
-    .fruit-chip:hover {
-      background: var(--green-dark);
-      color: #fff;
-    }
-
-    /* ── เอากรอบออกจากชิป/แท็กทุกชนิดทุกหน้า ─────────────── */
+    /* ── เอากรอบ/พื้นหลังออกจากชิป/แท็กทุกชนิดทุกหน้า (ไม่ให้ดูเหมือนปุ่ม) ─────────────── */
     .chip, .chip-gold,
-    .fruit-chip, .export-chip {
+    .fruit-chip, .export-chip,
+    .d3-ftag, .d3-etag {
+      background: none !important;
       border: none !important;
       outline: none !important;
       box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
     }
 
     #panel-exports {
@@ -2240,10 +2226,13 @@
     }
 
     .export-chip {
-      background: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: none;
       color: var(--gold-dark);
-      padding: .3rem .8rem;
-      border-radius: 999px;
+      padding: 0;
+      margin: 0 .5rem .3rem 0;
       font-size: 0.943rem;
       font-weight: 600;
     }
@@ -2426,18 +2415,20 @@
     }
     .d3-fruit-row { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .4rem; }
     .d3-ftag {
-      background: var(--green-pale);
+      display: inline-block;
+      background: none;
       color: var(--green-dark);
-      padding: .3rem .85rem;
-      border-radius: 999px;
+      padding: 0;
+      margin: 0 .6rem .3rem 0;
       font-size: .9rem;
       font-weight: 600;
     }
     .d3-etag {
-      background: #FFF9C4;
+      display: inline-block;
+      background: none;
       color: #E65100;
-      padding: .3rem .85rem;
-      border-radius: 999px;
+      padding: 0;
+      margin: 0 .6rem .3rem 0;
       font-size: .9rem;
       font-weight: 600;
     }
@@ -3321,7 +3312,7 @@
       </div>
 
       <div class="highlight-box">
-        📍 <strong>ภาคกลางของไทย</strong> ครอบคลุม 21 จังหวัด ได้แก่ นครสวรรค์ อุทัยธานี กำแพงเพชร พิจิตร เพชรบูรณ์ พิษณุโลก สุโขทัย ชัยนาท สิงห์บุรี ลพบุรี อ่างทอง พระนครศรีอยุธยา สุพรรณบุรี สระบุรี ปทุมธานี นนทบุรี กรุงเทพมหานคร นครปฐม สมุทรปราการ สมุทรสาคร และสมุทรสงคราม เป็นที่ราบลุ่มแม่น้ำเจ้าพระยา ดินอุดมสมบูรณ์ น้ำเพียงพอตลอดปี เหมาะสำหรับการปลูกมะม่วง ส้มโอ และผลไม้เศรษฐกิจสำคัญอื่นๆ
+        📍 <strong>ภาคกลางของไทย</strong> ครอบคลุม 21 จังหวัด ได้แก่ กรุงเทพมหานคร นนทบุรี ปทุมธานี พระนครศรีอยุธยา อ่างทอง ลพบุรี สิงห์บุรี ชัยนาท สระบุรี นครปฐม สมุทรปราการ สมุทรสาคร สมุทรสงคราม สุพรรณบุรี นครนายก กำแพงเพชร พิจิตร พิษณุโลก เพชรบูรณ์ สุโขทัย และอุทัยธานี เป็นที่ราบลุ่มแม่น้ำเจ้าพระยา ดินอุดมสมบูรณ์ น้ำเพียงพอตลอดปี เหมาะสำหรับปลูกมะม่วง ส้มโอ และผลไม้เศรษฐกิจสำคัญอื่นๆ
       </div>
 
       <!-- ══ แผนที่ภาคกลาง ══ -->
@@ -3604,7 +3595,7 @@
       </div>
 
       <div class="highlight-box">
-        📍 <strong>ภาคตะวันออกของไทย</strong> ครอบคลุม 8 จังหวัด ได้แก่ นครนายก ปราจีนบุรี สระแก้ว ฉะเชิงเทรา ชลบุรี ระยอง จันทบุรี และตราด โดยเฉพาะระยอง จันทบุรี และตราด เป็นแหล่งผลิตผลไม้เมืองร้อนที่ดีที่สุดในโลก ด้วยดินภูเขาไฟอุดมแร่ธาตุ และปริมาณฝนที่เพียงพอ ทำให้ผลไม้มีรสชาติเป็นเลิศ
+        📍 <strong>ภาคตะวันออกของไทย</strong> ครอบคลุม 8 จังหวัด ได้แก่ ชลบุรี ระยอง จันทบุรี ตราด ฉะเชิงเทรา ปราจีนบุรี สระแก้ว และนครนายก ดินภูเขาไฟอุดมแร่ธาตุ ปริมาณฝนเพียงพอตลอดปี เหมาะสำหรับปลูกผลไม้เมืองร้อนที่ดีที่สุดในโลก โดยเฉพาะทุเรียนและมังคุด
       </div>
 
       <!-- ══ แผนที่ภาคตะวันออก ══ -->
@@ -4727,17 +4718,17 @@
       </div>
 
       <!-- กราฟแท่งมูลค่าส่งออก 10 อันดับตลาดหลัก -->
-      <div class="reveal" style="max-width:1000px;margin:0 auto 3rem;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:2rem 1.5rem;">
-        <h3 style="text-align:center;color:var(--green-dark);font-family:var(--font-display);margin-bottom:1.25rem;font-size:1.15rem;">
+      <div class="reveal" style="max-width:1200px;margin:0 auto 3rem;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:2.5rem 2rem;">
+        <h3 style="text-align:center;color:var(--green-dark);font-family:var(--font-display);margin-bottom:1.5rem;font-size:1.5rem;">
           📊 มูลค่าส่งออกผลไม้ไทยแยกตามประเทศ (ล้านบาท/ปี)
         </h3>
-        <div style="position:relative;height:380px;">
+        <div style="position:relative;height:480px;">
           <canvas id="exportBarChart"></canvas>
         </div>
       </div>
 
       <div class="export-grid">
-        <div class="export-country reveal ec-cn">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="CN.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4756,7 +4747,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-jp">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="JP.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4775,7 +4766,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-vn">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="VN.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4794,7 +4785,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-hk">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="HK.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4813,7 +4804,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-id">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="ID.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4832,7 +4823,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-sg">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="SG.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4851,7 +4842,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-kr">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="KR.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4870,7 +4861,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-us">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="US.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4889,7 +4880,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-gb">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="GB.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4908,7 +4899,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal ec-au">
+        <div class="export-country reveal">
           <div class="export-top">
             <img src="AU.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -7394,6 +7385,45 @@
     const exportLabels = ['จีน','ญี่ปุ่น','เวียดนาม','ฮ่องกง','อินโดนีเซีย','สิงคโปร์','เกาหลีใต้','สหรัฐฯ','สหราชอาณาจักร','ออสเตรเลีย'];
     const exportValues = [85000, 12000, 9500, 7200, 6000, 5500, 4800, 4200, 3500, 2800];
     const exportColors = ['#1B5E20','#2E7D32','#388E3C','#43A047','#4CAF50','#66BB6A','#81C784','#A5D6A7','#C8E6C9','#E8F5E9'];
+    const exportFlags = ['CN.png','JP.png','VN.png','HK.png','ID.png','SG.png','KR.png','US.png','GB.png','AU.png'];
+
+    // โหลดรูปธงล่วงหน้า แล้วสั่งวาดกราฟใหม่เมื่อโหลดเสร็จ
+    const flagImages = exportFlags.map(src => {
+      const img = new Image();
+      img.onload = () => { if (exportBarChartInstance) exportBarChartInstance.update(); };
+      img.src = src;
+      return img;
+    });
+
+    // ปลั๊กอินวาดรูปธง + ชื่อประเทศใต้แกน X แทนข้อความ
+    const flagAxisPlugin = {
+      id: 'flagAxisPlugin',
+      afterDraw: (chart) => {
+        const { ctx, scales: { x } } = chart;
+        const flagW = 44, flagH = 32;
+        const flagY = x.bottom + 10;
+        const textY = flagY + flagH + 14;
+        chart.data.labels.forEach((label, i) => {
+          const img = flagImages[i];
+          const xPos = x.getPixelForTick(i);
+          if (img && img.complete && img.naturalWidth > 0) {
+            ctx.save();
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+            ctx.drawImage(img, xPos - flagW / 2, flagY, flagW, flagH);
+            ctx.strokeRect(xPos - flagW / 2, flagY, flagW, flagH);
+            ctx.restore();
+          }
+          ctx.save();
+          ctx.font = "15px 'Sarabun', sans-serif";
+          ctx.fillStyle = '#1A2A1A';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'top';
+          ctx.fillText(label, xPos, textY);
+          ctx.restore();
+        });
+      }
+    };
 
     exportBarChartInstance = new Chart(canvas.getContext('2d'), {
       type: 'bar',
@@ -7407,9 +7437,13 @@
           maxBarThickness: 48
         }]
       },
+      plugins: [flagAxisPlugin],
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+          padding: { bottom: 74 }
+        },
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -7420,17 +7454,17 @@
         },
         scales: {
           x: {
-            ticks: { font: { family: "'Sarabun', sans-serif", size: 12 }, color: '#1A2A1A' },
+            ticks: { display: false },
             grid: { display: false }
           },
           y: {
             beginAtZero: true,
             ticks: {
-              font: { family: "'Sarabun', sans-serif", size: 11 },
+              font: { family: "'Sarabun', sans-serif", size: 14 },
               callback: (v) => v.toLocaleString('th-TH')
             },
             grid: { color: 'rgba(27,94,32,.08)' },
-            title: { display: true, text: 'ล้านบาท', font: { family: "'Sarabun', sans-serif", size: 12 } }
+            title: { display: true, text: 'ล้านบาท', font: { family: "'Sarabun', sans-serif", size: 15 } }
           }
         }
       }
