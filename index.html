@@ -1292,6 +1292,20 @@
       box-shadow: var(--shadow-lg);
     }
 
+    /* ============================================================
+       กรอบรอบธงประเทศ (ไม่ใช่กรอบการ์ดด้านนอก) — สีกรอบตรงกับสีธงชาติ
+       ============================================================ */
+    .export-country.ec-cn .export-top img { border: 3px solid #DE2910; }
+    .export-country.ec-jp .export-top img { border: 3px solid #BC002D; }
+    .export-country.ec-vn .export-top img { border: 3px solid #DA251D; }
+    .export-country.ec-hk .export-top img { border: 3px solid #DE2910; }
+    .export-country.ec-id .export-top img { border: 3px solid #FF0000; }
+    .export-country.ec-sg .export-top img { border: 3px solid #EF3340; }
+    .export-country.ec-kr .export-top img { border: 3px solid #003478; }
+    .export-country.ec-us .export-top img { border: 3px solid #3C3B6E; }
+    .export-country.ec-gb .export-top img { border: 3px solid #00247D; }
+    .export-country.ec-au .export-top img { border: 3px solid #00008B; }
+
     .export-top {
       display: flex;
       align-items: center;
@@ -2587,6 +2601,7 @@
   <!-- D3 + TopoJSON สำหรับหน้าแผนที่ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -2754,12 +2769,34 @@
   <!-- HERO -->
   <section class="hero">
     <!-- ผลไม้ลอย -->
-    <span class="fruit-float">🍈</span>
-    <span class="fruit-float">🍍</span>
-    <span class="fruit-float">🥭</span>
-    <span class="fruit-float">🍊</span>
-    <span class="fruit-float">🍇</span>
-    <span class="fruit-float">🍌</span>
+    <style>
+.hero-fruits {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;   /* ต้องให้ parent (hero section) มี position: relative และมีความสูงจริง เช่น min-height: 700px */
+  pointer-events: none;
+  z-index: 1;
+}
+.fruit-float { position: absolute; }
+
+.fruit-float:nth-of-type(1) { top: 15%;  left: 6%;  }
+.fruit-float:nth-of-type(2) { left: auto; right: 4%; top: 38%;}
+.fruit-float:nth-of-type(3) { top: 75%;  left: 9%;  }
+
+.fruit-float:nth-of-type(4) { top: 18%;  right: 6%; }
+.fruit-float:nth-of-type(5) { top: 48%;  right: 4%; }
+.fruit-float:nth-of-type(6) { top: 75%;  right: 9%; }
+</style>
+
+<div class="hero-fruits">
+  <span class="fruit-float"><img src="A.png" style="height:200px;width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AA.png" style="height:180px;width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAA.png" style="height:160px;width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAAA.png" style="height:140px;width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAAAA.png" style="height:140px;width:auto;object-fit:contain;border-radius:50px"/></span>
+  <span class="fruit-float"><img src="AAAAAA.png" style="height:180px;width:auto;object-fit:contain;border-radius:100px"/></span>
+</div>
 
     <div class="hero-content">
       <span class="hero-badge">🇹🇭 ผลไม้พรีเมียมจากประเทศไทย</span>
@@ -2907,7 +2944,7 @@
           <div class="card-body">
             <div class="card-title">ลำไย</div>
             <div class="card-en">Longan · Dimocarpus longan</div>
-            <p class="card-desc">ผลไม้หวานฉ่ำจากภาคเหนือ เนื้อใสกรอบ หวานหอม นิยมแปรรูปเป็นลำไยอบแห้งส่งออกจีน</p>
+            <p class="card-desc">ผลไม้หวานฉ่ำจากภาคเหนือ เนื้อใสกรอบ หวานหอม นิยมแปรรูปเป็นลำไยอบแห้ง</p>
             <div style="margin:1rem 0">
               <div style="font-weight:600;color:var(--green-dark);margin-bottom:.2rem">ประเทศส่งออก</div>
               <span style="color:var(--text-mid)">จีน</span>
@@ -3284,7 +3321,7 @@
       </div>
 
       <div class="highlight-box">
-        📍 <strong>ภาคกลาง</strong> ดินแดนที่ราบลุ่มแม่น้ำเจ้าพระยา ดินอุดมสมบูรณ์ น้ำเพียงพอตลอดปี เหมาะสำหรับการปลูกมะม่วง ส้มโอ และผลไม้เศรษฐกิจสำคัญอื่นๆ
+        📍 <strong>ภาคกลางของไทย</strong> ครอบคลุม 21 จังหวัด ได้แก่ นครสวรรค์ อุทัยธานี กำแพงเพชร พิจิตร เพชรบูรณ์ พิษณุโลก สุโขทัย ชัยนาท สิงห์บุรี ลพบุรี อ่างทอง พระนครศรีอยุธยา สุพรรณบุรี สระบุรี ปทุมธานี นนทบุรี กรุงเทพมหานคร นครปฐม สมุทรปราการ สมุทรสาคร และสมุทรสงคราม เป็นที่ราบลุ่มแม่น้ำเจ้าพระยา ดินอุดมสมบูรณ์ น้ำเพียงพอตลอดปี เหมาะสำหรับการปลูกมะม่วง ส้มโอ และผลไม้เศรษฐกิจสำคัญอื่นๆ
       </div>
 
       <!-- ══ แผนที่ภาคกลาง ══ -->
@@ -3567,7 +3604,7 @@
       </div>
 
       <div class="highlight-box">
-        📍 <strong>ภาคตะวันออก</strong> โดยเฉพาะจังหวัดระยอง จันทบุรี และตราด เป็นแหล่งผลิตผลไม้เมืองร้อนที่ดีที่สุดในโลก ด้วยดินภูเขาไฟอุดมแร่ธาตุ และปริมาณฝนที่เพียงพอ ทำให้ผลไม้มีรสชาติเป็นเลิศ
+        📍 <strong>ภาคตะวันออกของไทย</strong> ครอบคลุม 8 จังหวัด ได้แก่ นครนายก ปราจีนบุรี สระแก้ว ฉะเชิงเทรา ชลบุรี ระยอง จันทบุรี และตราด โดยเฉพาะระยอง จันทบุรี และตราด เป็นแหล่งผลิตผลไม้เมืองร้อนที่ดีที่สุดในโลก ด้วยดินภูเขาไฟอุดมแร่ธาตุ และปริมาณฝนที่เพียงพอ ทำให้ผลไม้มีรสชาติเป็นเลิศ
       </div>
 
       <!-- ══ แผนที่ภาคตะวันออก ══ -->
@@ -3830,7 +3867,7 @@
       </div>
 
       <div class="highlight-box">
-        📍 <strong>ภาคใต้</strong> ตั้งอยู่บนคาบสมุทรมลายู ฝนตกชุก ความชื้นสูง เหมาะสำหรับปลูกผลไม้เมืองร้อนหลากหลาย โดยเฉพาะสับปะรด ลองกอง ทุเรียน และมะพร้าว
+        📍 <strong>ภาคใต้ของไทย</strong> ครอบคลุม 14 จังหวัด ได้แก่ ชุมพร ระนอง สุราษฎร์ธานี พังงา ภูเก็ต กระบี่ นครศรีธรรมราช ตรัง พัทลุง สตูล สงขลา ปัตตานี ยะลา และนราธิวาส ตั้งอยู่บนคาบสมุทรมลายู ฝนตกชุก ความชื้นสูง เหมาะสำหรับปลูกผลไม้เมืองร้อนหลากหลาย โดยเฉพาะสับปะรด ลองกอง ทุเรียน และมะพร้าว
       </div>
 
       <!-- ══ แผนที่ภาคใต้ ══ -->
@@ -4689,8 +4726,18 @@
         <h2 class="section-title">10 ประเทศผู้นำเข้าผลไม้ไทยอันดับต้น</h2>
       </div>
 
+      <!-- กราฟแท่งมูลค่าส่งออก 10 อันดับตลาดหลัก -->
+      <div class="reveal" style="max-width:1000px;margin:0 auto 3rem;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:2rem 1.5rem;">
+        <h3 style="text-align:center;color:var(--green-dark);font-family:var(--font-display);margin-bottom:1.25rem;font-size:1.15rem;">
+          📊 มูลค่าส่งออกผลไม้ไทยแยกตามประเทศ (ล้านบาท/ปี)
+        </h3>
+        <div style="position:relative;height:380px;">
+          <canvas id="exportBarChart"></canvas>
+        </div>
+      </div>
+
       <div class="export-grid">
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-cn">
           <div class="export-top">
             <img src="CN.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4709,7 +4756,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-jp">
           <div class="export-top">
             <img src="JP.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4728,7 +4775,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-vn">
           <div class="export-top">
             <img src="VN.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4747,7 +4794,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-hk">
           <div class="export-top">
             <img src="HK.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4766,7 +4813,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-id">
           <div class="export-top">
             <img src="ID.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4785,7 +4832,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-sg">
           <div class="export-top">
             <img src="SG.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4804,7 +4851,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-kr">
           <div class="export-top">
             <img src="KR.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4823,7 +4870,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-us">
           <div class="export-top">
             <img src="US.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4842,7 +4889,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-gb">
           <div class="export-top">
             <img src="GB.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4861,7 +4908,7 @@
           </div>
         </div>
 
-        <div class="export-country reveal">
+        <div class="export-country reveal ec-au">
           <div class="export-top">
             <img src="AU.png"style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
             <div class="country-info">
@@ -4888,16 +4935,16 @@
             <tr><th>อันดับ</th><th>ประเทศ</th><th>ผลไม้ที่นิยม</th><th>มูลค่า (ล้านบาท)</th><th>% ของส่งออกรวม</th><th>การเติบโต YoY</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="rank-badge rank-1">1</span></td><td><img src="CN.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>ทุเรียน, ลำไย</td><td class="price-tag">85,000</td><td>58.6%</td><td class="price-up">▲ +35%</td></tr>
-            <tr><td><span class="rank-badge rank-2">2</span></td><td><img src="JP.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>มะม่วง, กล้วย</td><td class="price-tag">12,000</td><td>8.3%</td><td class="price-up">▲ +6%</td></tr>
-            <tr><td><span class="rank-badge rank-3">3</span></td><td><img src="VN.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>ลำไย, มะม่วง</td><td class="price-tag">9,500</td><td>6.5%</td><td class="price-up">▲ +12%</td></tr>
-            <tr><td><span class="rank-badge">4</span></td><td><img src="HK.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>ทุเรียน, มังคุด</td><td class="price-tag">7,200</td><td>5.0%</td><td class="price-up">▲ +8%</td></tr>
-            <tr><td><span class="rank-badge">5</span></td><td><img src="ID.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>ลำไย, เงาะ</td><td class="price-tag">6,000</td><td>4.1%</td><td class="price-up">▲ +18%</td></tr>
-            <tr><td><span class="rank-badge">6</span></td><td><img src="SG.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>ทุเรียน, มังคุด</td><td class="price-tag">5,500</td><td>3.8%</td><td class="price-up">▲ +10%</td></tr>
-            <tr><td><span class="rank-badge">7</span></td><td><img src="KR.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px"/></td><td>มะม่วง, ทุเรียน</td><td class="price-tag">4,800</td><td>3.3%</td><td class="price-up">▲ +9%</td></tr>
-            <tr><td><span class="rank-badge">8</span></td><td><img src="US.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px"/></td><td>สับปะรดกระป๋อง, มะม่วง</td><td class="price-tag">4,200</td><td>2.9%</td><td class="price-up">▲ +5%</td></tr>
-            <tr><td><span class="rank-badge">9</span></td><td><img src="GB.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px"/></td><td>สับปะรด, มะม่วง</td><td class="price-tag">3,500</td><td>2.4%</td><td class="price-up">▲ +4%</td></tr>
-            <tr><td><span class="rank-badge">10</span></td><td><img src="AU.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px"/></td><td>มะม่วง, ทุเรียนแช่แข็ง</td><td class="price-tag">2,800</td><td>1.9%</td><td class="price-up">▲ +7%</td></tr>
+            <tr><td><span class="rank-badge rank-1">1</span></td><td><img src="CN.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>ทุเรียน, ลำไย</td><td class="price-tag">85,000</td><td>58.6%</td><td class="price-up">▲ +35%</td></tr>
+            <tr><td><span class="rank-badge rank-2">2</span></td><td><img src="JP.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>มะม่วง, กล้วย</td><td class="price-tag">12,000</td><td>8.3%</td><td class="price-up">▲ +6%</td></tr>
+            <tr><td><span class="rank-badge rank-3">3</span></td><td><img src="VN.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>ลำไย, มะม่วง</td><td class="price-tag">9,500</td><td>6.5%</td><td class="price-up">▲ +12%</td></tr>
+            <tr><td><span class="rank-badge">4</span></td><td><img src="HK.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>ทุเรียน, มังคุด</td><td class="price-tag">7,200</td><td>5.0%</td><td class="price-up">▲ +8%</td></tr>
+            <tr><td><span class="rank-badge">5</span></td><td><img src="ID.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>ลำไย, เงาะ</td><td class="price-tag">6,000</td><td>4.1%</td><td class="price-up">▲ +18%</td></tr>
+            <tr><td><span class="rank-badge">6</span></td><td><img src="SG.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>ทุเรียน, มังคุด</td><td class="price-tag">5,500</td><td>3.8%</td><td class="price-up">▲ +10%</td></tr>
+            <tr><td><span class="rank-badge">7</span></td><td><img src="KR.png"style="height:50px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>มะม่วง, ทุเรียน</td><td class="price-tag">4,800</td><td>3.3%</td><td class="price-up">▲ +9%</td></tr>
+            <tr><td><span class="rank-badge">8</span></td><td><img src="US.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>สับปะรดกระป๋อง, มะม่วง</td><td class="price-tag">4,200</td><td>2.9%</td><td class="price-up">▲ +5%</td></tr>
+            <tr><td><span class="rank-badge">9</span></td><td><img src="GB.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>สับปะรด, มะม่วง</td><td class="price-tag">3,500</td><td>2.4%</td><td class="price-up">▲ +4%</td></tr>
+            <tr><td><span class="rank-badge">10</span></td><td><img src="AU.png"style="height:40px;width:auto;object-fit:contain;border-radius:5px;background:#f0f0f0;border:1px solid #ddd;padding:2px"/></td><td>มะม่วง, ทุเรียนแช่แข็ง</td><td class="price-tag">2,800</td><td>1.9%</td><td class="price-up">▲ +7%</td></tr>
           </tbody>
         </table>
       </div>
@@ -7329,6 +7376,65 @@
     if (fruitsNavEl) {
       fruitsNavEl.classList.toggle('active', ['north','central','east','south'].includes(pageId));
     }
+    // วาดกราฟส่งออกเมื่อเปิดหน้าตลาดส่งออก
+    if (pageId === 'export') {
+      initExportChart();
+    }
+  }
+
+  /* ============================================================
+     กราฟแท่ง — มูลค่าส่งออกผลไม้ไทยแยกตามประเทศ
+     ============================================================ */
+  let exportBarChartInstance = null;
+  function initExportChart() {
+    const canvas = document.getElementById('exportBarChart');
+    if (!canvas || typeof Chart === 'undefined') return;
+    if (exportBarChartInstance) return; // สร้างครั้งเดียวพอ
+
+    const exportLabels = ['จีน','ญี่ปุ่น','เวียดนาม','ฮ่องกง','อินโดนีเซีย','สิงคโปร์','เกาหลีใต้','สหรัฐฯ','สหราชอาณาจักร','ออสเตรเลีย'];
+    const exportValues = [85000, 12000, 9500, 7200, 6000, 5500, 4800, 4200, 3500, 2800];
+    const exportColors = ['#1B5E20','#2E7D32','#388E3C','#43A047','#4CAF50','#66BB6A','#81C784','#A5D6A7','#C8E6C9','#E8F5E9'];
+
+    exportBarChartInstance = new Chart(canvas.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: exportLabels,
+        datasets: [{
+          label: 'มูลค่าส่งออก (ล้านบาท)',
+          data: exportValues,
+          backgroundColor: exportColors,
+          borderRadius: 8,
+          maxBarThickness: 48
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => `${ctx.parsed.y.toLocaleString('th-TH')} ล้านบาท`
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { font: { family: "'Sarabun', sans-serif", size: 12 }, color: '#1A2A1A' },
+            grid: { display: false }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              font: { family: "'Sarabun', sans-serif", size: 11 },
+              callback: (v) => v.toLocaleString('th-TH')
+            },
+            grid: { color: 'rgba(27,94,32,.08)' },
+            title: { display: true, text: 'ล้านบาท', font: { family: "'Sarabun', sans-serif", size: 12 } }
+          }
+        }
+      }
+    });
   }
 
   /* ============================================================
