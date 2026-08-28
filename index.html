@@ -53,18 +53,20 @@
        ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; font-size: 20px; }
+    html { scroll-behavior: smooth; font-size: 20px; max-width: 100%; overflow-x: hidden; }
 
     body {
       font-family: var(--font-body);
       background: var(--cream);
       color: var(--text-dark);
       min-height: 100vh;
+      max-width: 100%;
       overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    img, svg, video, iframe { max-width: 100%; }
     ul { list-style: none; }
 
     /* ============================================================
@@ -79,13 +81,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: .8rem 2rem;
+      gap: .5rem;
+      padding: .8rem clamp(1rem, 4vw, 2rem);
       box-shadow: 0 2px 20px rgba(0,0,0,.3);
       transition: var(--transition);
     }
 
     .navbar.scrolled {
-      padding: .5rem 2rem;
+      padding: .5rem clamp(1rem, 4vw, 2rem);
       background: rgba(27,94,32,1);
     }
 
@@ -95,6 +98,16 @@
       align-items: center;
       gap: .6rem;
       cursor: pointer;
+      min-width: 0;
+      flex-shrink: 1;
+    }
+
+    .nav-logo-img {
+      height: clamp(42px, 8vw, 75px);
+      width: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
 
     .nav-brand .logo-icon {
@@ -112,12 +125,17 @@
       display: flex;
       flex-direction: column;
       line-height: 1.1;
+      min-width: 0;
     }
 
     .nav-brand .brand-th {
       color: var(--gold);
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: clamp(.95rem, 3vw, 1.15rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 46vw;
     }
 
     .nav-brand .brand-en {
@@ -126,6 +144,10 @@
       font-weight: 300;
       letter-spacing: .08em;
       text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 46vw;
     }
 
     /* เมนูหลัก */
@@ -596,14 +618,15 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 clamp(1rem, 4vw, 1.5rem);
+      width: 100%;
     }
 
     /* ============================================================
        SECTION WRAPPER
        ============================================================ */
     .section {
-      padding: 5rem 0;
+      padding: clamp(2.5rem, 7vw, 5rem) 0;
     }
 
     .section-alt {
@@ -683,8 +706,8 @@
     }
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+      gap: clamp(1rem, 3vw, 1.5rem);
     }
 
     .fruit-card {
@@ -825,6 +848,10 @@
       overflow-x: auto;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-md);
+    }
+
+    .chart-canvas-box {
+      height: clamp(240px, 45vw, 480px);
     }
 
     table {
@@ -989,7 +1016,7 @@
        ============================================================ */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
       gap: 1rem;
     }
 
@@ -1273,8 +1300,8 @@
        ============================================================ */
     .export-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr));
+      gap: clamp(1rem, 3vw, 1.6rem);
       margin-bottom: 3rem;
     }
 
@@ -1953,6 +1980,18 @@
       font-size: 1.61rem;
       color: var(--gold);
       margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo-img {
+      height: clamp(56px, 12vw, 150px);
+      width: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      flex-shrink: 0;
     }
 
     .footer-brand p {
@@ -2491,32 +2530,102 @@
         grid-template-columns: 1fr;
         grid-template-rows: 55vw 1fr;
         height: auto;
+        min-height: 0;
       }
       #map-d3-panel { border-left: none; border-top: 1px solid var(--green-pale); }
     }
 
     /* ============================================================
-       RESPONSIVE
+       RESPONSIVE — ระบบ Breakpoint ครอบคลุมทุกขนาดจอ
+       มือถือเล็ก(≤360) → มือถือ(≤480) → มือถือใหญ่/แฟบเล็ต(≤600)
+       → แท็บเล็ต(≤768) → แท็บเล็ตแนวนอน/โน้ตบุ๊กเล็ก(≤1024)
+       → โน้ตบุ๊ก(≤1200) → Desktop(ปกติ) → จอใหญ่พิเศษ(≥1600)
        ============================================================ */
-    @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+
+    /* จอใหญ่พิเศษ (Large Desktop / Wide monitors) */
+    @media (min-width: 1600px) {
+      .container { max-width: 1320px; }
+      .hero-title { font-size: clamp(3rem, 5vw, 5.6rem); }
     }
 
+    /* โน้ตบุ๊ก / จอเล็กลงเล็กน้อย — ลดสเกลตัวอักษรฐานลงทีละขั้น */
+    @media (max-width: 1200px) {
+      html { font-size: 19px; }
+    }
+
+    /* แท็บเล็ตแนวนอน / โน้ตบุ๊กขนาดเล็ก */
+    @media (max-width: 1024px) {
+      html { font-size: 18px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .section { padding: clamp(2.5rem, 6vw, 4rem) 0; }
+      #map-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 900px) {
+      .navbar { gap: .4rem; }
+    }
+
+    /* แท็บเล็ตแนวตั้ง */
     @media (max-width: 768px) {
+      html { font-size: 17px; }
       .nav-menu { display: none; }
       .nav-search { display: none; }
       .hamburger { display: flex; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item { border-right: none; border-bottom: 1px solid var(--green-pale); }
+      .stats-grid .stat-item:nth-last-child(-n+2) { border-bottom: none; }
       .footer-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .season-grid { grid-template-columns: repeat(6, 1fr); }
+      .section-header { margin-bottom: 2rem; }
+      .hero { padding: 6rem 1.2rem 2.5rem; min-height: 85vh; }
+      .quality-badges-grid { gap: 1.2rem; }
+      .fruit-modal-body { padding: 1.3rem 1.3rem 1.6rem; }
     }
 
+    /* มือถือแนวนอน / แฟบเล็ตเล็ก */
+    @media (max-width: 600px) {
+      .navbar { padding: .6rem 1rem; }
+      .navbar.scrolled { padding: .45rem 1rem; }
+      .nav-brand .brand-en { max-width: 32vw; }
+      .export-grid { grid-template-columns: 1fr; }
+      .quality-badges-grid, .grade-badges-grid { gap: 1rem; }
+      .market-card td, .market-card th { padding: .55rem .8rem; }
+      th, td { padding: .7rem .9rem; }
+    }
+
+    /* มือถือทั่วไป */
     @media (max-width: 480px) {
+      html { font-size: 15.5px; }
+      .container { padding: 0 1rem; }
       .stats-grid { grid-template-columns: 1fr; }
+      .stats-grid .stat-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--green-pale); }
+      .stats-grid .stat-item:last-child { border-bottom: none; }
       .cards-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr)); }
+      .btn { padding: .7rem 1.4rem; font-size: .95rem; }
+      .hero-actions { gap: .7rem; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .section-title { margin-bottom: .6rem; }
+      .fruit-modal-title { font-size: 1.5rem; }
+      .fruit-nutri-grid { grid-template-columns: repeat(auto-fit, minmax(min(90px, 100%), 1fr)); }
+    }
+
+    /* มือถือขนาดเล็กมาก (เช่น iPhone SE, Galaxy Fold ปิด) */
+    @media (max-width: 360px) {
+      html { font-size: 14.5px; }
+      .navbar { padding: .5rem .7rem; }
+      .nav-logo-img { height: 38px; }
+      .hero-badge { font-size: .72rem; padding: .35rem .9rem; }
+    }
+
+    /* แนวนอน (Landscape) บนจอเตี้ย เช่น มือถือหมุนนอน */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero { min-height: auto; padding: 5.5rem 1.5rem 2rem; }
+      .page { padding-top: 56px; }
+      .fruit-float img { height: clamp(28px, 8vh, 90px) !important; }
+      .navbar { padding: .45rem clamp(1rem, 3vw, 2rem); }
     }
 
     /* ============================================================
@@ -2609,7 +2718,7 @@
 <nav class="navbar" id="navbar">
   <!-- โลโก้ -->
   <div class="nav-brand" onclick="navigate('home')">
-    <img src="logo.png" alt="ผลไม้ไทยโกอินเตอร์" style="height:75px;width:auto;object-fit:contain;border-radius:10px"/>
+    <img class="nav-logo-img" src="logo.png" alt="ผลไม้ไทยโกอินเตอร์"/>
     <div class="brand-text">
       <span class="brand-th">ผลไม้ไทยโกอินเตอร์</span>
       <span class="brand-en">Thai Fruits Go International</span>
@@ -2778,15 +2887,23 @@
 .fruit-float:nth-of-type(4) { top: 18%;  right: 6%; }
 .fruit-float:nth-of-type(5) { top: 48%;  right: 4%; }
 .fruit-float:nth-of-type(6) { top: 75%;  right: 9%; }
+
+/* ขนาดรูปผลไม้ลอย — ปรับตามความกว้างจอแบบ fluid (ไม่ใช้ px ตายตัว) */
+.fruit-float:nth-of-type(1) img { height: clamp(60px, 13vw, 200px); }
+.fruit-float:nth-of-type(2) img { height: clamp(54px, 12vw, 180px); }
+.fruit-float:nth-of-type(3) img { height: clamp(48px, 10.5vw, 160px); }
+.fruit-float:nth-of-type(4) img { height: clamp(42px, 9vw, 140px); }
+.fruit-float:nth-of-type(5) img { height: clamp(42px, 9vw, 140px); }
+.fruit-float:nth-of-type(6) img { height: clamp(54px, 12vw, 180px); }
 </style>
 
 <div class="hero-fruits">
-  <span class="fruit-float"><img src="A.png" style="height:200px;width:auto;object-fit:contain;border-radius:10px"/></span>
-  <span class="fruit-float"><img src="AA.png" style="height:180px;width:auto;object-fit:contain;border-radius:10px"/></span>
-  <span class="fruit-float"><img src="AAA.png" style="height:160px;width:auto;object-fit:contain;border-radius:10px"/></span>
-  <span class="fruit-float"><img src="AAAA.png" style="height:140px;width:auto;object-fit:contain;border-radius:10px"/></span>
-  <span class="fruit-float"><img src="AAAAA.png" style="height:140px;width:auto;object-fit:contain;border-radius:50px"/></span>
-  <span class="fruit-float"><img src="AAAAAA.png" style="height:180px;width:auto;object-fit:contain;border-radius:100px"/></span>
+  <span class="fruit-float"><img src="A.png" style="width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AA.png" style="width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAA.png" style="width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAAA.png" style="width:auto;object-fit:contain;border-radius:10px"/></span>
+  <span class="fruit-float"><img src="AAAAA.png" style="width:auto;object-fit:contain;border-radius:50px"/></span>
+  <span class="fruit-float"><img src="AAAAAA.png" style="width:auto;object-fit:contain;border-radius:100px"/></span>
 </div>
 
     <div class="hero-content">
@@ -4324,8 +4441,22 @@
           <strong>🏪 ราคาผลไม้วันนี้: ตลาดไท เทียบ ตลาดสี่มุมเมือง</strong><br><br>
           ตลาดไท (ปทุมธานี) และตลาดสี่มุมเมือง (ปทุมธานี) เป็น 2 ตลาดกลางค้าส่งผัก-ผลไม้ที่ใหญ่ที่สุดของไทย ราคาด้านล่างครอบคลุมผลไม้ในประเทศ 35 ชนิด ครบตามรายการในตาราง "ราคาในประเทศไทย" เป็น <strong>ช่วงราคาขายส่งโดยประมาณ</strong> รวบรวมเพื่อการศึกษาเปรียบเทียบเบื้องต้น ราคาจริงในแต่ละวันเปลี่ยนแปลงตามปริมาณผลผลิต ฤดูกาล และเกรดสินค้า ควรตรวจสอบราคาล่าสุดจากลิงก์แหล่งที่มาด้านล่างก่อนนำไปใช้อ้างอิงหรือซื้อขายจริง
           <div id="live-price-status" style="margin-top:.8rem;font-size:.85rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+            <span id="live-price-emoji" aria-hidden="true">🟡</span>
             <span id="live-price-dot" style="width:9px;height:9px;border-radius:50%;background:#bbb;display:inline-block"></span>
             <span id="live-price-text" style="color:var(--text-mid)">กำลังตรวจสอบข้อมูลราคาสด…</span>
+            <button type="button" id="live-price-refresh-btn" onclick="fetchLivePrices()"
+              style="margin-left:.4rem;border:1px solid var(--green-light);background:var(--white);color:var(--green-dark);
+                     font-weight:700;font-size:.85rem;padding:.35rem .8rem;border-radius:999px;cursor:pointer;
+                     transition:var(--transition);display:inline-flex;align-items:center;gap:.35rem">
+              🔄 อัปเดตราคา
+            </button>
+          </div>
+          <div style="margin-top:.7rem">
+            <input type="text" id="market-fruit-search" placeholder="🔍 ค้นหาชื่อผลไม้ เช่น ทุเรียน, มังคุด..."
+              oninput="filterMarketPriceTables(this.value)"
+              style="width:100%;max-width:360px;padding:.55rem .9rem;border:1px solid var(--green-pale);
+                     border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.95rem;
+                     background:var(--white);color:var(--text-dark)">
           </div>
         </div>
 
@@ -4722,7 +4853,7 @@
         <h3 style="text-align:center;color:var(--green-dark);font-family:var(--font-display);margin-bottom:1.5rem;font-size:1.5rem;">
           📊 มูลค่าส่งออกผลไม้ไทยแยกตามประเทศ (ล้านบาท/ปี)
         </h3>
-        <div style="position:relative;height:480px;">
+        <div class="chart-canvas-box" style="position:relative;">
           <canvas id="exportBarChart"></canvas>
         </div>
       </div>
@@ -7165,7 +7296,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo-text"><img src="logo.png" alt="ผลไม้ไทยโกอินเตอร์" style="height:150px;width:auto;object-fit:contain;border-radius:10px"/><span class="brand-th">ผลไม้ไทยโกอินเตอร์</span>
+        <div class="logo-text"><img class="footer-logo-img" src="logo.png" alt="ผลไม้ไทยโกอินเตอร์"/><span class="brand-th">ผลไม้ไทยโกอินเตอร์</span>
       </div> <span class="brand-en">Thai Fruits Go International</span>
         <p>
           โครงการเว็บไซต์เพื่อการศึกษา รวบรวมข้อมูลผลไม้ไทยตามฤดูกาล ราคาส่งออก และตลาดต่างประเทศ
@@ -8955,22 +9086,34 @@
      หน้าเว็บจะคงตัวเลขค่าประมาณการ (fallback) ที่ฝังไว้ในตารางไว้
      และแจ้งสถานะให้ผู้ใช้ทราบ
      ============================================================ */
-  const LIVE_PRICE_JSON_URL = 'prices.json';   // path ไฟล์ข้อมูลราคาสด (แก้ตามที่โฮสต์จริง)
+  const LIVE_PRICE_JSON_URL = 'prices.json';   // path ไฟล์ข้อมูลราคาสด (แก้ตามที่โฮสต์จริง — ดูวิธีตั้งค่าใน README)
   const LIVE_PRICE_POLL_MS  = 1 * 60 * 1000;   // ดึงข้อมูลใหม่ทุก 1 นาที
 
+  // สถานะ: ok (🟢 อัปเดตล่าสุดจากไฟล์ backend), stale (🟡 พบไฟล์แต่ข้อมูลไม่ตรง),
+  //         error (🔴 ไม่พบ/ดึงไม่สำเร็จ -> ใช้ค่าประมาณการ), loading (🟡 กำลังตรวจสอบ)
   function setLivePriceStatus(state, text) {
-    const dot  = document.getElementById('live-price-dot');
+    const emojiEl = document.getElementById('live-price-emoji');
+    const dot   = document.getElementById('live-price-dot');
     const label = document.getElementById('live-price-text');
+    const btn   = document.getElementById('live-price-refresh-btn');
     if (!dot || !label) return;
     const colors = { ok: '#2E7D32', stale: '#F9A825', error: '#B0BEC5', loading: '#90A4AE' };
+    const emojis = { ok: '🟢', stale: '🟡', error: '🔴', loading: '🟡' };
     dot.style.background = colors[state] || colors.error;
+    if (emojiEl) emojiEl.textContent = emojis[state] || '🔴';
     if (state === 'ok') dot.style.boxShadow = '0 0 0 3px rgba(46,125,50,.18)';
     else dot.style.boxShadow = 'none';
     label.textContent = text;
+    if (btn) btn.disabled = (state === 'loading');
+    if (btn) btn.style.opacity = (state === 'loading') ? '.6' : '1';
+  }
+
+  function nowThaiTimeStr() {
+    return new Date().toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' });
   }
 
   function applyLivePrices(data) {
-    // data ตัวอย่าง:
+    // data ตัวอย่าง (สร้าง/อัปเดตโดยสคริปต์ backend ฝั่งเซิร์ฟเวอร์ ไม่ใช่ข้อมูลที่หน้าเว็บสุ่มขึ้นเอง):
     // {
     //   "updated_at": "2026-08-23T09:30:00+07:00",
     //   "talaadthai":  { "ทุเรียนหมอนทอง": "125-210 บ.", ... },
@@ -8982,8 +9125,10 @@
       if (!priceMap) return;
       document.querySelectorAll(`td.price-tag[data-market="${market}"]`).forEach(cell => {
         const fruit = cell.getAttribute('data-fruit');
-        if (priceMap[fruit]) {
+        if (priceMap[fruit] && priceMap[fruit] !== cell.textContent.trim()) {
           cell.textContent = priceMap[fruit];
+          cell.classList.remove('price-live-updated');
+          void cell.offsetWidth; // reflow เพื่อให้เล่น animation ใหม่ได้ทุกครั้งที่ราคาเปลี่ยน
           cell.classList.add('price-live-updated');
           updatedCount++;
         }
@@ -8993,9 +9138,9 @@
     if (updatedCount > 0 && data.updated_at) {
       const dt = new Date(data.updated_at);
       const timeStr = isNaN(dt) ? data.updated_at : dt.toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' });
-      setLivePriceStatus('ok', `ราคาสด — อัปเดตล่าสุด ${timeStr}`);
+      setLivePriceStatus('ok', `อัปเดตล่าสุด: ${timeStr} (จากไฟล์ข้อมูลราคาสด) — ตรวจสอบเมื่อ ${nowThaiTimeStr()}`);
     } else {
-      setLivePriceStatus('stale', 'พบไฟล์ข้อมูล แต่ไม่มีราคาที่ตรงกับตาราง — แสดงค่าประมาณการแทน');
+      setLivePriceStatus('stale', `พบไฟล์ข้อมูลราคาสด แต่ไม่มีรายการที่ตรงกับตาราง — แสดงค่าประมาณการแทน (ตรวจสอบเมื่อ ${nowThaiTimeStr()})`);
     }
   }
 
@@ -9007,9 +9152,21 @@
       const data = await res.json();
       applyLivePrices(data);
     } catch (err) {
-      // ไม่พบ prices.json หรือดึงไม่สำเร็จ -> ใช้ตัวเลขประมาณการที่ฝังไว้ในตาราง (ไม่ต้องทำอะไรเพิ่ม)
-      setLivePriceStatus('error', 'ยังไม่ได้เชื่อมต่อข้อมูลราคาสด — แสดงช่วงราคาประมาณการ (ดูลิงก์แหล่งที่มาด้านล่าง)');
+      // ไม่พบ prices.json หรือดึงไม่สำเร็จ (ยังไม่ได้ตั้งค่า backend/API)
+      // -> ไม่สร้างราคาสุ่มหรือราคาปลอมใด ๆ ทั้งสิ้น คงตัวเลขประมาณการที่ฝังไว้ในตารางไว้ตามเดิม
+      setLivePriceStatus('error',
+        `ไม่สามารถดึงข้อมูล Real-time จากแหล่งข้อมูลนี้ได้ — แสดงช่วงราคาประมาณการแทน (ตรวจสอบเมื่อ ${nowThaiTimeStr()}) ` +
+        `ดูวิธีเชื่อมต่อ API ที่ถูกต้องได้ที่ลิงก์แหล่งที่มาด้านล่าง`);
     }
+  }
+
+  // ค้นหา/กรองชื่อผลไม้ในตารางเปรียบเทียบตลาดไท vs สี่มุมเมือง (กรองฝั่ง client เท่านั้น ไม่ยุ่งกับข้อมูล)
+  function filterMarketPriceTables(query) {
+    const q = (query || '').trim().toLowerCase();
+    document.querySelectorAll('.market-compare-grid .market-card tbody tr').forEach(row => {
+      const fruitName = (row.querySelector('td')?.textContent || '').toLowerCase();
+      row.style.display = (!q || fruitName.includes(q)) ? '' : 'none';
+    });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
