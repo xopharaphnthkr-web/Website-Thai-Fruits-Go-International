@@ -886,6 +886,8 @@
     .price-up   { color: #2E7D32; font-weight: 700; }
     .price-down { color: #c62828; font-weight: 700; }
     .price-tag  { color: var(--gold-dark); font-weight: 700; }
+    .domestic-market-price { cursor: help; border-bottom: 1px dotted var(--green-light); }
+    .farmer-price { cursor: help; border-bottom: 1px dotted var(--gold-dark); }
     .price-live-updated { animation: price-flash 1.2s ease; }
     @keyframes price-flash {
       0%   { background: var(--gold-light); }
@@ -4391,44 +4393,44 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td> ทุเรียนหมอนทอง</td><td>ตะวันออก</td><td class="price-tag">80–120 บ./กก.</td><td>120–200 บ./กก.</td><td>200–350 บ./กก.</td><td>เม.ย.–ส.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> มังคุด</td><td>ตะวันออก</td><td class="price-tag">35–60 บ./กก.</td><td>60–100 บ./กก.</td><td>100–150 บ./กก.</td><td>พ.ค.–ส.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> มะม่วงน้ำดอกไม้</td><td>กลาง</td><td class="price-tag">20–40 บ./กก.</td><td>40–70 บ./กก.</td><td>60–100 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ลำไย</td><td>เหนือ</td><td class="price-tag">15–30 บ./กก.</td><td>30–60 บ./กก.</td><td>50–80 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ลิ้นจี่</td><td>เหนือ</td><td class="price-tag">30–50 บ./กก.</td><td>50–90 บ./กก.</td><td>80–130 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> เงาะโรงเรียน</td><td>ตะวันออก/ใต้</td><td class="price-tag">10–20 บ./กก.</td><td>25–45 บ./กก.</td><td>40–70 บ./กก.</td><td>พ.ค.–ก.ย.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> ส้มโอ</td><td>กลาง/เหนือ</td><td class="price-tag">15–30 บ./ลูก</td><td>30–60 บ./ลูก</td><td>50–100 บ./ลูก</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> สับปะรด</td><td>ใต้/กลาง</td><td class="price-tag">5–10 บ./กก.</td><td>10–20 บ./กก.</td><td>20–40 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> ลองกอง</td><td>ใต้</td><td class="price-tag">20–40 บ./กก.</td><td>40–80 บ./กก.</td><td>70–120 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> กล้วยหอม</td><td>กลาง</td><td class="price-tag">8–15 บ./กก.</td><td>15–30 บ./กก.</td><td>25–45 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ส้มสายน้ำผึ้ง</td><td>เหนือ</td><td class="price-tag">20–35 บ./กก.</td><td>35–70 บ./กก.</td><td>60–110 บ./กก.</td><td>พ.ย.–ม.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> สตรอว์เบอร์รี</td><td>เหนือ</td><td class="price-tag">50–120 บ./กก.</td><td>80–200 บ./กก.</td><td>150–300 บ./กก.</td><td>พ.ย.–ก.พ.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> ท้อ (พีช)</td><td>เหนือ</td><td class="price-tag">35–90 บ./กก.</td><td>60–150 บ./กก.</td><td>100–220 บ./กก.</td><td>พ.ค.–ก.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> บ๊วย</td><td>เหนือ</td><td class="price-tag">20–50 บ./กก.</td><td>40–90 บ./กก.</td><td>70–140 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> มะขามหวานเพชรบูรณ์</td><td>เหนือ/กลาง</td><td class="price-tag">30–70 บ./กก.</td><td>50–120 บ./กก.</td><td>90–180 บ./กก.</td><td>ม.ค.–มี.ค.</td><td><span class="chip chip-gold">A+ (GI)</span></td></tr>
-              <tr><td> ทับทิม</td><td>เหนือ</td><td class="price-tag">30–90 บ./กก.</td><td>50–150 บ./กก.</td><td>90–220 บ./กก.</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> กีวี่</td><td>เหนือ</td><td class="price-tag">60–110 บ./กก.</td><td>100–180 บ./กก.</td><td>160–280 บ./กก.</td><td>พ.ย.–ม.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> เสาวรส</td><td>เหนือ</td><td class="price-tag">20–50 บ./กก.</td><td>40–80 บ./กก.</td><td>70–130 บ./กก.</td><td>ต.ค.–ก.พ.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ฝรั่งกิมจู</td><td>กลาง</td><td class="price-tag">10–30 บ./กก.</td><td>20–50 บ./กก.</td><td>35–80 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
-              <tr><td> มะละกอ</td><td>กลาง</td><td class="price-tag">8–20 บ./กก.</td><td>15–35 บ./กก.</td><td>25–55 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> แตงโมจินตหรา</td><td>กลาง</td><td class="price-tag">5–12 บ./กก.</td><td>8–20 บ./กก.</td><td>15–30 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">B</span></td></tr>
-              <tr><td> ชมพู่</td><td>กลาง</td><td class="price-tag">18–40 บ./กก.</td><td>30–70 บ./กก.</td><td>50–110 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ชมพู่มะเหมี่ยว</td><td>กลาง</td><td class="price-tag">18–40 บ./กก.</td><td>30–70 บ./กก.</td><td>50–110 บ./กก.</td><td>มี.ค.–ส.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> มะนาวไทย</td><td>กลาง</td><td class="price-tag">12–35 บ./กก.</td><td>20–60 บ./กก.</td><td>35–90 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ขนุนทองประเสริฐ</td><td>ตะวันออก</td><td class="price-tag">8–25 บ./กก.</td><td>15–40 บ./กก.</td><td>25–65 บ./กก.</td><td>เม.ย.–ส.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> มะปรางหวาน</td><td>ตะวันออก</td><td class="price-tag">30–70 บ./กก.</td><td>50–120 บ./กก.</td><td>90–180 บ./กก.</td><td>มี.ค.–พ.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> สละอินโดนีเซีย</td><td>ตะวันออก</td><td class="price-tag">18–38 บ./กก.</td><td>30–60 บ./กก.</td><td>50–100 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> กระท้อนบ้านบึง</td><td>ตะวันออก</td><td class="price-tag">18–50 บ./กก.</td><td>30–80 บ./กก.</td><td>50–130 บ./กก.</td><td>มิ.ย.–ส.ค.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> หนำเลี้ยบ (พุทรา)</td><td>ตะวันออก</td><td class="price-tag">25–55 บ./กก.</td><td>40–90 บ./กก.</td><td>65–150 บ./กก.</td><td>ต.ค.–ธ.ค.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> ระกำ</td><td>ตะวันออก</td><td class="price-tag">25–50 บ./กก.</td><td>40–80 บ./กก.</td><td>65–130 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> มะพร้าวน้ำหอม</td><td>ใต้</td><td class="price-tag">8–25 บ./ลูก</td><td>15–40 บ./ลูก</td><td>25–60 บ./ลูก</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ทุเรียนภาคใต้</td><td>ใต้</td><td class="price-tag">70–140 บ./กก.</td><td>100–220 บ./กก.</td><td>180–350 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> เงาะสุราษฎร์ธานี</td><td>ใต้</td><td class="price-tag">10–28 บ./กก.</td><td>20–45 บ./กก.</td><td>35–75 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> มังคุดภาคใต้</td><td>ใต้</td><td class="price-tag">30–70 บ./กก.</td><td>50–110 บ./กก.</td><td>85–170 บ./กก.</td><td>ส.ค.–ต.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
-              <tr><td> ลางสาด</td><td>ใต้</td><td class="price-tag">20–45 บ./กก.</td><td>35–70 บ./กก.</td><td>60–120 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> เสาวรสภาคใต้</td><td>ใต้</td><td class="price-tag">20–50 บ./กก.</td><td>40–80 บ./กก.</td><td>70–130 บ./กก.</td><td>ต.ค.–ก.พ.</td><td><span class="chip">A</span></td></tr>
-              <tr><td> ส้มแขก (มะดัน)</td><td>ใต้</td><td class="price-tag">18–50 บ./กก.</td><td>30–80 บ./กก.</td><td>50–130 บ./กก.</td><td>ต.ค.–ม.ค.</td><td><span class="chip">B+</span></td></tr>
-              <tr><td> กล้วยน้ำว้าใต้</td><td>ใต้</td><td class="price-tag">6–15 บ./กก.</td><td>12–25 บ./กก.</td><td>20–40 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">B</span></td></tr>
+              <tr><td> ทุเรียนหมอนทอง</td><td>ตะวันออก</td><td class="price-tag farmer-price" data-fruit="ทุเรียนหมอนทอง">80–120 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ทุเรียนหมอนทอง">120–200 บ./กก.</td><td>200–350 บ./กก.</td><td>เม.ย.–ส.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> มังคุด</td><td>ตะวันออก</td><td class="price-tag farmer-price" data-fruit="มังคุด">35–60 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มังคุด">60–100 บ./กก.</td><td>100–150 บ./กก.</td><td>พ.ค.–ส.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> มะม่วงน้ำดอกไม้</td><td>กลาง</td><td class="price-tag">20–40 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มะม่วงน้ำดอกไม้">40–70 บ./กก.</td><td>60–100 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ลำไย</td><td>เหนือ</td><td class="price-tag farmer-price" data-fruit="ลำไย">15–30 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ลำไย">30–60 บ./กก.</td><td>50–80 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ลิ้นจี่</td><td>เหนือ</td><td class="price-tag farmer-price" data-fruit="ลิ้นจี่">30–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ลิ้นจี่">50–90 บ./กก.</td><td>80–130 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> เงาะโรงเรียน</td><td>ตะวันออก/ใต้</td><td class="price-tag farmer-price" data-fruit="เงาะโรงเรียน">10–20 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="เงาะโรงเรียน">25–45 บ./กก.</td><td>40–70 บ./กก.</td><td>พ.ค.–ก.ย.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> ส้มโอ</td><td>กลาง/เหนือ</td><td class="price-tag">15–30 บ./ลูก</td><td class="price-tag domestic-market-price" data-fruit="ส้มโอ">30–60 บ./ลูก</td><td>50–100 บ./ลูก</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> สับปะรด</td><td>ใต้/กลาง</td><td class="price-tag">5–10 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="สับปะรด">10–20 บ./กก.</td><td>20–40 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> ลองกอง</td><td>ใต้</td><td class="price-tag farmer-price" data-fruit="ลองกอง">20–40 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ลองกอง">40–80 บ./กก.</td><td>70–120 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> กล้วยหอม</td><td>กลาง</td><td class="price-tag">8–15 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="กล้วยหอม">15–30 บ./กก.</td><td>25–45 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ส้มสายน้ำผึ้ง</td><td>เหนือ</td><td class="price-tag">20–35 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ส้มสายน้ำผึ้ง">35–70 บ./กก.</td><td>60–110 บ./กก.</td><td>พ.ย.–ม.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> สตรอว์เบอร์รี</td><td>เหนือ</td><td class="price-tag">50–120 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="สตรอว์เบอร์รี">80–200 บ./กก.</td><td>150–300 บ./กก.</td><td>พ.ย.–ก.พ.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> ท้อ (พีช)</td><td>เหนือ</td><td class="price-tag">35–90 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ท้อ (พีช)">60–150 บ./กก.</td><td>100–220 บ./กก.</td><td>พ.ค.–ก.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> บ๊วย</td><td>เหนือ</td><td class="price-tag">20–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="บ๊วย">40–90 บ./กก.</td><td>70–140 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> มะขามหวานเพชรบูรณ์</td><td>เหนือ/กลาง</td><td class="price-tag">30–70 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มะขามหวานเพชรบูรณ์">50–120 บ./กก.</td><td>90–180 บ./กก.</td><td>ม.ค.–มี.ค.</td><td><span class="chip chip-gold">A+ (GI)</span></td></tr>
+              <tr><td> ทับทิม</td><td>เหนือ</td><td class="price-tag">30–90 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ทับทิม">50–150 บ./กก.</td><td>90–220 บ./กก.</td><td>ส.ค.–ธ.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> กีวี่</td><td>เหนือ</td><td class="price-tag">60–110 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="กีวี่">100–180 บ./กก.</td><td>160–280 บ./กก.</td><td>พ.ย.–ม.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> เสาวรส</td><td>เหนือ</td><td class="price-tag">20–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="เสาวรส">40–80 บ./กก.</td><td>70–130 บ./กก.</td><td>ต.ค.–ก.พ.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ฝรั่งกิมจู</td><td>กลาง</td><td class="price-tag">10–30 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ฝรั่งกิมจู">20–50 บ./กก.</td><td>35–80 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
+              <tr><td> มะละกอ</td><td>กลาง</td><td class="price-tag">8–20 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มะละกอ">15–35 บ./กก.</td><td>25–55 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> แตงโมจินตหรา</td><td>กลาง</td><td class="price-tag">5–12 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="แตงโมจินตหรา">8–20 บ./กก.</td><td>15–30 บ./กก.</td><td>มี.ค.–มิ.ย.</td><td><span class="chip">B</span></td></tr>
+              <tr><td> ชมพู่</td><td>กลาง</td><td class="price-tag">18–40 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ชมพู่">30–70 บ./กก.</td><td>50–110 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ชมพู่มะเหมี่ยว</td><td>กลาง</td><td class="price-tag">18–40 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ชมพู่มะเหมี่ยว">30–70 บ./กก.</td><td>50–110 บ./กก.</td><td>มี.ค.–ส.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> มะนาวไทย</td><td>กลาง</td><td class="price-tag">12–35 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มะนาวไทย">20–60 บ./กก.</td><td>35–90 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ขนุนทองประเสริฐ</td><td>ตะวันออก</td><td class="price-tag">8–25 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ขนุนทองประเสริฐ">15–40 บ./กก.</td><td>25–65 บ./กก.</td><td>เม.ย.–ส.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> มะปรางหวาน</td><td>ตะวันออก</td><td class="price-tag">30–70 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มะปรางหวาน">50–120 บ./กก.</td><td>90–180 บ./กก.</td><td>มี.ค.–พ.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> สละอินโดนีเซีย</td><td>ตะวันออก</td><td class="price-tag">18–38 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="สละอินโดนีเซีย">30–60 บ./กก.</td><td>50–100 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> กระท้อนบ้านบึง</td><td>ตะวันออก</td><td class="price-tag">18–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="กระท้อนบ้านบึง">30–80 บ./กก.</td><td>50–130 บ./กก.</td><td>มิ.ย.–ส.ค.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> หนำเลี้ยบ (พุทรา)</td><td>ตะวันออก</td><td class="price-tag">25–55 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="หนำเลี้ยบ (พุทรา)">40–90 บ./กก.</td><td>65–150 บ./กก.</td><td>ต.ค.–ธ.ค.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> ระกำ</td><td>ตะวันออก</td><td class="price-tag">25–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ระกำ">40–80 บ./กก.</td><td>65–130 บ./กก.</td><td>เม.ย.–มิ.ย.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> มะพร้าวน้ำหอม</td><td>ใต้</td><td class="price-tag">8–25 บ./ลูก</td><td class="price-tag domestic-market-price" data-fruit="มะพร้าวน้ำหอม">15–40 บ./ลูก</td><td>25–60 บ./ลูก</td><td>ตลอดปี</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ทุเรียนภาคใต้</td><td>ใต้</td><td class="price-tag farmer-price" data-fruit="ทุเรียนภาคใต้">70–140 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ทุเรียนภาคใต้">100–220 บ./กก.</td><td>180–350 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> เงาะสุราษฎร์ธานี</td><td>ใต้</td><td class="price-tag farmer-price" data-fruit="เงาะสุราษฎร์ธานี">10–28 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="เงาะสุราษฎร์ธานี">20–45 บ./กก.</td><td>35–75 บ./กก.</td><td>ก.ค.–ก.ย.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> มังคุดภาคใต้</td><td>ใต้</td><td class="price-tag farmer-price" data-fruit="มังคุดภาคใต้">30–70 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="มังคุดภาคใต้">50–110 บ./กก.</td><td>85–170 บ./กก.</td><td>ส.ค.–ต.ค.</td><td><span class="chip chip-gold">A+</span></td></tr>
+              <tr><td> ลางสาด</td><td>ใต้</td><td class="price-tag">20–45 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ลางสาด">35–70 บ./กก.</td><td>60–120 บ./กก.</td><td>ส.ค.–พ.ย.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> เสาวรสภาคใต้</td><td>ใต้</td><td class="price-tag">20–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="เสาวรสภาคใต้">40–80 บ./กก.</td><td>70–130 บ./กก.</td><td>ต.ค.–ก.พ.</td><td><span class="chip">A</span></td></tr>
+              <tr><td> ส้มแขก (มะดัน)</td><td>ใต้</td><td class="price-tag">18–50 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="ส้มแขก (มะดัน)">30–80 บ./กก.</td><td>50–130 บ./กก.</td><td>ต.ค.–ม.ค.</td><td><span class="chip">B+</span></td></tr>
+              <tr><td> กล้วยน้ำว้าใต้</td><td>ใต้</td><td class="price-tag">6–15 บ./กก.</td><td class="price-tag domestic-market-price" data-fruit="กล้วยน้ำว้าใต้">12–25 บ./กก.</td><td>20–40 บ./กก.</td><td>ตลอดปี</td><td><span class="chip">B</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -4561,6 +4563,7 @@
           📑 ตรวจสอบราคาล่าสุดวันนี้ได้โดยตรงที่:
           <a href="https://talaadthai.com/products" target="_blank" rel="noopener noreferrer">talaadthai.com/products</a> (ตลาดไท) ·
           <a href="https://www.simummuangmarket.com/pricing" target="_blank" rel="noopener noreferrer">simummuangmarket.com/pricing</a> (ตลาดสี่มุมเมือง) ·
+          <a href="https://simplefruit.doae.go.th" target="_blank" rel="noopener noreferrer">simplefruit.doae.go.th</a> (ราคาเกษตรกร/เกรด A — กรมส่งเสริมการเกษตร, เฉพาะทุเรียน มังคุด เงาะ ลองกอง ลิ้นจี่ ลำไย) ·
           <a href="https://www.moc.go.th" target="_blank" rel="noopener noreferrer">กรมการค้าภายใน กระทรวงพาณิชย์</a>
         </p>
       </div>
@@ -9112,33 +9115,152 @@
     return new Date().toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' });
   }
 
+  // ราคา "0–xx บ." จาก API บางตลาด หมายถึงไซส์นั้นหมดสต็อกชั่วคราว ไม่ใช่ราคาจริง
+  function isOutOfStockPrice(priceStr) {
+    if (!priceStr) return true;
+    const m = String(priceStr).match(/^\s*0+(?:[.,]0+)?\s*[-–—~]/);
+    return !!m;
+  }
+
+  // simplefruit.doae.go.th ใส่ "-" (หรือว่างเปล่า) เมื่อผลไม้ชนิดนั้น/ภาคนั้น
+  // หมดฤดูเก็บเกี่ยวแล้ว ไม่ใช่ราคาจริง ห้ามเอาไปทับค่าประมาณการเดิม
+  function isNoDataPrice(priceStr) {
+    if (!priceStr) return true;
+    return /^\s*[-–—]*\s*$/.test(String(priceStr));
+  }
+
+  // ชื่อผลไม้บางแถวในตาราง "ราคาในประเทศไทย" ไม่มีคู่ตรงในตารางเปรียบเทียบ
+  // ตลาดไท/สี่มุมเมือง (35 ชนิด) — ให้ใช้ราคาของสายพันธุ์หลักแทน
+  const DOMESTIC_TO_MARKET_FRUIT = {
+    'ทุเรียนภาคใต้': 'ทุเรียนหมอนทอง',
+    'มังคุดภาคใต้': 'มังคุด',
+  };
+
+  // อัปเดตคอลัมน์ "ราคาตลาด" ในตาราง "ราคาในประเทศไทย" ด้วยราคาสดชุดเดียวกับ
+  // ตารางเปรียบเทียบตลาดไท/สี่มุมเมือง (เลือกตลาดแรกที่มีข้อมูลจริง)
+  function applyDomesticMarketPrices(data) {
+    let updated = 0, total = 0;
+    document.querySelectorAll('td.domestic-market-price').forEach(cell => {
+      total++;
+      const rawFruit = cell.getAttribute('data-fruit');
+      const fruit = DOMESTIC_TO_MARKET_FRUIT[rawFruit] || rawFruit;
+      const candidates = [
+        { market: 'talaadthai', label: 'ตลาดไท' },
+        { market: 'simummuang', label: 'ตลาดสี่มุมเมือง' },
+      ];
+      for (const { market, label } of candidates) {
+        const priceMap = data[market];
+        if (!priceMap) continue;
+        const livePrice = priceMap[fruit];
+        if (!livePrice || isOutOfStockPrice(livePrice)) continue;
+        cell.title = `ราคาสดจาก${label} (ตรวจสอบเมื่อ ${nowThaiTimeStr()})`;
+        if (livePrice !== cell.textContent.trim()) {
+          cell.textContent = livePrice;
+          cell.classList.remove('price-live-updated');
+          void cell.offsetWidth; // reflow เพื่อให้เล่น animation ใหม่ได้ทุกครั้งที่ราคาเปลี่ยน
+          cell.classList.add('price-live-updated');
+          updated++;
+        }
+        break; // เจอราคาจากตลาดแรกที่มีแล้ว ไม่ต้องลองตลาดถัดไป
+      }
+    });
+    return { updated, total };
+  }
+
+  // แมปชื่อผลไม้/ภาคในตาราง "ราคาเกษตรกร" ไปหาชื่อผลไม้/ภาคที่
+  // simplefruit.doae.go.th ใช้รายงาน (ครอบคลุมแค่ 6 ชนิดหลัก)
+  const FARMER_TO_DOAE_FRUIT = {
+    'ทุเรียนหมอนทอง':   { fruit: 'ทุเรียน', region: 'ตะวันออก' },
+    'ทุเรียนภาคใต้':     { fruit: 'ทุเรียน', region: 'ใต้' },
+    'มังคุด':            { fruit: 'มังคุด',  region: 'ตะวันออก' },
+    'มังคุดภาคใต้':      { fruit: 'มังคุด',  region: 'ใต้' },
+    'ลำไย':              { fruit: 'ลำไย',   region: 'เหนือ' },
+    'ลิ้นจี่':            { fruit: 'ลิ้นจี่', region: 'เหนือ' },
+    'เงาะโรงเรียน':      { fruit: 'เงาะ',   region: 'ตะวันออก' },
+    'เงาะสุราษฎร์ธานี':  { fruit: 'เงาะ',   region: 'ใต้' },
+    'ลองกอง':            { fruit: 'ลองกอง', region: 'ใต้' },
+  };
+
+  // อัปเดตคอลัมน์ "ราคาเกษตรกร" ด้วยราคาเกรด A จาก simplefruit.doae.go.th
+  // (data.doae) เฉพาะ 6 ชนิดที่มีข้อมูลจริง ผลไม้อื่นคงค่าประมาณการเดิมไว้
+  function applyDoaeFarmerPrices(data) {
+    let updated = 0, total = 0;
+    const doae = data.doae;
+    document.querySelectorAll('td.farmer-price').forEach(cell => {
+      total++;
+      const rawFruit = cell.getAttribute('data-fruit');
+      const mapping = FARMER_TO_DOAE_FRUIT[rawFruit];
+      if (!doae || !mapping) return; // ไม่มีข้อมูล doae หรือผลไม้นี้ไม่อยู่ใน 6 ชนิดหลัก -> คงค่าประมาณการ
+      const regionMap = doae[mapping.fruit];
+      if (!regionMap) return;
+      const livePrice = regionMap[mapping.region];
+      if (!livePrice || isNoDataPrice(livePrice) || isOutOfStockPrice(livePrice)) return; // หมดฤดู/ไม่มีข้อมูล -> คงค่าประมาณการ
+      cell.title = `ราคาเกรด A จาก simplefruit.doae.go.th (กรมส่งเสริมการเกษตร) — ตรวจสอบเมื่อ ${nowThaiTimeStr()}`;
+      if (livePrice !== cell.textContent.trim()) {
+        cell.textContent = livePrice;
+        cell.classList.remove('price-live-updated');
+        void cell.offsetWidth; // reflow เพื่อให้เล่น animation ใหม่ได้ทุกครั้งที่ราคาเปลี่ยน
+        cell.classList.add('price-live-updated');
+        updated++;
+      }
+    });
+    return { updated, total };
+  }
+
   function applyLivePrices(data) {
     // data ตัวอย่าง (สร้าง/อัปเดตโดยสคริปต์ backend ฝั่งเซิร์ฟเวอร์ ไม่ใช่ข้อมูลที่หน้าเว็บสุ่มขึ้นเอง):
     // {
     //   "updated_at": "2026-08-23T09:30:00+07:00",
     //   "talaadthai":  { "ทุเรียนหมอนทอง": "125-210 บ.", ... },
-    //   "simummuang":  { "ทุเรียนหมอนทอง": "130-220 บ.", ... }
+    //   "simummuang":  { "ทุเรียนหมอนทอง": "130-220 บ.", ... },
+    //   "doae": {                                   // จาก simplefruit.doae.go.th (ราคาเกรด A ต่อผลไม้/ภาค)
+    //     "ทุเรียน":  { "ตะวันออก": "85-115 บ.", "ใต้": "-" },   // "-" = หมดฤดูเก็บเกี่ยวแล้ว
+    //     "มังคุด":   { "ตะวันออก": "40-58 บ.",  "ใต้": "38-65 บ." },
+    //     "เงาะ":     { "ตะวันออก": "12-18 บ.",  "ใต้": "11-22 บ." },
+    //     "ลองกอง":   { "ใต้": "22-38 บ." },
+    //     "ลิ้นจี่":   { "เหนือ": "-" },
+    //     "ลำไย":     { "เหนือ": "8-16 บ." }
+    //   }
     // }
-    let updatedCount = 0;
+    let matchedCount = 0;
+    // ⚠️ เดิมนับ document.querySelectorAll('td.price-tag').length ตรงๆ ซึ่งรวมเซลล์
+    // "price-tag" ในตารางอื่นที่ไม่เกี่ยวกับ live feed นี้เลย (เช่น ตารางราคาส่งออก
+    // ต่างประเทศ, ตารางอันดับประเทศคู่ค้า) ทำให้ตัวหารพองเกินจริง (เช่น 153 ทั้งที่
+    // เซลล์ที่พอจะจับคู่ราคาสดได้จริงมีแค่ ~70) แก้เป็นนับเฉพาะเซลล์ที่มี data-market
+    // ซึ่งเป็นเซลล์เดียวที่ลูปด้านล่างมีโอกาสอัปเดตจริง ๆ
+    const totalCells = document.querySelectorAll('td.price-tag[data-market]').length;
     ['talaadthai', 'simummuang'].forEach(market => {
       const priceMap = data[market];
       if (!priceMap) return;
       document.querySelectorAll(`td.price-tag[data-market="${market}"]`).forEach(cell => {
         const fruit = cell.getAttribute('data-fruit');
-        if (priceMap[fruit] && priceMap[fruit] !== cell.textContent.trim()) {
-          cell.textContent = priceMap[fruit];
-          cell.classList.remove('price-live-updated');
-          void cell.offsetWidth; // reflow เพื่อให้เล่น animation ใหม่ได้ทุกครั้งที่ราคาเปลี่ยน
-          cell.classList.add('price-live-updated');
-          updatedCount++;
+        if (priceMap[fruit]) {
+          matchedCount++;
+          if (priceMap[fruit] !== cell.textContent.trim()) {
+            cell.textContent = priceMap[fruit];
+            cell.classList.remove('price-live-updated');
+            void cell.offsetWidth; // reflow เพื่อให้เล่น animation ใหม่ได้ทุกครั้งที่ราคาเปลี่ยน
+            cell.classList.add('price-live-updated');
+          }
         }
       });
     });
 
-    if (updatedCount > 0 && data.updated_at) {
+    // ตาราง "ราคาในประเทศไทย" คอลัมน์ "ราคาตลาด" ใช้ข้อมูลราคาสดชุดเดียวกัน —
+    // อัปเดตเซลล์ในตารางนั้นด้วย แต่ไม่เอามานับรวมในข้อความสถานะด้านล่าง เพราะ
+    // ตัวบอกสถานะนี้ (live-price-status) อยู่ในแท็บ "ราคาผลไม้วันนี้" เท่านั้น
+    applyDomesticMarketPrices(data);
+
+    // คอลัมน์ "ราคาเกษตรกร" ใช้ราคาเกรด A จาก simplefruit.doae.go.th — อัปเดตเช่นกัน
+    // แต่ก็ไม่นับรวมในสถานะนี้ด้วยเหตุผลเดียวกัน
+    applyDoaeFarmerPrices(data);
+
+    if (matchedCount > 0 && data.updated_at) {
       const dt = new Date(data.updated_at);
       const timeStr = isNaN(dt) ? data.updated_at : dt.toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' });
-      setLivePriceStatus('ok', `อัปเดตล่าสุด: ${timeStr} (จากไฟล์ข้อมูลราคาสด) — ตรวจสอบเมื่อ ${nowThaiTimeStr()}`);
+      setLivePriceStatus('ok',
+        `อัปเดตราคาสดแล้ว ${matchedCount}/${totalCells} รายการ — ที่เหลือยังเป็นค่าประมาณการ — ` +
+        `ไฟล์ข้อมูลล่าสุด: ${timeStr} — ตรวจสอบเมื่อ ${nowThaiTimeStr()}`);
     } else {
       setLivePriceStatus('stale', `พบไฟล์ข้อมูลราคาสด แต่ไม่มีรายการที่ตรงกับตาราง — แสดงค่าประมาณการแทน (ตรวจสอบเมื่อ ${nowThaiTimeStr()})`);
     }
