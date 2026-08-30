@@ -386,12 +386,19 @@
       display: none;
       position: fixed;
       top: 64px; left: 0; right: 0;
+      bottom: 0;
       background: var(--green-dark);
       z-index: 999;
       padding: 1rem;
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
       flex-direction: column;
       gap: .2rem;
       box-shadow: var(--shadow-md);
+      max-height: calc(100vh - 64px);
+      max-height: calc(100dvh - 64px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
     }
 
     .mobile-menu.open { display: flex; }
