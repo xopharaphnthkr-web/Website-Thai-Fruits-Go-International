@@ -191,7 +191,7 @@
 
     /* dropdown */
     .dropdown-menu {
-      position: absolute;
+      position: fixed;
       top: calc(100% + .4rem);
       left: 50%;
       transform: translateX(-50%) translateY(-8px);
@@ -206,7 +206,8 @@
       z-index: 200;
     }
 
-    .nav-item:hover .dropdown-menu {
+    .nav-item:hover .dropdown-menu,
+    .nav-item.open .dropdown-menu {
       opacity: 1;
       pointer-events: all;
       transform: translateX(-50%) translateY(0);
@@ -2751,7 +2752,7 @@
 
     <!-- Dropdown: ผลไม้ตามภาค -->
     <li class="nav-item">
-      <span class="nav-link" id="nav-fruits">🌿 ผลไม้ตามภาค ▾</span>
+      <span class="nav-link" id="nav-fruits" onclick="toggleFruitsDropdown(event)">🌿 ผลไม้ตามภาค ▾</span>
       <div class="dropdown-menu">
         <span class="dropdown-item" onclick="navigate('north')">🏔️ ภาคเหนือ</span>
         <span class="dropdown-item" onclick="navigate('central')">🌾 ภาคกลาง</span>
@@ -7487,6 +7488,39 @@
      2. NAVIGATION — เปลี่ยนหน้า
      ============================================================ */
   const pages = ['home','north','central','east','south','mapd3','quality','price','export','nutrition','gallery','season','links','contact'];
+
+  // ดรอปดาวน์ "ผลไม้ตามภาค" ใช้ position:fixed เพื่อไม่ให้ถูก overflow-y:hidden
+  // ของ .nav-menu บัง (ของเดิมใช้ position:absolute แล้วโดนตัดมองไม่เห็น) —
+  // ต้องคำนวณตำแหน่งด้วย JS แทน เพราะ fixed จะอ้างอิงกับ viewport ไม่ใช่ nav-item แล้ว
+  function positionFruitsDropdown() {
+    const trigger = document.getElementById('nav-fruits');
+    const item = trigger && trigger.closest('.nav-item');
+    const dropdown = item && item.querySelector('.dropdown-menu');
+    if (!trigger || !dropdown) return;
+    const rect = trigger.getBoundingClientRect();
+    dropdown.style.top = (rect.bottom + 6) + 'px';
+    dropdown.style.left = (rect.left + rect.width / 2) + 'px';
+  }
+  (function () {
+    const fruitsItem = document.getElementById('nav-fruits')?.closest('.nav-item');
+    if (fruitsItem) {
+      fruitsItem.addEventListener('mouseenter', positionFruitsDropdown);
+      window.addEventListener('resize', () => {
+        if (fruitsItem.matches(':hover') || fruitsItem.classList.contains('open')) positionFruitsDropdown();
+      });
+    }
+  })();
+
+  // เปิด/ปิดดรอปดาวน์ "ผลไม้ตามภาค" ด้วยการแตะ (สำหรับมือถือ/แท็บเล็ตที่ไม่มี :hover)
+  function toggleFruitsDropdown(e) {
+    e.stopPropagation();
+    positionFruitsDropdown();
+    const item = document.getElementById('nav-fruits').closest('.nav-item');
+    if (item) item.classList.toggle('open');
+  }
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item.open').forEach(el => el.classList.remove('open'));
+  });
 
   function navigate(pageId) {
     // ปิดทุกหน้า
