@@ -98,8 +98,10 @@
       align-items: center;
       gap: .6rem;
       cursor: pointer;
-      min-width: 0;
-      flex-shrink: 1;
+      /* เดิม flex-shrink:1 ทำให้โลโก้/ชื่อแบรนด์โดนบีบจนตัวอักษรขาดหาย
+         เมื่อลดขนาดหน้าต่าง เพราะแย่งพื้นที่กับเมนู (.nav-menu) — ล็อกไว้ไม่ให้หด
+         แล้วปล่อยให้ .nav-menu (ที่เลื่อนได้อยู่แล้ว) เป็นฝ่ายหดแทน */
+      flex-shrink: 0;
     }
 
     .nav-logo-img {
@@ -132,10 +134,11 @@
       color: var(--gold);
       font-weight: 700;
       font-size: clamp(.95rem, 3vw, 1.15rem);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 46vw;
+      /* เอา white-space:nowrap + overflow:hidden + text-overflow:ellipsis + max-width
+         ที่เคยตัดข้อความให้ขาดหายเวลาหน้าต่างแคบออก ปล่อยให้ตัดคำ/ขึ้นบรรทัดใหม่แทน
+         เพื่อให้ชื่อแบรนด์แสดงครบเสมอ ไม่มีตัวอักษรหายไป */
+      white-space: normal;
+      word-break: break-word;
     }
 
     .nav-brand .brand-en {
@@ -144,10 +147,8 @@
       font-weight: 300;
       letter-spacing: .08em;
       text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 46vw;
+      white-space: normal;
+      word-break: break-word;
     }
 
     /* เมนูหลัก */
@@ -161,6 +162,9 @@
       -webkit-overflow-scrolling: touch;
       overscroll-behavior-x: contain;
       scrollbar-width: none;
+      /* ให้เมนูเป็นฝ่ายหด/เลื่อนแทนโลโก้ เวลาไม่พอ */
+      flex-shrink: 1;
+      min-width: 0;
     }
 
     .nav-menu::-webkit-scrollbar { display: none; }
@@ -2609,7 +2613,6 @@
     @media (max-width: 600px) {
       .navbar { padding: .6rem 1rem; }
       .navbar.scrolled { padding: .45rem 1rem; }
-      .nav-brand .brand-en { max-width: 32vw; }
       .export-grid { grid-template-columns: 1fr; }
       .quality-badges-grid, .grade-badges-grid { gap: 1rem; }
       .market-card td, .market-card th { padding: .55rem .8rem; }
@@ -8329,6 +8332,27 @@
     document.getElementById('hamburger').classList.toggle('open');
     document.getElementById('mobileMenu').classList.toggle('open');
   }
+
+  /* ============================================================
+     10.1 เมนูบน (.nav-menu) — เลื่อนด้วยสโครลวีล/ล้อเลื่อนได้
+     เดิมเลื่อนได้แค่ด้วยการลาก/สัมผัส (touch) เพราะ overflow-x:auto
+     แต่เมาส์ปกติหมุนล้อแล้วเลื่อนแนวตั้ง ไม่ใช่แนวนอน — แปลงการหมุนล้อ
+     แนวตั้ง (deltaY) ให้กลายเป็นการเลื่อนแนวนอนแทน เฉพาะตอนที่เมนูล้น
+     จริง ๆ (scrollWidth > clientWidth) เท่านั้น ไม่งั้นปล่อยให้หน้าเพจ
+     เลื่อนตามปกติ
+     ============================================================ */
+  (function enableNavMenuWheelScroll() {
+    const navMenu = document.querySelector('.nav-menu');
+    if (!navMenu) return;
+    navMenu.addEventListener('wheel', (e) => {
+      const canScrollX = navMenu.scrollWidth > navMenu.clientWidth;
+      if (!canScrollX) return; // เมนูไม่ล้น ไม่ต้องยุ่ง ปล่อยเพจเลื่อนตามปกติ
+      // ใช้แกนที่มีค่ามากกว่าระหว่าง deltaY กับ deltaX (บาง trackpad ส่ง deltaX มาให้อยู่แล้ว)
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      navMenu.scrollLeft += delta;
+      e.preventDefault();
+    }, { passive: false });
+  })();
 
   /* ============================================================
      11. COUNTER ANIMATION (Stats)
